@@ -1,6 +1,6 @@
 <?php
 
-function template_header($title) {
+function template_header() {
     echo <<<EOT
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ function template_header($title) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
+    <title>Garage V.Parrot</title>
     <link href="../../../public/css/style.css" rel="stylesheet" type="text/css">
     </head>
 <nav class="navbar">
@@ -25,7 +25,7 @@ function template_header($title) {
             <li><a href="../occasions.php">Occasions</a></li>
             <li><a href="../notices.php">Avis</a></li>
             <li><a href="../contact.php">Contact</a></li>
-            <li><a href="../login.phps">Logins</a></li>
+            <li><a href="../../app/views/login.php">Login</a></li>
         </ul>
         <h1 class="logo">Garage V.Parrot</h1>
     </div>
