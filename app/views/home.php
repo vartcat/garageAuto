@@ -21,7 +21,7 @@
         <!-- header section strats -->
         <div class="hero_bg_box">
             <div class="img-box">
-                <img src="public/pictures/voiture2.jpg" alt="">
+                <img src="public/pictures/garage4.jpg" >
             </div>
         </div>
 
@@ -65,19 +65,19 @@
                         <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
                             <ul class="navbar-nav  ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Accueil<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="/">Accueil<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about.html"> Prestations</a>
+                                    <a class="nav-link" href=""> Prestations</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="service.html"> Occasions </a>
+                                    <a class="nav-link" href=""> Occasions </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="guard.html"> Avis </a>
+                                    <a class="nav-link" href="#notices"> Avis </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="#contact">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -85,7 +85,10 @@
                 </div>
             </div>
         </header>
+        <!--================End Header Menu Area =================-->
+
         <!-- slider section -->
+
         <section class=" slider_section ">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -244,10 +247,10 @@
                     <div class="box ">
                         <div class="detail-box">
                             <h6>
-                                Contrôle technique
+                                Contrôles & Révisions
                             </h6>
                             <p>
-                                Si votre véhicule doit passer le contrôle technique, nous le préparons si
+                                Si votre véhicule doit passer un contrôle ou une révision, nous le préparons si
                                 parfaitement qu’il ne restera aucun problème à noter.
                                 Faites confiance à notre expérience pour la préparation de votre voiture
                                 au contrôle technique. </p>
@@ -281,7 +284,7 @@
     <!-- client section -->
 
     <section class="client_section layout_padding">
-        <div class="container ">
+        <div id="notices" class="container">
             <div class="heading_container heading_center">
                 <h2>
                     Avis de nos clients
@@ -354,15 +357,16 @@
     <!-- contact section -->
 
     <section class="contact_section layout_padding">
-        <div class="contact_bg_box">
-            <div class="img-box">
+        <div id="contact" class="contact_bg_box">
+            <!-- <div class="img-box">
                 <img src="public/pictures/garage2.jpg" alt="">
-            </div>
+            </div> -->
         </div>
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    Entrer en contact
+                    Besoin d'informations ou d'un RDV ?<br>
+                    Entrez en contact
                 </h2>
             </div>
             <div class="">
@@ -430,7 +434,7 @@
                 <div class="col-md-4 col-sm-6 mx-auto ">
                     <div class="box">
                         <div class="img-box">
-                            <img src="public/pictures/équipe.jpg" alt="">
+                            <img src="public/pictures/équipe4.jpg" alt="">
                         </div>
                         <div class="detail-box">
                             <h5>
@@ -461,7 +465,52 @@
         </div>
     </section>
 
+    <!-- notices section -->
+
+    <section class="notices_section layout_padding">
+        <div class="notices_bg_box">
+            <!-- <div class="img-box">
+                <img src="public/pictures/voiture2.jpg" alt="">
+            </div> -->
+        </div>
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Votre avis nous est précieux !<br>
+                    Partagez votre expérience 
+                </h2>
+            </div>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-7 mx-auto">
+                        <form action="#">
+                            <div class="notices_form-container">
+                                <div>
+                                    <div>
+                                        <input type="text" placeholder="Nom & Prénom" />
+                                    </div>
+                                    <div>
+                                        <input type="email" placeholder="Email" />
+                                    </div>
+                                    <div class="">
+                                        <input type="text" placeholder="Partagez votre expérience avec nous ici" class="message_input" />
+                                    </div>
+                                    <div class="btn-box ">
+                                        <button type="submit">
+                                            Donnez votre avis
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- footer section -->
+
     <footer class="container-fluid footer_section">
         <div class="opening-time">
             <p>Horaires d'ouverture :</p>
@@ -505,7 +554,8 @@
             &copy; <span id="currentYear"></span> All Rights Reserved.
         </p>
     </footer>
-    <!-- footer section -->
+
+    <!-- script JS -->
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.js"></script>

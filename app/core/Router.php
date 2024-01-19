@@ -2,12 +2,6 @@
 
 namespace MyApp;
 
-/**
- * Class Router
- *
- * The Router class is responsible for managing routes and mapping
- * URIs to corresponding controllers and HTTP methods.
- */
 class Router {
     /**
      * @var array $routes Associative array to store routes, where the key is the URI
