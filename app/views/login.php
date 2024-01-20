@@ -1,32 +1,30 @@
-
-<link href="../../public/css/login.css" rel="stylesheet" type="text/css">
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-
-<body>
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-</div>
+<?php
+  
+?>
+<body class="main-bg">
+    <div class="login-container text-c animated flipInX">
+        <div>
+            <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+        </div>
+        <h3 class="text-whitesmoke">Identifiez-vous</h3>
+        <p class="text-whitesmoke">Accessible uniquement aux membres de l'équipe du garage</p>
+        <div class="container-content">
+            <div class="error-text">
+                <?php
+                    echo isset($_SESSION['error']) ? $_SESSION['error'] : '';
+                ?>
+            </div>
+            <form method="POST" class="margin-t" action="/login/auth">
+                <input type="hidden" name="action" value="authenticate">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="email" placeholder="Email" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="*****" required="">
+                </div>
+                <button type="submit" class="form-button button-l margin-b">Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/custom.js"></script>
 </body>

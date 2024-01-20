@@ -2,11 +2,6 @@
 
 namespace MyApp;
 
-/**
- * Controller Class
- *
- * A base class for controllers in the MVC pattern, providing common methods.
- */
 class Controller
 {
     /**
@@ -14,10 +9,6 @@ class Controller
      */
     protected $db;
 
-    /**
-     * Constructor.
-     * Initializes a new instance of the Controller class.
-     */
     public function __construct()
     {
         $this->db = new Database;

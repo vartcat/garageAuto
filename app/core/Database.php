@@ -5,11 +5,6 @@ namespace MyApp;
 use PDO;
 use PDOException;
 
-/**
- * Database Class
- * 
- * A simple PDO wrapper for database operations.
- */
 class Database
 {
     private $host = "localhost";
@@ -20,11 +15,6 @@ class Database
     private $dbh; // PDO instance
     private $stmt; // PDOStatement instance
 
-    /**
-     * Constructor
-     * 
-     * Establishes a database connection using PDO.
-     */
     public function __construct()
     {
         $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->name;
@@ -39,6 +29,7 @@ class Database
         } catch (PDOException $e) {
             die($e->getMessage());
         }
+        error_log('connection db réussi');
     }
 
     /**
@@ -89,7 +80,6 @@ class Database
         try {
             return $this->stmt->execute();
         } catch (PDOException $e) {
-            // Handle the exception (log, display an error message, etc.)
             die($e->getMessage());
         }
     }
@@ -149,4 +139,5 @@ class Database
     {
         return $this->dbh->lastInsertId();
     }
+    
 }
