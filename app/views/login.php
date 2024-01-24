@@ -1,6 +1,3 @@
-<?php
-  
-?>
 <body class="main-bg">
     <div class="login-container text-c animated flipInX">
         <div>

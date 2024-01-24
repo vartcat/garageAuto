@@ -1,0 +1,27 @@
+.content_read{
+
+}
+
+.create_employed{
+
+}
+
+.actions {
+    display: inline-flex;
+    text-align: right;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 10px 12px;
+}
+a.trash {
+    background-color: #b73737;
+}
+a.trash:hover {
+    background-color: #a33131;
+}
+a.edit {
+    background-color: #37afb7;
+}
+a.edit:hover {
+    background-color: #319ca3;
+}

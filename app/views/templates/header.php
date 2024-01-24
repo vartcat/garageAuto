@@ -8,6 +8,7 @@
     <title>Garage V.Parrot</title>
     <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
     <link href="../../public/css/login.css" rel="stylesheet" />
+    <link href="../../public/css/employedCrud.css" rel="stylesheet" />
     <link href="../../public/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../../public/css/style.css" rel="stylesheet" />
     <link href="../../public/css/responsive.css" rel="stylesheet" />
