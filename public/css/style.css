@@ -159,6 +159,7 @@ body {
 
 .header_section .nav_container {
   margin: 0 auto;
+  
 }
 
 .header_top {
@@ -191,7 +192,6 @@ body {
   color: #f1db25;
   margin-right: 5px;
 }
-
 #navbarSupportedContent {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -1083,6 +1083,7 @@ a:focus {
   padding-top: 20px;
   color: rgba(254, 254, 255, 0.7);
   margin: 0;
+  margin-bottom: 0;
   text-align: center;
 }
 

@@ -6,7 +6,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Garage V.Parrot</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+    <link href="../../public/css/occasions.css" rel="stylesheet" />
+    <link href="../../public/css/services.css" rel="stylesheet" />
     <link href="../../public/css/login.css" rel="stylesheet" />
     <link href="../../public/css/employedCrud.css" rel="stylesheet" />
     <link href="../../public/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -21,6 +24,19 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
             <div class="hero_bg_box">
                 <div class="img-box">
                     <img src="public/pictures/garage4.jpg">
+                </div>
+            </div>
+    ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/controle-technique.jpg">
                 </div>
             </div>
     ';
@@ -78,11 +94,11 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                         if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI'] === '/') {
                             echo
                             '<li class="nav-item">
-                                                <a class="nav-link" href="#notices">Avis</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#contact">Contact</a>
-                                            </li>';
+                                <a class="nav-link" href="#notices">Avis</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>';
                         }
                         ?>
                         <li class="nav-item">
@@ -98,8 +114,8 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
 
 <!-- slider section -->
 <?php
-    if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI'] === '/') {
-        echo '
+if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI'] === '/') {
+    echo '
             <section class=" slider_section ">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -119,8 +135,8 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                                                 et leurs voitures doivent être entre de bonnes mains.
                                             </p>
                                             <div class="btn-box">
-                                                <a href="" class="btn-1"> Avis </a>
-                                                <a href="" class="btn-2"> Contact </a>
+                                                <a href="#notices" class="btn-1"> Avis </a>
+                                                <a href="#contact" class="btn-2"> Contact </a>
                                             </div>
                                         </div>
                                     </div>
@@ -143,8 +159,8 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                                                 des voitures ainsi que leur entretien.
                                             </p>
                                             <div class="btn-box">
-                                                <a href="" class="btn-1"> Voir plus </a>
-                                                <a href="" class="btn-2"> Contact </a>
+                                                <a href="services" class="btn-1"> Voir plus </a>
+                                                <a href="#contact" class="btn-2"> Contact </a>
                                             </div>
                                         </div>
                                     </div>
@@ -167,8 +183,8 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                                                 d’occasion parfaitement reconditionnées !
                                             </p>
                                             <div class="btn-box">
-                                                <a href="" class="btn-1"> Acheter </a>
-                                                <a href="" class="btn-2"> Vendre </a>
+                                                <a href="occasions" class="btn-1"> Acheter </a>
+                                                <a href="#contact" class="btn-2"> Vendre </a>
                                             </div>
                                         </div>
                                     </div>
@@ -187,5 +203,5 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
             </section>
         </div>
         ';
-    }
+}
 ?>

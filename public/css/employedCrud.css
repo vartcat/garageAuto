@@ -1,27 +1,93 @@
-.content_read{
-
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
 }
 
-.create_employed{
-
+table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
 }
 
-.actions {
-    display: inline-flex;
-    text-align: right;
-    text-decoration: none;
-    color: #FFFFFF;
-    padding: 10px 12px;
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+  max-width: 100px;
+  overflow-x: scroll;
 }
-a.trash {
-    background-color: #b73737;
+
+table td {
+  padding: 0.625em;
+  text-align: center;
+  overflow: hidden;
 }
-a.trash:hover {
-    background-color: #a33131;
+.password {
+  overflow: hidden;
+  width: inherit;
+  background-color: aqua;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-a.edit {
-    background-color: #37afb7;
+
+table th {
+  padding: 0.625em;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
-a.edit:hover {
-    background-color: #319ca3;
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+    margin: auto;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -10px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: left;
+    overflow-x: scroll;
+  }
+
+  table td::before {
+    /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
 }
