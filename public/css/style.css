@@ -159,7 +159,6 @@ body {
 
 .header_section .nav_container {
   margin: 0 auto;
-  
 }
 
 .header_top {
@@ -192,6 +191,7 @@ body {
   color: #f1db25;
   margin-right: 5px;
 }
+
 #navbarSupportedContent {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -334,6 +334,7 @@ a:focus {
   -ms-flex-pack: center;
   justify-content: center;
   color: #ffffff;
+  margin-top: 50px;
 }
 
 .slider_section .row {
@@ -344,9 +345,12 @@ a:focus {
 
 .slider_section .detail-box {
   width: 100%;
-  margin: 0 auto;
+  margin: auto;
 }
-
+.slider_section .detail-box .logo {
+    padding: 10px;
+    margin: auto;
+}
 .slider_section .detail-box h1 {
   text-transform: uppercase;
   font-size: 3rem;
@@ -365,8 +369,9 @@ a:focus {
 .slider_section .detail-box .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: inline;
   margin-top: 30px;
+  width: 100%;
 }
 
 .slider_section .detail-box .btn-box a {
@@ -384,13 +389,30 @@ a:focus {
   transition: all 0.3s;
   border: 1px solid transparent;
 }
-
 .slider_section .detail-box .btn-box .btn-1:hover {
   background-color: transparent;
   border-color: #ffffff;
   color: #ffffff;
 }
+.slider_section .detail-box .btn-box .btn-crud {
+  display: flex;
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 
+}
+.slider_section .detail-box .btn-box .btn-crud h2 {
+  padding: 10px;
+}
+.slider_section .detail-box .btn-box .btn-crud a {
+  margin: auto;
+  font-size: 20px;
+}
+.slider_section .detail-box h2 span {
+    color: #f1db25;
+    text-transform: uppercase;
+  }
 .slider_section .detail-box .btn-box .btn-2 {
   display: inline-block;
   padding: 10px 35px;
@@ -410,7 +432,6 @@ a:focus {
 .slider_section .img-box {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   width: 100vw;
 }
 
@@ -447,12 +468,6 @@ a:focus {
   background-color: #ffffff;
 }
 
-.about_section .row {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 .about_section .img_container .img-box img {
   width: 100%;
 }
@@ -487,8 +502,103 @@ a:focus {
   color: #f1db25;
 }
 
-/* service section */
+/* admin section */
 
+/* occasions section */
+.occasions_section .row {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  border-radius: 5px;
+}
+.occasions_section .img_container .img-box img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.occasions_section .detail-box {
+  background-color: #ffffff;
+  padding: 45px 25px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+  position: relative;
+  margin-left: -45px;
+}
+
+.occasions_section .detail-box p {
+  margin-top: 5px;
+}
+
+.occasions_section .detail-box a {
+  display: inline-block;
+  padding: 10px 35px;
+  background-color: #f1db25;
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+
+.occasions_section .detail-box a:hover {
+  background-color: transparent;
+  border-color: #f1db25;
+  color: #f1db25;
+}
+
+/* prestations section */
+.prestations_section .row {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+}
+.prestations_section .img_container .img-box img {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+}
+
+.prestations_section .detail-box {
+  border-left: solid #f1db25;
+  background-color: #ffffff;
+  padding: 45px 25px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+  position: relative;
+  margin-left: -45px;
+}
+
+.prestations_section .detail-box p {
+  margin-top: 5px;
+}
+
+.prestations_section .detail-box a {
+  display: inline-block;
+  padding: 10px 35px;
+  background-color: #f1db25;
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+
+.prestations_section .detail-box a:hover {
+  background-color: transparent;
+  border-color: #f1db25;
+  color: #f1db25;
+}
+
+/* service section */
 .service_section {
   background-color: #1c1c1c;
 }

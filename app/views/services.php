@@ -1,46 +1,32 @@
-<body>
-    <section class="slider_section">
-        <div class="container">
+<section class="prestations_section layout_padding">
+    <div class="container">
+        <?php foreach ($prestations as $prestation) : ?>
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-6 px-0">
+                    <div class="img_container">
+                        <div class="img-box">
+                            <img class="card-img" src="../../public/pictures/<?= $prestation['name'] ?>.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 px-0">
                     <div class="detail-box">
-                        <h1>
-                            Votre sécurité <br>
-                            <span>
-                                Notre Responsabilité
-                            </span>
-                        </h1>
-                        <p>
-                            Vincent Parrot considère son atelier comme un véritable lieu de confiance pour ses clients
-                            et leurs voitures doivent être entre de bonnes mains.
-                        </p>
-                        <div class="btn-box">
-                            <a href="#notices" class="btn-1"> Avis </a>
-                            <a href="#contact" class="btn-2"> Contact </a>
+                        <div class="heading_container ">
+                            <h1 class="card-title"><?= $prestation['name'] ?></h1>
+                            <p class="card-text"><?= $prestation['description'] ?></p>
+                            <p class="card-bottom">à partir de : <?= $prestation['price'] ?>€</p>
+                            <div class="btn-box">
+                                <a href="#contact" class="btn-2"> Contact </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <h1>Liste des prestations du garage V.PARROT :</h1>
-    <div class="row">
-        <?php foreach ($prestations as $prestation) : ?>
-            <div class="column">
-                <div class="card">
-                    <img src="../../public/pictures/<?= $prestation['name'] ?>.jpg" alt="" style="width:100%">
-                    <h1 class="card-title"><?= $prestation['name'] ?></h1>
-                    <p class="card-text"><?= $prestation['description'] ?></p>
-                    <p class="card-bottom">à partir de : <?= $prestation['price'] ?>€</p>
-                    <a href="#contact" class="btn-2"> Contact </a>
-                </div>
-            </div>
         <?php endforeach; ?>
     </div>
-</body>
+</section>
 
 <!-- contact section -->
-
 <section class="contact_section layout_padding">
     <div id="contact" class="contact_bg_box">
     </div>
@@ -88,6 +74,3 @@
         </div>
     </div>
 </section>
-
-
-<h1>Liste services garage</h1>

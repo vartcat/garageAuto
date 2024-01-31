@@ -8,8 +8,6 @@
     <title>Garage V.Parrot</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
-    <link href="../../public/css/occasions.css" rel="stylesheet" />
-    <link href="../../public/css/services.css" rel="stylesheet" />
     <link href="../../public/css/login.css" rel="stylesheet" />
     <link href="../../public/css/employedCrud.css" rel="stylesheet" />
     <link href="../../public/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -30,13 +28,39 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
 }
 ?>
 <?php
+if (strpos($_SERVER['REQUEST_URI'], 'admin') !== false) {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/garage.jpg">
+                </div>
+            </div>
+    ';
+}
+?>
+<?php
 if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
             <div class="hero_bg_box">
                 <div class="img-box">
-                    <img src="public/pictures/controle-technique.jpg">
+                    <img src="public/pictures/contrôle technique.jpg">
+                </div>
+            </div>
+    ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'occasions') !== false) {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/occasions.jpg">
                 </div>
             </div>
     ';
@@ -198,6 +222,119 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+        ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'admin') !== false) {
+    echo '
+            <section class="slider_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="detail-box">
+                                            <div class="logo">
+                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+                                            </div>
+                                            <h1>
+                                                Bienvenue <br>
+                                                <span>
+                                                Administrateur
+                                                </span>
+                                            </h1>
+                                            <h2>Voici votre 
+                                                <span>
+                                                    Dashboard
+                                                </span>
+                                            </h2>
+                                            <h3>
+                                                Choisissez un élément à modifier:
+                                            </h3>
+                                            <div class="btn-box">
+                                                <div class="btn-crud">
+                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                                    <a href="employedCrud/read" class="btn-2 col-md-6">comptes des employés</a>
+                                                </div>
+                                                <div class="btn-crud">
+                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                                    <a href="servicesCrud/read" class="btn-2 col-md-6">prestations du garage</a>
+                                                </div>
+                                                <div class="btn-crud">
+                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                                    <a href="openTimeCrud/read" class="btn-2 col-md-6">horaires d\'ouverture du garage</a>                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'occasions') !== false) {
+    echo '
+            <section class="slider_section ">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Véhicules d\'Occasions <br>
+                                                <span>
+                                                pleines d\'avenir
+                                                </span>
+                                            </h1>
+                                            <h2>Découvrez votre future voiture dans notre large catalogue
+                                                de voitures d’occasion parfaitement reconditionnées !
+                                            </h2>
+                                            <div class="btn-box">
+                                                <a href="#contact" class="btn-2"> Nous cherchons pour vous </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
+    echo '
+            <section class=" slider_section ">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Nos prestations <br>
+                                                <span>
+                                                Qualité & Confiance                                                </span>
+                                            </h1>
+                                            <h5>une large gamme de services: réparation de la carrosserie et de la mécanique des voitures ainsi que leur entretien.<br>
+                                            Réparation et entretien automobile : devis gratuits et prestations au juste prix</h5>
+                                            <div class="btn-box">
+                                                <a href="#contact" class="btn-2"> Prenez rendez-vous </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

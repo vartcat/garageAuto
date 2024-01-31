@@ -12,6 +12,6 @@
 
 <div class="container">
     <div class="occasions">
-        <a type="button" href="occasionsCarsCrud.php" class="btnContainer">Gérer les annonces de voitures d'occasions</a>
+        <a type="button" href="occasionsCrud/read" class="btnContainer">Gérer les annonces de voitures d'occasions</a>
     </div>
 </div>

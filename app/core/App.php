@@ -24,6 +24,9 @@ class App {
         $this->router->addRoute('services', 'ServicesController@index');
         $this->router->addRoute('occasions', 'OccasionsController@index');
 
+        $this->router->addRoute('occasionsCrud/read', 'OccasionsCrudController@index');
+        $this->router->addRoute('occasionsCrud/create', 'OccasionsCrudController@create');
+
         $this->router->addRoute('employedCrud/read', 'EmployedCrudController@index');
         $this->router->addRoute('employedCrud/create', 'EmployedCrudController@create');
         $this->router->addRoute('employedCrud/update/{id}', 'EmployedCrudController@update');
@@ -32,6 +35,8 @@ class App {
 
         $this->router->addRoute('login/auth', 'LoginController@authenticate');
         $this->router->addRoute('employedCrud/create/add', 'EmployedCrudController@addEmployed');
+
+
     }
 
     /**
