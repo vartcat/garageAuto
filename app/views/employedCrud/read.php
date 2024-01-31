@@ -1,8 +1,3 @@
-<h1>Liste des employés à ce jour :</h1>
-
-<div class="col-sm-12">
-    <a href="create" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Ajouter nouvel employé</span></a>
-</div>
 <table>
     <thead>
         <tr>

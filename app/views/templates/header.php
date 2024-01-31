@@ -41,6 +41,45 @@ if (strpos($_SERVER['REQUEST_URI'], 'admin') !== false) {
 }
 ?>
 <?php
+if (strpos($_SERVER['REQUEST_URI'], 'employedCrud/read') !== false) {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/garage.jpg">
+                </div>
+            </div>
+    ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'servicesCrud/read') !== false) {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/mécanique.jpg">
+                </div>
+            </div>
+    ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'openTimesCrud/read') !== false) {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/garage.jpg">
+                </div>
+            </div>
+    ';
+}
+?>
+<?php
 if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
     echo '
         <div class="hero_area">
@@ -265,7 +304,117 @@ if (strpos($_SERVER['REQUEST_URI'], 'admin') !== false) {
                                                 </div>
                                                 <div class="btn-crud">
                                                     <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                                    <a href="openTimeCrud/read" class="btn-2 col-md-6">horaires d\'ouverture du garage</a>                                            </div>
+                                                    <a href="openTimesCrud/read" class="btn-2 col-md-6">horaires d\'ouverture du garage</a>                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'employedCrud/read') !== false) {
+    echo '
+            <section class="slider_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="detail-box">
+                                            <div class="logo">
+                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+                                            </div>
+                                            <h1>
+                                                Table des <br>
+                                                <span>
+                                                Employés
+                                                </span>
+                                            </h1>
+                                            <div class="btn-box">
+                                                <div class="btn-crud">
+                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                                    <a href="create" class="btn-2 col-md-6">ajoutez nouvel employé</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'servicesCrud/read') !== false) {
+    echo '
+            <section class="slider_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="detail-box">
+                                            <div class="logo">
+                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-superpowers"></span></h1>
+                                            </div>
+                                            <h1>
+                                                Table des <br>
+                                                <span>
+                                                Prestations 
+                                                </span>
+                                                du garage
+                                            </h1>
+                                            <div class="btn-box">
+                                                <div class="btn-crud">
+                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                                    <a href="create" class="btn-2 col-md-6">ajoutez nouvel prestation</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        ';
+}
+?>
+<?php
+if (strpos($_SERVER['REQUEST_URI'], 'openTimesCrud/read') !== false) {
+    echo '
+            <section class="slider_section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="detail-box">
+                                            <div class="logo">
+                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-clock-o"></span></h1>
+                                            </div>
+                                            <h1>
+                                                Heures d\'<br>
+                                                <span>
+                                                Ouvertures 
+                                                </span>
+                                                et 
+                                                <span>
+                                                fermeture
+                                                </span>
+                                            </h1>
+                                            <div class="btn-box">
+                                                <div class="btn-crud">
+                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                                    <a href="update" class="btn-2 col-md-6">mofifier les horaires</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,7 +462,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'occasions') !== false) {
 }
 ?>
 <?php
-if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
+if (strpos($_SERVER['REQUEST_URI'], 'services/') !== false) {
     echo '
             <section class=" slider_section ">
                             <div class="container">
@@ -325,8 +474,6 @@ if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
                                                 <span>
                                                 Qualité & Confiance                                                </span>
                                             </h1>
-                                            <h5>une large gamme de services: réparation de la carrosserie et de la mécanique des voitures ainsi que leur entretien.<br>
-                                            Réparation et entretien automobile : devis gratuits et prestations au juste prix</h5>
                                             <div class="btn-box">
                                                 <a href="#contact" class="btn-2"> Prenez rendez-vous </a>
                                             </div>
@@ -342,3 +489,4 @@ if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
         ';
 }
 ?>
+

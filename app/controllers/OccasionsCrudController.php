@@ -20,7 +20,7 @@ class OccasionsCrudController extends Controller
 
         $data['title'] = "OccasionsCrud";
         $this->template('header', $data);
-        $this->view('/occasionCrud/read', $data);
+        $this->view('/occasionsCrud/read', $data);
         $this->template('footer');
     }
 }

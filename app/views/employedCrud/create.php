@@ -31,4 +31,6 @@
                 <button type="submit" class="form-button button-l margin-b">Sauvegarder</button>
             </form>
         </div>
-        <script src="js/custom.js"></script>
+    </div>
+</body>
+<script src="js/custom.js"></script>

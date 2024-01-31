@@ -27,14 +27,21 @@ class App {
         $this->router->addRoute('occasionsCrud/read', 'OccasionsCrudController@index');
         $this->router->addRoute('occasionsCrud/create', 'OccasionsCrudController@create');
 
+        $this->router->addRoute('servicesCrud/read', 'ServicesCrudController@index');
+        $this->router->addRoute('servicesCrud/create', 'ServicesCrudController@create');
+        $this->router->addRoute('servicesCrud/create/add', 'ServicesCrudController@addServices');
+
+        $this->router->addRoute('openTimesCrud/read', 'OpenTimesCrudController@index');
+        $this->router->addRoute('openTimesCrud/update', 'OpenTimesCrudController@update');
+
         $this->router->addRoute('employedCrud/read', 'EmployedCrudController@index');
         $this->router->addRoute('employedCrud/create', 'EmployedCrudController@create');
+        $this->router->addRoute('employedCrud/create/add', 'EmployedCrudController@addEmployed');
+
         $this->router->addRoute('employedCrud/update/{id}', 'EmployedCrudController@update');
         $this->router->addRoute('delete/{id}', 'EmployedCrudController@delete');
-        //$this->router->addRoute('employedCrud/delete/:id', 'EmployedCrudController@delete');
 
         $this->router->addRoute('login/auth', 'LoginController@authenticate');
-        $this->router->addRoute('employedCrud/create/add', 'EmployedCrudController@addEmployed');
 
 
     }

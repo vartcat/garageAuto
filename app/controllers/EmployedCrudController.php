@@ -14,7 +14,6 @@ class EmployedCrudController extends Controller
             $this->db->query($sql);
             $users = $this->db->resultSet(PDO::FETCH_ASSOC);
             $data['users'] = $users;
-            $data['cedric_ken_la_daronne_de_masis'] = $users;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
