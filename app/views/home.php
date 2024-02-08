@@ -26,7 +26,7 @@
                             Récemment la vente de voitures d'occasions garanties et révisées.
                         </p>
                         <div class="btn-box">
-                            <a href="">
+                            <a href="services">
                                 Prestations
                             </a>
                         </div>
@@ -37,7 +37,6 @@
     </section>
 
     <!-- service section -->
-
     <section class="service_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
@@ -77,7 +76,7 @@
                                 parfaitement qu’il ne restera aucun problème à noter.
                                 Faites confiance à notre expérience pour la préparation de votre voiture
                                 au contrôle technique. </p>
-                            <a href="">
+                            <a href="services">
                                 Voir plus
                             </a>
                         </div>
@@ -94,7 +93,7 @@
                                 Donc, si vous avez eu un accrochage ou un accident plus grave, confiez-nous votre véhicule.
                                 Nous en prenons soin comme s’il s’agissait de notre propre voiture.
                                 Pour toutes vos questions, n’hésitez pas à nous contacter. </p>
-                            <a href="">
+                            <a href="services">
                                 Voir plus
                             </a>
                         </div>
@@ -104,125 +103,7 @@
         </div>
     </section>
 
-    <!-- client section -->
-
-    <section class="client_section layout_padding">
-        <div id="notices" class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Avis de nos clients
-                </h2>
-            </div>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="box">
-                            <div class="detail-box">
-                                <h4>
-                                    Minim Veniam
-                                    <!-- NOM et prénom client PHP database -->
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco laboris nisi ut aliquip
-                                    <!-- avis clients PHP database -->
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="box">
-                            <div class="detail-box">
-                                <h4>
-                                    Minim Veniam
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco laboris nisi ut aliquip
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="box">
-                            <div class="detail-box">
-                                <h4>
-                                    Minim Veniam
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco laboris nisi ut aliquip
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel_btn-box">
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- contact section -->
-
-    <section class="contact_section layout_padding">
-        <div id="contact" class="contact_bg_box">
-        </div>
-        <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Besoin d'informations ou d'un RDV ?<br>
-                    Entrez en contact
-                </h2>
-            </div>
-            <div class="">
-                <div class="row">
-                    <div class="col-md-7 mx-auto">
-                        <form action="#">
-                            <div class="contact_form-container">
-                                <div>
-                                    <div>
-                                        <input type="text" placeholder="Nom & Prénom" />
-                                    </div>
-                                    <div>
-                                        <input type="email" placeholder="Email" />
-                                    </div>
-                                    <div>
-                                        <input type="text" placeholder="Numéro de téléphone" />
-                                    </div>
-                                    <div class="">
-                                        <input type="text" placeholder="Message" class="message_input" />
-                                    </div>
-                                    <div class="btn-box ">
-                                        <button type="submit">
-                                            Envoyer
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- team section -->
-
     <section class="team_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
@@ -284,6 +165,121 @@
             </div>
         </div>
     </section>
+    
+    <!-- client section -->
+    <section class="client_section layout_padding">
+        <div id="notices" class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Avis de nos clients
+                </h2>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="box">
+                            <div class="detail-box">
+                                <h4>
+                                    Minim Veniam
+                                </h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="box">
+                            <div class="detail-box">
+                                <h4>
+                                    Minim Veniam
+                                </h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="box">
+                            <div class="detail-box">
+                                <h4>
+                                    Minim Veniam
+                                </h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel_btn-box">
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+        <div id="contact" class="contact_bg_box">
+        </div>
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Besoin d'informations ou d'un RDV ?<br>
+                    Entrez en contact
+                </h2>
+            </div>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-7 mx-auto">
+                        <form action="#">
+                            <div class="contact_form-container">
+                                <div>
+                                    <div>
+                                        <input type="text" placeholder="Nom & Prénom" />
+                                    </div>
+                                    <div>
+                                        <input type="email" placeholder="Email" />
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Numéro de téléphone" />
+                                    </div>
+                                    <div class="">
+                                        <input type="text" placeholder="Message" class="message_input" />
+                                    </div>
+                                    <div class="btn-box ">
+                                        <button type="submit">
+                                            Envoyer
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- notices section -->
 

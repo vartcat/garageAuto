@@ -69,9 +69,9 @@
   }
 
   .about_section .detail-box {
-    margin-left: 0;
     width: 100%;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    margin: auto;
   }
 
   .service_section .service_container {

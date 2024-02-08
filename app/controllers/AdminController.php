@@ -1,7 +1,6 @@
 <?php
 
 use MyApp\Controller;
-use MyApp\Database;
 
 session_start();
 /**
@@ -20,7 +19,6 @@ class AdminController extends Controller
             $data['title'] = "Admin";
             $this->template('header', $data);
             $this->view('admin', $data);
-            $this->template('footer');
         } else {
             $this->redirect('/login');
         }

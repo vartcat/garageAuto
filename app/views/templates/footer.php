@@ -1,41 +1,25 @@
 <footer class="container-fluid footer_section">
     <div class="opening-time">
-        <p>Horaires d'ouverture :</p>
-        <div class="date-time">
-            <div class="date">Lundi</div>
-            <!-- Requete BDD pour ajout heure d'ouverture -->
-            <div class="time">heure ouverture ?</div>
-        </div>
-        <div class="date-time">
-            <div class="date">Mardi</div>
-            <!-- Requete BDD pour ajout heure d'ouverture -->
-            <div class="time">heure ouverture ?</div>
-        </div>
-        <div class="date-time">
-            <div class="date">Mercredi</div>
-            <!-- Requete BDD pour ajout heure d'ouverture -->
-            <div class="time">heure ouverture ?</div>
-        </div>
-        <div class="date-time">
-            <div class="date">Jeudi</div>
-            <!-- Requete BDD pour ajout heure d'ouverture -->
-            <div class="time">heure ouverture ?</div>
-        </div>
-        <div class="date-time">
-            <div class="date">Vendredi</div>
-            <!-- Requete BDD pour ajout heure d'ouverture -->
-            <div class="time">heure ouverture ?</div>
-        </div>
-        <div class="date-time">
-            <div class="date">Samedi</div>
-            <!-- Requete BDD pour ajout heure d'ouverture -->
-            <div class="time">heure ouverture ?</div>
-        </div>
-        <div class="date-time">
-            <div class="date">Dimanche</div>
-            <!-- Requete BDD pour ajout heure d'ouverture -->
-            <div class="time">heure ouverture ?</div>
-        </div>
+        <h3>Horaires d'ouverture :</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ouverture</th>
+                    <th scope="col">fermeture</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($openTimes as $openTime) : ?>
+                    <tr>
+                        <td><?= $openTime['jour'] ?></td>
+                        <td><?= $openTime['ouverture'] ?></td>
+                        <td><?= $openTime['fermeture'] ?></td>
+                    </tr>
+                <?php endforeach;
+                ?>
+            </tbody>
+        </table>
     </div>
     <p>
         &copy; <span id="currentYear"></span> All Rights Reserved.

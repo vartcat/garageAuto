@@ -29,9 +29,25 @@ class Router {
      * @return string|null The controller and method associated with the URI, or null if not found.
      */
     public function route($uri, $method = 'GET') {
-        if (array_key_exists($uri, $this->routes) && $this->routes[$uri]['method'] == $method) {
-            return $this->routes[$uri]['controller'];
+        $matchRoute = $this->getRegexRoute($uri);
+        if ($matchRoute && $this->routes[$matchRoute]['method'] == $method) {
+            return $this->routes[$matchRoute]['controller'];
         }
         return null;
+    }
+
+    protected function getRegexRoute($uri) {
+        foreach($this->routes as $path => $route) {
+            if ($this->matchRoute($path, $uri)) {
+              return $path;
+            }
+        }
+        return false;
+    }
+
+    protected function matchRoute($route, $uri) {
+        $pattern = str_replace('/', '\/', str_replace('#id', '\d+', $route));
+        $pattern = '/^' . $pattern . '$/';
+        return preg_match($pattern, trim($uri));
     }
 }

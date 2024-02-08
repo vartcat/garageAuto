@@ -16,15 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        error_log(json_encode($_SESSION));
-
-        var_dump($_SESSION['user']);
-
         if($_SESSION['user']) {
             $data['title'] = "User";
             $this->template('header', $data);
             $this->view('user', $data);
-            $this->template('footer');
         } else {
             $this->redirect('/login');
         }

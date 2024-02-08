@@ -1,7 +1,9 @@
 <?php
 
 use MyApp\Controller;
-use MyApp\Database;
+
+require_once 'FooterController.php';
+require_once 'NoticesController.php';
 
 /**
  * HomeController Class
@@ -10,14 +12,14 @@ use MyApp\Database;
  */
 class HomeController extends Controller
 {
-    /**
-     * Display the index page.
-     */
     public function index()
     {
         $data['title'] = "Home";
+        $data['openTimes'] = FooterController::getOpeningHours();
+        $data['notices'] = NoticesController::getNotices();
+
         $this->template('header', $data);
         $this->view('home', $data);
-        $this->template('footer');
+        $this->template('footer', $data);
     }
 }

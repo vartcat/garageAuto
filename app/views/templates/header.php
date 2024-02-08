@@ -26,61 +26,29 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
             </div>
     ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'admin') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/admin') {
     echo '
-        <div class="hero_area">
-        <!-- header section strats -->
-            <div class="hero_bg_box">
-                <div class="img-box">
-                    <img src="public/pictures/garage.jpg">
+            <div class="hero_area">
+            <!-- header section strats -->
+                <div class="hero_bg_box">
+                    <div class="img-box">
+                        <img src="public/pictures/garage.jpg">
+                    </div>
                 </div>
-            </div>
     ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'employedCrud/read') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/user') {
     echo '
-        <div class="hero_area">
-        <!-- header section strats -->
-            <div class="hero_bg_box">
-                <div class="img-box">
-                    <img src="public/pictures/garage.jpg">
+            <div class="hero_area">
+            <!-- header section strats -->
+                <div class="hero_bg_box">
+                    <div class="img-box">
+                        <img src="public/pictures/garage.jpg">
+                    </div>
                 </div>
-            </div>
     ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'servicesCrud/read') !== false) {
-    echo '
-        <div class="hero_area">
-        <!-- header section strats -->
-            <div class="hero_bg_box">
-                <div class="img-box">
-                    <img src="public/pictures/mécanique.jpg">
-                </div>
-            </div>
-    ';
-}
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'openTimesCrud/read') !== false) {
-    echo '
-        <div class="hero_area">
-        <!-- header section strats -->
-            <div class="hero_bg_box">
-                <div class="img-box">
-                    <img src="public/pictures/garage.jpg">
-                </div>
-            </div>
-    ';
-}
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/services') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -91,9 +59,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'services') !== false) {
             </div>
     ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'occasions') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -104,7 +70,64 @@ if (strpos($_SERVER['REQUEST_URI'], 'occasions') !== false) {
             </div>
     ';
 }
+elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/occasions.jpg">
+                </div>
+            </div>
+    ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/garage.jpg">
+                </div>
+            </div>
+    ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/mécanique.jpg">
+                </div>
+            </div>
+    ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/garage.jpg">
+                </div>
+            </div>
+    ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
+    echo '
+        <div class="hero_area">
+        <!-- header section strats -->
+            <div class="hero_bg_box">
+                <div class="img-box">
+                    <img src="public/pictures/mecanique.jpg">
+                </div>
+            </div>
+    ';
+}
 ?>
+
+<!-- Header section -->
 <header class="header_section">
     <div class="header_top">
         <div class="container-fluid">
@@ -147,37 +170,113 @@ if (strpos($_SERVER['REQUEST_URI'], 'occasions') !== false) {
                         <li class="nav-item active">
                             <a class="nav-link" href="/">Accueil<span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services">Prestations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="occasions">Occasions</a>
-                        </li>
                         <?php
-                        if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI'] === '/') {
+                        if ($_SERVER['REQUEST_URI'] === 'home' || $_SERVER['REQUEST_URI'] === '/') {
                             echo
                             '<li class="nav-item">
+                                <a class="nav-link" href="services">Prestations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="occasions">Occasions</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="#notices">Avis</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="login">Login</a>
                             </li>';
                         }
                         ?>
-                        <li class="nav-item">
+                        <?php
+                        if ($_SERVER['REQUEST_URI'] === '/services') {
+                            echo
+                            '<li class="nav-item">
+                                <a class="nav-link" href="occasions">Occasions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
-                        </li>
+                            </li>';
+                        }
+                        ?>
+                        <?php
+                        if ($_SERVER['REQUEST_URI'] === '/occasions') {
+                            echo
+                            '<li class="nav-item">
+                                <a class="nav-link" href="services">Prestations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="login">Login</a>
+                            </li>';
+                        }
+                        ?>
+                        <?php
+                        if ($_SERVER['REQUEST_URI'] === '/occasions/read') {
+                            echo
+                            '<li class="nav-item">
+                                <a class="nav-link" href="user">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Logout</a>
+                            </li>
+                            ';
+                        }
+                        ?>
+                        <?php
+                        if ($_SERVER['REQUEST_URI'] === '/employed/read') {
+                            echo
+                            '<li class="nav-item">
+                                <a class="nav-link" href="admin">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        ?>
+                        <?php
+                        if ($_SERVER['REQUEST_URI'] === '/services/read') {
+                            echo
+                            '<li class="nav-item">
+                                <a class="nav-link" href="/admin">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        ?>
+                        <?php
+                        if (strpos($_SERVER['REQUEST_URI'], '/openTimes/read') !== false) {
+                            echo
+                            '<li class="nav-item">
+                                <a class="nav-link" href="/admin">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        ?>
+
                     </ul>
                 </div>
             </nav>
         </div>
     </div>
 </header>
-<!--================End Header Menu Area =================-->
 
-<!-- slider section -->
+<!-- Slider section -->
 <?php
-if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI'] === '/') {
+if ($_SERVER['REQUEST_URI'] === 'home' || $_SERVER['REQUEST_URI'] === '/') {
     echo '
             <section class=" slider_section ">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -264,50 +363,44 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                     </div>
                 </div>
             </section>
-        </div>
         ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'admin') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/admin') {
     echo '
             <section class="slider_section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="detail-box">
-                                            <div class="logo">
-                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
-                                            </div>
-                                            <h1>
-                                                Bienvenue <br>
-                                                <span>
-                                                Administrateur
-                                                </span>
-                                            </h1>
-                                            <h2>Voici votre 
-                                                <span>
-                                                    Dashboard
-                                                </span>
-                                            </h2>
-                                            <h3>
-                                                Choisissez un élément à modifier:
-                                            </h3>
-                                            <div class="btn-box">
-                                                <div class="btn-crud">
-                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                                    <a href="employedCrud/read" class="btn-2 col-md-6">comptes des employés</a>
-                                                </div>
-                                                <div class="btn-crud">
-                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                                    <a href="servicesCrud/read" class="btn-2 col-md-6">prestations du garage</a>
-                                                </div>
-                                                <div class="btn-crud">
-                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                                    <a href="openTimesCrud/read" class="btn-2 col-md-6">horaires d\'ouverture du garage</a>                                            </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="detail-box">
+                                <div class="logo">
+                                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+                                </div>
+                                <h1>
+                                    Bienvenue <br>
+                                    <span>
+                                    Administrateur
+                                    </span>
+                                </h1>
+                                <h2>Voici votre 
+                                    <span>
+                                        Dashboard
+                                    </span>
+                                </h2>
+                                <h3>
+                                    Choisissez un élément à modifier:
+                                </h3>
+                                <div class="btn-box">
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="employed/read" class="btn-2 col-md-6">comptes des employés</a>
+                                    </div>
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="services/read" class="btn-2 col-md-6">prestations du garage</a>
+                                    </div>
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="openTimes/read" class="btn-2 col-md-6">horaires d\'ouverture du garage</a>                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -315,34 +408,28 @@ if (strpos($_SERVER['REQUEST_URI'], 'admin') !== false) {
                     </div>
                 </div>
             </section>
-        </div>
         ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'employedCrud/read') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
     echo '
             <section class="slider_section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="detail-box">
-                                            <div class="logo">
-                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
-                                            </div>
-                                            <h1>
-                                                Table des <br>
-                                                <span>
-                                                Employés
-                                                </span>
-                                            </h1>
-                                            <div class="btn-box">
-                                                <div class="btn-crud">
-                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                                    <a href="create" class="btn-2 col-md-6">ajoutez nouvel employé</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="detail-box">
+                                <div class="logo">
+                                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-car"></span></h1>
+                                </div>
+                                <h1>
+                                    Véhicules d\'<br>
+                                    <span>
+                                    Occasions
+                                    </span>
+                                </h1>
+                                <div class="btn-box">
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="create" class="btn-2 col-md-6">ajouter nouveau véhicule doccasion</a>
                                     </div>
                                 </div>
                             </div>
@@ -350,134 +437,77 @@ if (strpos($_SERVER['REQUEST_URI'], 'employedCrud/read') !== false) {
                     </div>
                 </div>
             </section>
-        </div>
         ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'servicesCrud/read') !== false) {
-    echo '
-            <section class="slider_section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="detail-box">
-                                            <div class="logo">
-                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-superpowers"></span></h1>
-                                            </div>
-                                            <h1>
-                                                Table des <br>
-                                                <span>
-                                                Prestations 
-                                                </span>
-                                                du garage
-                                            </h1>
-                                            <div class="btn-box">
-                                                <div class="btn-crud">
-                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                                    <a href="create" class="btn-2 col-md-6">ajoutez nouvel prestation</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        ';
-}
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'openTimesCrud/read') !== false) {
-    echo '
-            <section class="slider_section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="detail-box">
-                                            <div class="logo">
-                                                <h1 class="logo-badge text-whitesmoke"><span class="fa fa-clock-o"></span></h1>
-                                            </div>
-                                            <h1>
-                                                Heures d\'<br>
-                                                <span>
-                                                Ouvertures 
-                                                </span>
-                                                et 
-                                                <span>
-                                                fermeture
-                                                </span>
-                                            </h1>
-                                            <div class="btn-box">
-                                                <div class="btn-crud">
-                                                    <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                                    <a href="update" class="btn-2 col-md-6">mofifier les horaires</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        ';
-}
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'occasions') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
     echo '
             <section class="slider_section ">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="detail-box">
-                                            <h1>
-                                                Véhicules d\'Occasions <br>
-                                                <span>
-                                                pleines d\'avenir
-                                                </span>
-                                            </h1>
-                                            <h2>Découvrez votre future voiture dans notre large catalogue
-                                                de voitures d’occasion parfaitement reconditionnées !
-                                            </h2>
-                                            <div class="btn-box">
-                                                <a href="#contact" class="btn-2"> Nous cherchons pour vous </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="detail-box">
+                                <h1>
+                                    Véhicules d\'Occasions <br>
+                                    <span>
+                                    pleines d\'avenir
+                                    </span>
+                                </h1>
+                                <h2>Découvrez votre future voiture dans notre large catalogue
+                                    de voitures d’occasion parfaitement reconditionnées !
+                                </h2>
+                                <div class="btn-box">
+                                    <a href="#contact" class="btn-2"> Nous cherchons pour vous </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
         ';
 }
-?>
-<?php
-if (strpos($_SERVER['REQUEST_URI'], 'services/') !== false) {
+elseif ($_SERVER['REQUEST_URI'] === '/services') {
     echo '
             <section class=" slider_section ">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="detail-box">
-                                            <h1>
-                                                Nos prestations <br>
-                                                <span>
-                                                Qualité & Confiance                                                </span>
-                                            </h1>
-                                            <div class="btn-box">
-                                                <a href="#contact" class="btn-2"> Prenez rendez-vous </a>
-                                            </div>
-                                        </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="detail-box">
+                                <h1>
+                                    Nos prestations <br>
+                                    <span>
+                                    Qualité & Confiance                                                </span>
+                                </h1>
+                                <div class="btn-box">
+                                    <a href="#contact" class="btn-2"> Prenez rendez-vous </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
+    echo '
+            <section class="slider_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="detail-box">
+                                <div class="logo">
+                                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-superpowers"></span></h1>
+                                </div>
+                                <h1>
+                                    Table des <br>
+                                    <span>
+                                    Prestations 
+                                    </span>
+                                    du garage
+                                </h1>
+                                <div class="btn-box">
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="create" class="btn-2 col-md-6">ajoutez nouvel prestation</a>
                                     </div>
                                 </div>
                             </div>
@@ -485,8 +515,97 @@ if (strpos($_SERVER['REQUEST_URI'], 'services/') !== false) {
                     </div>
                 </div>
             </section>
-        </div>
+        ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
+    echo '
+            <section class="slider_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="detail-box">
+                                <div class="logo">
+                                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+                                </div>
+                                <h1>
+                                    Table des <br>
+                                    <span>
+                                    Employés
+                                    </span>
+                                </h1>
+                                <div class="btn-box">
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="create" class="btn-2 col-md-6">ajoutez nouvel employé</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
+    echo '
+            <section class="slider_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="detail-box">
+                                <div class="logo">
+                                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-clock-o"></span></h1>
+                                </div>
+                                <h1>
+                                    Heures d\'<br>
+                                    <span>
+                                    Ouvertures 
+                                    </span>
+                                    et 
+                                    <span>
+                                    fermetures
+                                    </span>
+                                </h1>
+                                <div class="btn-box">
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="update" class="btn-2 col-md-6">mofifier les horaires</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        ';
+}
+elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
+    echo '
+            <section class="slider_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="detail-box">
+                                <div class="logo">
+                                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-bell"></span></h1>
+                                </div>
+                                <h1>
+                                    Avis d\'<br>
+                                    <span>
+                                    Utilisateurs 
+                                    </span>
+                                </h1>
+                                <div class="btn-box">
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="update" class="btn-2 col-md-6">ajouter nouvel avis client</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         ';
 }
 ?>
-
