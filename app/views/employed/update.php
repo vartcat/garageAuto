@@ -8,7 +8,7 @@
             <form method="POST" class="margin-t" action="/employed/update/action">
                 <input type="hidden" name="id" value="<?= $user['id'] ?>">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="prénom (*) sa reum" value="<?= $user['name'] ?>">
+                    <input type="text" class="form-control" name="name" placeholder="prénom (*)" value="<?= $user['name'] ?>">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="lastname" placeholder="nom (*)" value="<?= $user['lastname'] ?>">

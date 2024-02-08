@@ -17,7 +17,7 @@
                     <input type="email" class="form-control" name="email" placeholder="email@example.com (*)" value="" required>
                 </div>
                 <div class="form-group">
-                    <input type="textarea" class="form-control" name="avis" placeholder="avis (*)" value="" required>
+                    <textarea rows="4" cols="50" type="textarea" class="form-control" name="avis" placeholder="avis (*)" value="" required></textarea>
                 </div>
                 <div class="">
                     <p class="">(*) champs obligatoires</p>

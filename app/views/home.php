@@ -165,7 +165,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- client section -->
     <section class="client_section layout_padding">
         <div id="notices" class="container">
@@ -250,27 +250,31 @@
             <div class="">
                 <div class="row">
                     <div class="col-md-7 mx-auto">
-                        <form action="#">
+                        <form method="POST" class="margin-t" action="/messages/create/add">
+                            <input type="hidden" name="action" value="addMessages">
                             <div class="contact_form-container">
-                                <div>
-                                    <div>
-                                        <input type="text" placeholder="Nom & Prénom" />
-                                    </div>
-                                    <div>
-                                        <input type="email" placeholder="Email" />
-                                    </div>
-                                    <div>
-                                        <input type="text" placeholder="Numéro de téléphone" />
-                                    </div>
-                                    <div class="">
-                                        <input type="text" placeholder="Message" class="message_input" />
-                                    </div>
-                                    <div class="btn-box ">
-                                        <button type="submit">
-                                            Envoyer
-                                        </button>
-                                    </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="prénom (*)" value="" required>
                                 </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="lastname" placeholder="nom (*)" value="" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="email@example.com (*)" value="" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="telephone" placeholder="0612345678 (*)" value="" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="sujet" placeholder="sujet du message (*)" value="" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="Ecrivez votre message ici (*)" value="" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <p class="">(*) champs obligatoires</p>
+                                </div>
+                                <button type="submit" class="form-button button-l margin-b">Envoyer</button>
                             </div>
                         </form>
                     </div>
@@ -279,10 +283,7 @@
         </div>
     </section>
 
-
-
     <!-- notices section -->
-
     <section class="notices_section layout_padding">
         <div class="notices_bg_box">
         </div>
@@ -296,25 +297,36 @@
             <div class="">
                 <div class="row">
                     <div class="col-md-7 mx-auto">
-                        <form action="#">
-                            <div class="notices_form-container">
-                                <div>
-                                    <div>
-                                        <input type="text" placeholder="Nom & Prénom" />
-                                    </div>
-                                    <div>
-                                        <input type="email" placeholder="Email" />
-                                    </div>
-                                    <div class="">
-                                        <input type="text" placeholder="Partagez votre expérience avec nous ici" class="message_input" />
-                                    </div>
-                                    <div class="btn-box ">
-                                        <button type="submit">
-                                            Donnez votre avis
-                                        </button>
-                                    </div>
-                                </div>
+                        <form method="POST" class="margin-t" action="/notices/create/add">
+                            <input type="hidden" name="action" value="addNotices">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="prénom (*)" value="" required>
                             </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="lastname" placeholder="nom" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="email@example.com (*)" value="" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="votre avis ici ..." value=""></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Notez votre garage :</label>
+                                <select name="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <p>/5</p>
+                            </div>
+                            <div class="form-group">
+                                <p class="">(*) champs obligatoires</p>
+                            </div>
+                            <button type="submit" class="form-button button-l margin-b">Envoyer</button>
+
                         </form>
                     </div>
                 </div>

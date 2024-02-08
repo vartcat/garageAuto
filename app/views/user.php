@@ -35,6 +35,10 @@
                             <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
                             <a href="notices/read" class="btn-2 col-md-6">Ajoutez Avis Clientèle</a>
                         </div>
+                        <div class="btn-crud">
+                            <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                            <a href="messages/read" class="btn-2 col-md-6">Voir les messages</a>
+                        </div>
                     </div>
                 </div>
             </div>

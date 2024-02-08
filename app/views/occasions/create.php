@@ -5,16 +5,16 @@
         </div>
         <h3 class="text-whitesmoke">Ajoutez nouvelle occasion</h3>
         <div class="container-content">
-            <form method="POST" class="margin-t" action="/occasionsCrud/create/add">
-                <input type="hidden" name="action" value="addEmployed">
+            <form method="POST" class="margin-t" action="/occasions/create/add">
+                <input type="hidden" name="action" value="addOccasions">
                 <div class="form-group">
                     <input type="text" class="form-control" name="modele" placeholder="modèle (*)" value="" required>
                 </div>
                 <div class="form-group">
-                    <input type="date" class="form-control" name="annee" placeholder="année (*)" value="" required>
+                    <input type="year" class="form-control" name="annee" placeholder="année (*)" value="" required>
                 </div>
                 <div class="form-group">
-                    <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="description du véhicule (*)" value="" required></textarea>>
+                    <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="description du véhicule (*)" value="" required></textarea>
                 </div>
                 <div class="form-group">
                     <select type="text" class="form-control" name="carburant" placeholder="carburant(*)" value="" required>
@@ -24,6 +24,9 @@
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="kilometre" placeholder="kilométrage (*)" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="prix" placeholder="prix (*)" required>
                 </div>
                 <div class="">
                     <p class="">(*) champs obligatoires</p>

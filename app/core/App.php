@@ -27,17 +27,30 @@ class App {
         $this->router->addRoute('notices/read', 'NoticesController@read');
         $this->router->addRoute('notices/create', 'NoticesController@create');
         $this->router->addRoute('notices/create/add', 'NoticesController@addNotices');
+        $this->router->addRoute('notices/delete/#id', 'NoticesController@delete');
+        $this->router->addRoute('notices/delete/action', 'NoticesController@removeNotices');
+        $this->router->addRoute('notices/validate/#id', 'NoticesController@validate');
+        $this->router->addRoute('notices/validate/action', 'NoticesController@validateNotices');
 
         $this->router->addRoute('occasions/read', 'OccasionsController@read');
         $this->router->addRoute('occasions/create', 'OccasionsController@create');
         $this->router->addRoute('occasions/create/add', 'OccasionsController@addOccasions');
+        $this->router->addRoute('occasions/delete/#id', 'OccasionsController@delete');
+        $this->router->addRoute('occasions/update/#id', 'OccasionsController@update');
+        $this->router->addRoute('occasions/update/action', 'OccasionsController@updateOccasions');
+        $this->router->addRoute('occasions/delete/action', 'OccasionsController@removeOccasions');
 
         $this->router->addRoute('services/read', 'ServicesController@read');
         $this->router->addRoute('services/create', 'ServicesController@create');
         $this->router->addRoute('services/create/add', 'ServicesController@addServices');
+        $this->router->addRoute('services/delete/#id', 'ServicesController@delete');
+        $this->router->addRoute('services/delete/action', 'ServicesController@removeServices');
+        $this->router->addRoute('services/update/#id', 'ServicesController@update');
+        $this->router->addRoute('services/update/action', 'ServicesController@updateServices');
 
         $this->router->addRoute('openTimes/read', 'OpenTimesController@read');
-        $this->router->addRoute('openTimes/update', 'OpenTimesController@update');
+        $this->router->addRoute('openTimes/update/#id', 'OpenTimesController@update');
+        $this->router->addRoute('openTimes/update/action', 'OpenTimesController@updateOpenTimes');
 
         $this->router->addRoute('employed/read', 'EmployedController@read');
         $this->router->addRoute('employed/create', 'EmployedController@create');
@@ -46,6 +59,12 @@ class App {
         $this->router->addRoute('employed/update/#id', 'EmployedController@update');
         $this->router->addRoute('employed/delete/action', 'EmployedController@removeEmployed');
         $this->router->addRoute('employed/update/action', 'EmployedController@updateEmployed');
+
+        $this->router->addRoute('messages/read', 'MessagesController@read');
+        $this->router->addRoute('messages/create', 'MessagesController@create');
+        $this->router->addRoute('messages/create/add', 'MessagesController@addMessages');
+        $this->router->addRoute('messages/delete/#id', 'MessagesController@delete');
+        $this->router->addRoute('messages/delete/action', 'MessagesController@removeMessages');
 
         $this->router->addRoute('login/auth', 'LoginController@authenticate');
     }
@@ -64,7 +83,6 @@ class App {
 
             $controllerClassName = ucfirst($controllerName);
             $controllerInstance = new $controllerClassName();
-
             $controllerInstance->$action();
         } else {
             $this->handle404();

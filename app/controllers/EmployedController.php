@@ -13,7 +13,7 @@ class EmployedController extends Controller
         $this->db->query($sql);
 
         $data['users'] = $this->db->resultSet();
-        $data['title'] = "EmployedCrud";
+        $data['title'] = "Employed";
         $this->template('header', $data);
         $this->view('/employed/read', $data);
     }
@@ -90,7 +90,6 @@ class EmployedController extends Controller
         $id = $_POST['id'];
         $this->db->query("DELETE FROM user WHERE id = :id");
 
-        // Remove record from contacts table
         $this->db->bind(":id", $id);
         $this->db->execute();
 
@@ -116,7 +115,6 @@ class EmployedController extends Controller
         $this->db->query("UPDATE user SET name = :name, lastname = :lastname, email = :email, role = :role WHERE id = :id");
         // $this->db->query("UPDATE user SET (name = :name, lastname = :lastname, email = :email, password = :password, role = :role WHERE id = :id");
 
-        // Remove record from contacts table
         $this->db->bind(":id", $id);
         $this->db->bind(":email", $email);
         // $this->db->bind(":password", password_hash($password, PASSWORD_DEFAULT));

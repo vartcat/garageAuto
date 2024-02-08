@@ -24,7 +24,7 @@
                 <td><?= $occasion['prix'] ?></td>
                 <td>
                     <a href="update/<?= urlencode($occasion['id']) ?>" class="edit"><i class="material-icons">&#xE254;</i></a>
-                    <a href="/delete/<?= urlencode($occasion['id']) ?>" class="delete"><i class="material-icons">&#xE872;</i></a>
+                    <a href="delete/<?= urlencode($occasion['id']) ?>" class="delete"><i class="material-icons">&#xE872;</i></a>
                 </td>
             </tr>
         <?php endforeach; ?>
