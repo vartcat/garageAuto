@@ -1,130 +1,80 @@
 <div class="price_range_container">
-    <div class="price_sliders_control">
-        <input class="filtersRange" id="fromPriceSlider" type="range" value="0" min="0" max="400000" step="500" name="prix"/>
-        <input class="filtersRange" id="toPriceSlider" type="range" value="400000" min="0" max="400000" step="500" name="prix"/>
+  <div class="price_sliders_control">
+    <input
+      class="filtersRange"
+      id="fromPriceSlider"
+      type="range"
+      value="0"
+      min="0"
+      max="400000"
+      step="500"
+      name="prix"
+    />
+    <input
+      class="filtersRange"
+      id="toPriceSlider"
+      type="range"
+      value="400000"
+      min="0"
+      max="400000"
+      step="500"
+      name="prix"
+    />
+  </div>
+  <div class="price_form_control">
+    <div class="price_form_control_container">
+      <div class="price_form_control_container__time">Min</div>
+      <input
+        class="price_form_control_container__time__input"
+        type="number"
+        id="fromPriceInput"
+        value="0"
+        min="0"
+        max="400000"
+        readonly
+      />
     </div>
-    <div class="price_form_control">
-        <div class="price_form_control_container">
-            <div class="price_form_control_container__time">Min</div>
-            <input class="price_form_control_container__time__input" type="number" id="fromPriceInput" value="0" min="0" max="400000" readonly/>
-        </div>
-        <div class="price_form_control_container">
-            <div class="price_form_control_container__time">Max</div>
-            <input class="price_form_control_container__time__input" type="number" id="toPriceInput" value="400000" min="0" max="400000" readonly/>
-        </div>
+    <div class="price_form_control_container">
+      <div class="price_form_control_container__time">Max</div>
+      <input
+        class="price_form_control_container__time__input"
+        type="number"
+        id="toPriceInput"
+        value="400000"
+        min="0"
+        max="400000"
+        readonly
+      />
     </div>
+  </div>
 </div>
-<style>
-    .price_range_container {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 35% auto;
-  }
-
-  .price_sliders_control {
-    position: relative;
-    min-height: 50px;
-  }
-
-  .price_form_control {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    font-size: 24px;
-    color: #635a5a;
-  }
-  input#fromInput.price_form_control_container__time__input,
-  input#toInput.price_form_control_container__time__input {
-      width: 100px;
-  }
-
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    pointer-events: all;
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px #C6C6C6;
-    cursor: pointer;
-  }
-
-  input[type=range]::-moz-range-thumb {
-    -webkit-appearance: none;
-    pointer-events: all;
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px #C6C6C6;
-    cursor: pointer;  
-  }
-
-  input[type=range]::-webkit-slider-thumb:hover {
-    background: #f7f7f7;
-  }
-
-  input[type=range]::-webkit-slider-thumb:active {
-    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-  }
-
-  input[type="number"] {
-    color: #8a8383;
-    width: 50px;
-    height: 30px;
-    font-size: 20px;
-    border: none;
-  }
-
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button {  
-    opacity: 1;
-  }
-
-  input[type="range"] {
-    -webkit-appearance: none; 
-    appearance: none;
-    height: 2px;
-    width: 100%;
-    position: absolute;
-    background-color: #C6C6C6;
-    pointer-events: none;
-  }
-
-  #fromSlider {
-    height: 0;
-    z-index: 1;
-  }
-  </style>
-  <script>
+<script>
   function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
-      const [from, to] = getParsed(fromInput, toInput);
-      fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
-      if (from > to) {
-          fromSlider.value = to;
-          fromInput.value = to;
-      } else {
-          fromSlider.value = from;
-      }
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, "#C6C6C6", "#25daa5", controlSlider);
+    if (from > to) {
+      fromSlider.value = to;
+      fromInput.value = to;
+    } else {
+      fromSlider.value = from;
+    }
   }
-      
+
   function controlToInput(toSlider, fromInput, toInput, controlSlider) {
-      const [from, to] = getParsed(fromInput, toInput);
-      fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
-      setToggleAccessible(toInput);
-      if (from <= to) {
-          toSlider.value = to;
-          toInput.value = to;
-      } else {
-          toInput.value = from;
-      }
+    const [from, to] = getParsed(fromInput, toInput);
+    fillSlider(fromInput, toInput, "#C6C6C6", "#25daa5", controlSlider);
+    setToggleAccessible(toInput);
+    if (from <= to) {
+      toSlider.value = to;
+      toInput.value = to;
+    } else {
+      toInput.value = from;
+    }
   }
 
   function controlFromSlider(fromSlider, toSlider, fromInput) {
     const [from, to] = getParsed(fromSlider, toSlider);
-    fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+    fillSlider(fromSlider, toSlider, "#C6C6C6", "#25daa5", toSlider);
     if (from > to) {
       fromSlider.value = to;
       fromInput.value = to;
@@ -135,7 +85,7 @@
 
   function controlToSlider(fromSlider, toSlider, toInput) {
     const [from, to] = getParsed(fromSlider, toSlider);
-    fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+    fillSlider(fromSlider, toSlider, "#C6C6C6", "#25daa5", toSlider);
     setToggleAccessible(toSlider);
     if (from <= to) {
       toSlider.value = to;
@@ -153,37 +103,52 @@
   }
 
   function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-      const rangeDistance = to.max-to.min;
-      const fromPosition = from.value - to.min;
-      const toPosition = to.value - to.min;
-      controlSlider.style.background = `linear-gradient(
+    const rangeDistance = to.max - to.min;
+    const fromPosition = from.value - to.min;
+    const toPosition = to.value - to.min;
+    controlSlider.style.background = `linear-gradient(
         to right,
         ${sliderColor} 0%,
-        ${sliderColor} ${(fromPosition)/(rangeDistance)*100}%,
-        ${rangeColor} ${((fromPosition)/(rangeDistance))*100}%,
-        ${rangeColor} ${(toPosition)/(rangeDistance)*100}%, 
-        ${sliderColor} ${(toPosition)/(rangeDistance)*100}%, 
+        ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+        ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+        ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+        ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
         ${sliderColor} 100%)`;
   }
 
   function setToggleAccessible(currentTarget) {
-    const toSlider = document.querySelector('#toSlider');
-    if (Number(currentTarget.value) <= 0 ) {
+    const toSlider = document.querySelector("#toSlider");
+    if (Number(currentTarget.value) <= 0) {
       toSlider.style.zIndex = 2;
     } else {
       toSlider.style.zIndex = 0;
     }
   }
 
-  const fromPriceSlider = document.querySelector('#fromPriceSlider');
-  const toPriceSlider = document.querySelector('#toPriceSlider');
-  const fromPriceInput = document.querySelector('#fromPriceInput');
-  const toPriceInput = document.querySelector('#toPriceInput');
-  fillSlider(fromPriceSlider, toPriceSlider, '#C6C6C6', '#25daa5', toPriceSlider);
+  const fromPriceSlider = document.querySelector("#fromPriceSlider");
+  const toPriceSlider = document.querySelector("#toPriceSlider");
+  const fromPriceInput = document.querySelector("#fromPriceInput");
+  const toPriceInput = document.querySelector("#toPriceInput");
+  fillSlider(
+    fromPriceSlider,
+    toPriceSlider,
+    "#C6C6C6",
+    "#25daa5",
+    toPriceSlider
+  );
   setToggleAccessible(toPriceSlider);
 
-  fromPriceSlider.oninput = () => controlFromSlider(fromPriceSlider, toPriceSlider, fromPriceInput);
-  toPriceSlider.oninput = () => controlToSlider(fromPriceSlider, toPriceSlider, toPriceInput);
-  fromPriceInput.oninput = () => controlFromInput(fromPriceSlider, fromPriceInput, toPriceInput, toPriceSlider);
-  toPriceInput.oninput = () => controlToInput(toPriceSlider, fromPriceInput, toPriceInput, toPriceSlider);
+  fromPriceSlider.oninput = () =>
+    controlFromSlider(fromPriceSlider, toPriceSlider, fromPriceInput);
+  toPriceSlider.oninput = () =>
+    controlToSlider(fromPriceSlider, toPriceSlider, toPriceInput);
+  fromPriceInput.oninput = () =>
+    controlFromInput(
+      fromPriceSlider,
+      fromPriceInput,
+      toPriceInput,
+      toPriceSlider
+    );
+  toPriceInput.oninput = () =>
+    controlToInput(toPriceSlider, fromPriceInput, toPriceInput, toPriceSlider);
 </script>

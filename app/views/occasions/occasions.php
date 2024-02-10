@@ -1,24 +1,35 @@
 <section class="occasions_section layout_padding">
-    <div id="slider">
-        <?php include_once "../app/views/templates/kilometersSlider.html"; ?>
+    <div class="TitreFilter">
+        <h4>Filtrez votre recherche</h4>
     </div>
-    <div id="sliderPrice">
-        <?php include_once "../app/views/templates/pricesSlider.html"; ?>
+    <div class="sliderContent">
+        <div id="slider">
+            <h6> - kilométrage - </h6>
+            <?php include_once "../app/views/templates/kilometersSlider.html"; ?>
+        </div>
+        <div id="sliderPrice">
+            <h6> - prix - </h6>
+            <?php include_once "../app/views/templates/pricesSlider.html"; ?>
+        </div>
     </div>
-    <div>
-        <select class="filters" name="carburant" id="carburant">
-            <option value="null"> - séléctionner l'énergie - </option>
-            <option value="diesel">diesel</option>
-            <option value="essence">essence</option>
-            <option value="électrique">électrique</option>
-        </select>
-    </div>
-    <div>
-        <select class="filters" name="boite" id="boite">
-            <option value="null"> - séléctionner la boîte - </option>
-            <option value="automatique">automatique</option>
-            <option value="manuelle">manuelle</option>
-        </select>
+    <div class="filtersContent">
+        <div class="filterListEnergie">
+            <h6> - énergie - </h6>
+            <select class="filters" name="carburant" id="carburant">
+                <option value="null"> - séléctionner l'énergie - </option>
+                <option value="diesel">diesel</option>
+                <option value="essence">essence</option>
+                <option value="électrique">électrique</option>
+            </select>
+        </div>
+        <div class="filterListBoite">
+            <h6> - boîte - </h6>
+            <select class="filters" name="boite" id="boite">
+                <option value="null"> - séléctionner la boîte - </option>
+                <option value="automatique">automatique</option>
+                <option value="manuelle">manuelle</option>
+            </select>
+        </div>
     </div>
     <div class="container" id="cars-container"></div>
 </section>
@@ -102,7 +113,7 @@
 
         carsContainer.innerHTML = '';
 
-        carsContainer.innerHTML = 
+        carsContainer.innerHTML =
             occasionsFilteredByRange.map((occasion) => (
                 `<div class="row">
                     <div class="col-md-6 px-0">
@@ -175,7 +186,10 @@
 
         filtersRange.forEach(filter => filter.addEventListener('change', (e) => {
             const type = e.target.getAttribute('name');
-            rangeFilters[type] = { min: fromPriceSlider.valueAsNumber, max: toPriceSlider.valueAsNumber };
+            rangeFilters[type] = {
+                min: fromPriceSlider.valueAsNumber,
+                max: toPriceSlider.valueAsNumber
+            };
 
             render();
         }));
