@@ -25,8 +25,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/admin') {
+} elseif ($_SERVER['REQUEST_URI'] === '/admin') {
     echo '
             <div class="hero_area">
             <!-- header section strats -->
@@ -36,8 +35,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/admin') {
                     </div>
                 </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/user') {
+} elseif ($_SERVER['REQUEST_URI'] === '/user') {
     echo '
             <div class="hero_area">
             <!-- header section strats -->
@@ -47,8 +45,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/user') {
                     </div>
                 </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/services') {
+} elseif ($_SERVER['REQUEST_URI'] === '/services') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -57,8 +54,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/services') {
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
+} elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -67,8 +63,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -78,8 +73,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -89,8 +83,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -100,8 +93,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -111,8 +103,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -122,8 +113,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
                 </div>
             </div>
     ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -173,16 +163,16 @@ elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class=""></span>
                 </button>
-
                 <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/home">Accueil<span class="sr-only">(current)</span></a>
-                        </li>
                         <?php
                         if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                             echo
-                            '<li class="nav-item">
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/home">Accueil<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="services">Prestations</a>
                             </li>
                             <li class="nav-item">
@@ -198,94 +188,12 @@ elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
                             <a class="nav-link" href="login">Login</a>
                             </li>';
                         }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/services') {
-                            echo
-                            '<li class="nav-item">
-                                <a class="nav-link" href="occasions">Occasions</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
-                            </li>';
-                        }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/occasions') {
-                            echo
-                            '<li class="nav-item">
-                                <a class="nav-link" href="services">Prestations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
-                            </li>';
-                        }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/user') {
+                        elseif ($_SERVER['REQUEST_URI'] === '/admin') {
                             echo
                             '
-                            <li class="nav-item">
-                                <a class="nav-link" href="/occasions/read">Occasions</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="admin">Dashboard<span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/notices/read">Avis</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/messages/read">Messages</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Logout</a>
-                            </li>
-                            ';
-                        }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/occasions/read') {
-                            echo
-                            '<li class="nav-item">
-                                <a class="nav-link" href="/user">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Logout</a>
-                            </li>
-                            ';
-                        }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/notices/read') {
-                            echo
-                            '<li class="nav-item">
-                                <a class="nav-link" href="/user">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Logout</a>
-                            </li>
-                            ';
-                        }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/messages/read') {
-                            echo
-                            '<li class="nav-item">
-                                <a class="nav-link" href="/user">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Logout</a>
-                            </li>
-                            ';
-                        }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/admin') {
-                            echo
-                            '
                             <li class="nav-item">
                                 <a class="nav-link" href="employed/read">comptes</a>
                             </li>
@@ -296,43 +204,216 @@ elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
                                 <a class="nav-link" href="openTimes/read">horaires</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout">Logout</a>
+                                <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
                         }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/employed/read') {
+                        elseif ($_SERVER['REQUEST_URI'] === '/user') {
                             echo
-                            '<li class="nav-item">
-                                <a class="nav-link" href="/admin">Dashboard</a>
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/user">Dashboard<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout">Logout</a>
+                                <a class="nav-link" href="/occasions/read">Occasions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/notices/read">Avis</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/messages/read">Messages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
                         }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/services/read') {
+                        elseif ($_SERVER['REQUEST_URI'] === '/login') {
                             echo
-                            '<li class="nav-item">
-                                <a class="nav-link" href="/admin">Dashboard</a>
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout">Logout</a>
+                                <a class="nav-link" href="/home">Accueil</a>
                             </li>
                             ';
                         }
-                        ?>
-                        <?php
-                        if ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
+                        elseif ($_SERVER['REQUEST_URI'] === '/services') {
                             echo
-                            '<li class="nav-item">
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="services">Prestations<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="home">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="occasions">Occasions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="login">Login</a>
+                            </li>';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="occasions">Occasions<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="home">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="services">Prestations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="login">Login</a>
+                            </li>';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="occasions">Occasions<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/occasions/create') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="occasions">Nouveau véhicule<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="avis">Avis<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/notices/create') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="occasions">Nouvel avis<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="messages">Messages<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/employed/read">Employés<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/admin">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout">Logout</a>
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/employed/create') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/employed/read">Nouvel employé<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/services/read">Prestations<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/services/create') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/services/read">Nouvel préstation<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            ';
+                        }
+                        elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
+                            echo
+                            '
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/openTimes/read">Horaires<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
                         }
@@ -434,8 +515,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/admin') {
+} elseif ($_SERVER['REQUEST_URI'] === '/admin') {
     echo '
             <section class="slider_section">
                 <div class="container">
@@ -479,8 +559,51 @@ elseif ($_SERVER['REQUEST_URI'] === '/admin') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/user') {
+    echo'
+            <section class="slider_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="detail-box">
+                                <div class="logo">
+                                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+                                </div>
+                                <h1>
+                                    Bienvenue <br>
+                                    <span>
+                                        Employé
+                                    </span>
+                                </h1>
+                                <h2>Voici votre 
+                                    <span>
+                                        Dashboard
+                                    </span>
+                                </h2>
+                                <h3>
+                                    Choisissez un élément à modifier:
+                                </h3>
+                                <div class="btn-box">
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="occasions/read" class="btn-2 col-md-6">Véhicules d\'Occasions</a>
+                                    </div>
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="notices/read" class="btn-2 col-md-6">Avis Clientèle</a>
+                                    </div>
+                                    <div class="btn-crud">
+                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
+                                        <a href="messages/read" class="btn-2 col-md-6">Les messages</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        ';
+}elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
     echo '
             <section class="slider_section">
                 <div class="container">
@@ -508,8 +631,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
     echo '
             <section class="slider_section">
                 <div class="container">
@@ -531,8 +653,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
+} elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
     echo '
             <section class="slider_section ">
                 <div class="container">
@@ -557,8 +678,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/services') {
+} elseif ($_SERVER['REQUEST_URI'] === '/services') {
     echo '
             <section class=" slider_section ">
                 <div class="container">
@@ -579,8 +699,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/services') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
     echo '
             <section class="slider_section">
                 <div class="container">
@@ -609,8 +728,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
     echo '
             <section class="slider_section">
                 <div class="container">
@@ -638,8 +756,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
     echo '
             <section class="slider_section">
                 <div class="container">
@@ -671,8 +788,7 @@ elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
                 </div>
             </section>
         ';
-}
-elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
     echo '
             <section class="slider_section">
                 <div class="container">

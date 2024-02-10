@@ -21,6 +21,9 @@
             </tbody>
         </table>
     </div>
+    <div>
+        <p>Fermé dimanche et jours fériés</p>
+    </div>
     <p>
         &copy; <span id="currentYear"></span> All Rights Reserved.
     </p>

@@ -11,6 +11,7 @@ class NoticesController extends Controller
         $db->query("SELECT * FROM avis");
         return $db->resultSet();
     }
+    
     public function read()
     {
         $sql = 'SELECT * FROM avis';

@@ -67,6 +67,7 @@ class App {
         $this->router->addRoute('messages/delete/action', 'MessagesController@removeMessages');
 
         $this->router->addRoute('login/auth', 'LoginController@authenticate');
+        $this->router->addRoute('logout', 'LogoutController');
     }
 
     /**

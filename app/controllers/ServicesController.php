@@ -1,25 +1,29 @@
 <?php
 
 use MyApp\Controller;
+use MyApp\Database;
 
 require_once 'FooterController.php';
 
 class ServicesController extends Controller
 {
-    /**
-     * Display the index page.
-     */
     public function index()
     {
         $sql = 'SELECT * FROM prestations';
         $this->db->query($sql);
-
         $data['openTimes'] = FooterController::getOpeningHours();
         $data['prestations'] = $this->db->resultSet();
         $data['title'] = "Services";
         $this->template('header', $data);
         $this->view('services/services', $data);
         $this->template('footer', $data);
+    }
+
+    public static function getServices()
+    {
+        $db = new Database();
+        $db->query("SELECT * FROM prestations");
+        return $db->resultSet();
     }
 
     public function read()

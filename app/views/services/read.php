@@ -5,6 +5,7 @@
             <th scope="col">nom</th>
             <th scope="col">description</th>
             <th scope="col">prix</th>
+            <th scope="col">actions</th>
         </tr>
     </thead>
     <tbody>

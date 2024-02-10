@@ -440,15 +440,6 @@ a:focus {
 }
 
 /* employed read */
-.employedTable {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
-}
-
 table tr {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
@@ -464,7 +455,7 @@ table th {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   table {
     border: 0;
   }
@@ -491,6 +482,7 @@ table th {
     display: block;
     font-size: 0.8em;
     text-align: right;
+    text-align: left;
   }
   table td::before {
     /*
@@ -1015,15 +1007,18 @@ table th {
   text-align: center;
 }
 .opening-time table {
-  color: rgba(254, 254, 255, 0.7);
   text-align: center;
   margin: auto;
   padding: 5px;
 }
 .opening-time table tr td {
+  background-color: #1c1c1c;
+  color: rgba(254, 254, 255, 0.7);
   padding: 3px;
 }
 .opening-time table tr th {
+  background-color: #1c1c1c;
+  color: rgba(254, 254, 255, 0.7);
   padding: 3px;
 }
 .footer_section p {

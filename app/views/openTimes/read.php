@@ -1,3 +1,4 @@
+<h5> Fermé le dimanche et jours fériés</h5>
 <table>
     <thead>
         <tr>
@@ -5,6 +6,7 @@
             <th scope="col">jour</th>
             <th scope="col">ouverture</th>
             <th scope="col">fermeture</th>
+            <th scope="col">ations</th>
         </tr>
     </thead>
     <tbody>
@@ -22,5 +24,4 @@
         <?php endforeach;
         ?>
     </tbody>
-    <tfooter> Fermé le dimanche et jours fériés</tfooter>
 </table>

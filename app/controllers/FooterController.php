@@ -2,11 +2,6 @@
 
 use MyApp\Database;
 
-/**
- * FooterController Class
- *
- * Represents the controller for the admin-related functionality.
- */
 class FooterController
 {
     public static function getOpeningHours()

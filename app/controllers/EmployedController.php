@@ -105,6 +105,8 @@ class EmployedController extends Controller
         $password = $_POST['password'];
         $role = $_POST['role'];
 
+        $newPassword = password_hash($password, PASSWORD_DEFAULT);
+
         $this->db->query("SELECT * FROM user WHERE id = :id");
         $this->db->bind(":id", $id);
         $isUserExist = $this->db->single();
@@ -112,12 +114,11 @@ class EmployedController extends Controller
             return $this->redirect('/employed/read');
         }
 
-        $this->db->query("UPDATE user SET name = :name, lastname = :lastname, email = :email, role = :role WHERE id = :id");
-        // $this->db->query("UPDATE user SET (name = :name, lastname = :lastname, email = :email, password = :password, role = :role WHERE id = :id");
+        $this->db->query("UPDATE user SET name = :name, lastname = :lastname, email = :email, password = :newPassword, role = :role WHERE id = :id");
 
         $this->db->bind(":id", $id);
         $this->db->bind(":email", $email);
-        // $this->db->bind(":password", password_hash($password, PASSWORD_DEFAULT));
+        $this->db->bind(":newPassword", $newPassword);
         $this->db->bind(":name", $name);
         $this->db->bind(":lastname", $lastname);
         $this->db->bind(":role", $role);

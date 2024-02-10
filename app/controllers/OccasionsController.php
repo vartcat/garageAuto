@@ -6,9 +6,6 @@ require_once 'FooterController.php';
 
 class OccasionsController extends Controller
 {
-    /**
-     * Display the index page.
-     */
     public function index()
     {
         $sql = 'SELECT * FROM occasions';
@@ -19,14 +16,14 @@ class OccasionsController extends Controller
         $data['title'] = "Occasions";
         $this->template('header', $data);
         $this->view('occasions/occasions', $data);
-        $this->template('footer', $data);
+        $this->template('footer', $data);   
     }
 
     public function read()
     {
         $sql = 'SELECT * FROM occasions';
         $this->db->query($sql);
-
+        
         $data['occasions'] = $this->db->resultSet();
         $data['title'] = "OccasionsCrud";
         $this->template('header', $data);
@@ -43,18 +40,41 @@ class OccasionsController extends Controller
 
     public function addOccasions()
     {
+        $ret        = false;
+        $img_taille = 0;
+        $taille_max = 250000;
+        $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
+
+        if (!$ret) {
+            echo "Problème de transfert";
+            return false;
+        } else {
+            // Le fichier a bien été reçu
+            $img_taille = $_FILES['fic']['size'];
+
+            if ($img_taille > $taille_max) {
+                echo "Trop gros !";
+                return false;
+            }
+        }
+
+        $img_blob = file_get_contents($_FILES['fic']['tmp_name']);
+
         $modele = $_POST['modele'];
         $annee = $_POST['annee'];
+        $boite = $_POST['boite'];
         $description = $_POST['description'];
         $carburant = $_POST['carburant'];
         $kilometre = $_POST['kilometre'];
         $prix = $_POST['prix'];
 
-        $this->db->query('INSERT INTO occasions (modele, annee, description, carburant, kilometre, prix) VALUES (:modele, :annee, :description, :carburant, :kilometre, :prix)');
+        $this->db->query('INSERT INTO occasions (img_blob, modele, annee, boite, description, carburant, kilometre, prix) 
+        VALUES (:img_blob, :modele, :annee, :boite, :description, :carburant, :kilometre, :prix)');
 
-        // Insert new record into the contacts table
+        $this->db->bind(":img_blob", $img_blob);
         $this->db->bind(":modele", $modele);
         $this->db->bind(":annee", $annee);
+        $this->db->bind(":boite", $boite);
         $this->db->bind(":description", $description);
         $this->db->bind(":carburant", $carburant);
         $this->db->bind(":kilometre", $kilometre);

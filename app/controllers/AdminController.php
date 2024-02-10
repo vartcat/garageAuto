@@ -3,16 +3,9 @@
 use MyApp\Controller;
 
 session_start();
-/**
- * AdminController Class
- *
- * Represents the controller for the admin-related functionality.
- */
+
 class AdminController extends Controller
 {
-    /**
-     * Display the index page.
-     */
     public function index()
     {
         if($_SESSION['admin']) {

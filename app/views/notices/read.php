@@ -7,6 +7,7 @@
             <th scope="col">email</th>
             <th scope="col">avis</th>
             <th scope="col">status</th>
+            <th scope="col">actions</th>
         </tr>
     </thead>
     <tbody>

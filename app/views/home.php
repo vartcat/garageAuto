@@ -269,6 +269,15 @@
                                     <input type="text" class="form-control" name="sujet" placeholder="sujet du message (*)" value="" required>
                                 </div>
                                 <div class="form-group">
+                                    <select name="services" id="service-select">
+                                        <option value="">--Quel service voulez-vous contacter?--</option>
+                                        <?php foreach ($prestations as $prestation) : ?>
+                                            <option value="name"><?= $prestation['name'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="Ecrivez votre message ici (*)" value="" required></textarea>
                                 </div>
                                 <div class="form-group">
