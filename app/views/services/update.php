@@ -6,7 +6,7 @@
         <h3 class="text-whitesmoke">Modifier la prestation ' <?= $prestations['name'] ?> '</h3>
         <div class="container-content">
             <form method="POST" class="margin-t" action="/services/update/action">
-                <input type="hidden" name="action" value="<?= $prestations['id'] ?>">
+                <input type="hidden" name="id" value="<?= $prestations['id'] ?>">
                 <div class="form-group">
                     <input type="text" class="form-control" name="name" placeholder="nom du service (*)" value="<?= $prestations['name'] ?>" required>
                 </div>

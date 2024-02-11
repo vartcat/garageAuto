@@ -4,6 +4,7 @@ use MyApp\Controller;
 use MyApp\Database;
 
 require_once 'FooterController.php';
+require_once 'MessagesController.php';
 
 class ServicesController extends Controller
 {

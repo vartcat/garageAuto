@@ -250,40 +250,40 @@
             <div class="">
                 <div class="row">
                     <div class="col-md-7 mx-auto">
-                        <form method="POST" class="margin-t" action="/messages/create/add">
+                        <form method="POST" class="margin-t" action="/messages/add">
                             <input type="hidden" name="action" value="addMessages">
                             <div class="contact_form-container">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="prénom (*)" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="lastname" placeholder="nom (*)" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="email@example.com (*)" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="telephone" placeholder="0612345678 (*)" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="sujet" placeholder="sujet du message (*)" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <select name="services" id="service-select">
+                                <div>
+                                    <div>
+                                        <input type="text" class="form-control" name="name" placeholder="Prénom (*)" value="" required />
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control" name="lastname" placeholder="Nom (*)" value="" required />
+                                    </div>
+                                    <div>
+                                        <input type="email" class="form-control" name="email" placeholder="Email (*)" value="" required />
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control" name="telephone" placeholder="Numéro de téléphone" />
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control" name="sujet" placeholder="Sujet du message" />
+                                    </div>
+                                    <select class="form-control" name="service" id="service-select">
                                         <option value="">--Quel service voulez-vous contacter?--</option>
                                         <?php foreach ($prestations as $prestation) : ?>
                                             <option value="name"><?= $prestation['name'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    <div>
+                                        <textarea rows="4" cols="50" type="textarea" class="form-control" placeholder="message" class="message_input" name="message"></textarea>
+                                    </div>
+                                    <div class="btn-box ">
+                                        <button type="submit">
+                                            Envoyer
+                                        </button>
+                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="Ecrivez votre message ici (*)" value="" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <p class="">(*) champs obligatoires</p>
-                                </div>
-                                <button type="submit" class="form-button button-l margin-b">Envoyer</button>
                             </div>
                         </form>
                     </div>
@@ -298,10 +298,11 @@
         </div>
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>
-                    Votre avis nous est précieux !<br>
-                    Partagez votre expérience
+                <h2>Partagez votre expérience
                 </h2>
+                <h3> Votre avis nous est précieux !
+                </h3>
+
             </div>
             <div class="">
                 <div class="row">
@@ -318,21 +319,20 @@
                                 <input type="email" class="form-control" name="email" placeholder="email@example.com (*)" value="" required>
                             </div>
                             <div class="form-group">
-                                <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="votre avis ici ..." value=""></textarea>
+                                <textarea rows="4" cols="50" type="textarea" class="form-control" name="avis" placeholder="votre avis ici ..." value=""></textarea>
                             </div>
                             <div class="form-group">
-                                <div class="select-container">
-                                    <label>Notez votre garage:</label>
-                                    <select name="rating">
+                                <div class="form-control-select-note">
+                                    <label class="fa fa-star"> Notez votre garage:</label>
+                                    <select name="note">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
-                                    <p>/5</p>
+                                    <p class="note-max">/5</p>
                                 </div>
-                                
                             </div>
                             <div class="form-group">
                                 <p class="">(*) champs obligatoires</p>

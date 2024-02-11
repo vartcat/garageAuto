@@ -15,7 +15,7 @@ class Controller
     }
 
     /**
-     * Render a view file with optional data.
+     * view.
      *
      * @param string $viewName The name of the view file to render.
      * @param array $data (Optional) Data to be passed to the view.
@@ -33,8 +33,7 @@ class Controller
     }
 
     /**
-     * Render a template file with optional data.
-     *
+     * template.
      * @param string $viewName The name of the template file to render.
      * @param array $data (Optional) Data to be passed to the template.
      */
@@ -51,8 +50,7 @@ class Controller
     }
 
     /**
-     * Load and instantiate a model.
-     *
+     * model.
      * @param string $model The name of the model to load.
      * @return object An instance of the specified model.
      */
@@ -63,8 +61,7 @@ class Controller
     }
 
     /**
-     * Redirect to a specified URL.
-     *
+     * URL.
      * @param string $url The URL to redirect to.
      */
     public function redirect($url)

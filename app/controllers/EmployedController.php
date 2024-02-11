@@ -4,14 +4,10 @@ use MyApp\Controller;
 
 class EmployedController extends Controller
 {
-    /**
-     * Display the index page.
-     */
     public function read()
     {
         $sql = 'SELECT * FROM user';
         $this->db->query($sql);
-
         $data['users'] = $this->db->resultSet();
         $data['title'] = "Employed";
         $this->template('header', $data);

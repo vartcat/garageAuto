@@ -61,8 +61,7 @@ class App {
         $this->router->addRoute('employed/update/action', 'EmployedController@updateEmployed');
 
         $this->router->addRoute('messages/read', 'MessagesController@read');
-        $this->router->addRoute('messages/create', 'MessagesController@create');
-        $this->router->addRoute('messages/create/add', 'MessagesController@addMessages');
+        $this->router->addRoute('messages/add', 'MessagesController@addMessages');
         $this->router->addRoute('messages/delete/#id', 'MessagesController@delete');
         $this->router->addRoute('messages/delete/action', 'MessagesController@removeMessages');
 
@@ -71,7 +70,7 @@ class App {
     }
 
     /**
-     * Runs the application.
+     * Run l'application.
      */
     public function run() {
 

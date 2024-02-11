@@ -7,6 +7,7 @@
             <th scope="col">email</th>
             <th scope="col">avis</th>
             <th scope="col">status</th>
+            <th scope="col">note</th>
             <th scope="col">actions</th>
         </tr>
     </thead>
@@ -19,9 +20,14 @@
                 <td><?= $notice['email'] ?></td>
                 <td><?= $notice['avis'] ?></td>
                 <td><?= $notice['status'] ?></td>
+                <td><?= $notice['note'] ?></td>
                 <td>
-                    <!-- mettre condition pour afficher icone validate : afficher si status=standing -->
-                    <a href="validate/<?= urlencode($notice['id']) ?>" class="edit"><i class="material-icons">check</i></a>
+                    <?php if ($notice['status'] == 'standing') : ?>
+                        <form method="POST" action="/notices/validate/action">
+                            <a href="validate/<?= urlencode($notice['id']) ?>" class="edit"><i class="material-icons">check</i></a>
+                        </form>
+                    <?php endif; ?>
+
                     <a href="delete/<?= urlencode($notice['id']) ?>" class="delete"><i class="material-icons">&#xE872;</i></a>
                 </td>
             </tr>

@@ -157,7 +157,9 @@ body {
 }
 
 /* Container */
-
+.error-text{
+    color: red;
+}
 .container-content {
   background-color: #3a3a3aa2;
   color: inherit;

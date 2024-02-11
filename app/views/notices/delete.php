@@ -6,7 +6,7 @@
             </div>
             <div class="">
 
-            <span>Etes-vous sur de vouloir supprimer l'avis de <?= ucfirst($notice['name']) ?> ?</span>
+            <span>Etes-vous sur de vouloir supprimer l'avis de <?= ucfirst($data['name']) ?> ?</span>
             </div>
             <form method="POST" action="/notices/delete/action">
             <input type="hidden" name="id" value="<?= $data['id'] ?>">

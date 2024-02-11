@@ -4,16 +4,17 @@ use MyApp\Controller;
 
 require_once 'FooterController.php';
 require_once 'NoticesController.php';
-// require_once 'ServicesController.php';
+require_once 'ServicesController.php';
 
 class HomeController extends Controller
 {
     public function index()
     {
         $data['title'] = "Home";
-        $data['openTimes'] = FooterController::getOpeningHours();
+        $data['services'] = ServicesController::getServices();
         $data['notices'] = NoticesController::getNotices();
-        // $data['services'] = ServicesController::getServices();
+        $data['openTimes'] = FooterController::getOpeningHours();
+        
 
         $this->template('header', $data);
         $this->view('home', $data);

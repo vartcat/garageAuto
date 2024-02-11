@@ -16,7 +16,7 @@
                             <p class="card-text"><?= $prestation['description'] ?></p>
                             <p class="card-bottom">à partir de : <?= $prestation['price'] ?>€</p>
                             <div class="btn-box">
-                                <a href="#contact" class="btn-2"> Contact </a>
+                            <a href="#contact" class="btn-2 contact-btn" data-service="<?= $prestation['name'] ?>"> Contact </a>
                             </div>
                         </div>
                     </div>
@@ -40,26 +40,33 @@
         <div class="">
             <div class="row">
                 <div class="col-md-7 mx-auto">
-                    <form action="#">
+                <form method="POST" class="margin-t" action="/messages/add">
+                <input type="hidden" name="action" value="addMessages">
                         <div class="contact_form-container">
                             <div>
                                 <div>
-                                    <input type="text" placeholder="Nom & Prénom" />
+                                    <input type="text" class="form-control" name="name"placeholder="Prénom (*)" value="" required />
                                 </div>
                                 <div>
-                                    <input type="email" placeholder="Email" />
+                                    <input type="text" class="form-control" name="lastname" placeholder="Nom (*)" value="" required/>
                                 </div>
                                 <div>
-                                    <input type="text" placeholder="Numéro de téléphone" />
+                                    <input type="email" class="form-control" name="email" placeholder="Email (*)" value="" required/>
                                 </div>
-                                <select name="services" id="service-select">
+                                <div>
+                                    <input type="text" class="form-control" name="telephone" placeholder="Numéro de téléphone" />
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" name="sujet" placeholder="Sujet du message" />
+                                </div>
+                                <select class="form-control" name="service" id="service-select">
                                     <option value="">--Quel service voulez-vous contacter?--</option>
                                     <?php foreach ($prestations as $prestation) : ?>
-                                        <option value="name"><?= $prestation['name'] ?></option>
+                                        <option value="<?= $prestation['name'] ?>" class="service-option"><?= $prestation['name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <div class="">
-                                    <input type="text" placeholder="Message" class="message_input" />
+                                <div>
+                                    <textarea rows="4" cols="50" type="textarea" class="form-control" placeholder="message" class="message_input" name="message"></textarea>
                                 </div>
                                 <div class="btn-box ">
                                     <button type="submit">

@@ -16,36 +16,39 @@ class MessagesController extends Controller
     }
     public function addMessages()
     {
-        $name = $_POST['name'];
-        $lastname = $_POST['lastname'];
-        $email = $_POST['email'];
-        $telephone = $_POST['telephone'];
-        $sujet = $_POST['sujet'];
-        $message = $_POST['message'];
+        $name = htmlspecialchars($_POST['name']);
+        $lastname = htmlspecialchars($_POST['lastname']);
+        $email = htmlspecialchars($_POST['email']);
+        $telephone = htmlspecialchars($_POST['telephone']);
+        $service = htmlspecialchars($_POST['service']);
+        $sujet = htmlspecialchars($_POST['sujet']);
+        $message = htmlspecialchars($_POST['message']);
 
-        $this->db->query('INSERT INTO message (name, lastname, email, telephone, sujet, message) VALUES (:name, :lastname, :email, :telephone, :sujet, :message)');
+        $this->db->query('INSERT INTO messages (name, lastname, email, telephone, service, sujet, message) VALUES (:name, :lastname, :email, :telephone, :service, :sujet, :message)');
 
         $this->db->bind(":name", $name);
         $this->db->bind(":lastname", $lastname);
         $this->db->bind(":email", $email);
-        $this->db->bind(":telephone", $telephone);
+        $this->db->bind(":telephone", $telephone, PDO::PARAM_INT);
+        $this->db->bind(":service", $service);
         $this->db->bind(":sujet", $sujet);
         $this->db->bind(":message", $message);
 
         $this->db->execute();
 
-        $this->redirect('/messages/read');
+        $data['title'] = "Messages";
+        $this->view('/messages/merci', $data);
     }
     public function delete()
     {
         $uri = $_SERVER['REQUEST_URI'];
         $segment = explode('/', rtrim($uri, '/'));
         $data['id'] = end($segment);
-        
+
         $this->db->query("SELECT * FROM messages WHERE id = :id");
         $this->db->bind(":id", $data['id']);
         $data['messages'] = $this->db->single();
-        
+
         $data['title'] = "Messages";
         $this->template('header', $data);
         $this->view('/messages/delete', $data);

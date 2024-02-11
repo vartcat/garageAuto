@@ -6,7 +6,7 @@
         <h3 class="text-whitesmoke">Modifier les horaires du <?= $horaires['jour'] ?></h3>
         <div class="container-content">
             <form method="POST" class="margin-t" action="/openTimes/update/action">
-                <input type="hidden" name="action" value="<?= $horaires['id'] ?>">
+                <input type="hidden" name="id" value="<?= $horaires['id'] ?>">
                 <div class="form-group">
                     <input type="text" class="form-control" name="jour" placeholder="jour (*)" value="<?= $horaires['jour'] ?>">
                 </div>
