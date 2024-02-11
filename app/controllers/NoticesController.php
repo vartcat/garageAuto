@@ -38,8 +38,9 @@ class NoticesController extends Controller
         $email = $_POST['email'];
         $avis = $_POST['avis'];
         $status = 'standing';
+        $note = $_POST['rating'];
 
-        $this->db->query('INSERT INTO avis (name, lastname, email, avis, status) VALUES (:name, :lastname, :email, :avis, :status)');
+        $this->db->query('INSERT INTO avis (name, lastname, email, avis, status, note) VALUES (:name, :lastname, :email, :avis, :status, :note)');
 
         // Insert new record into the contacts table
         $this->db->bind(":name", $name);
@@ -47,6 +48,7 @@ class NoticesController extends Controller
         $this->db->bind(":email", $email);
         $this->db->bind(":avis", $avis);
         $this->db->bind(":status", $status);
+        $this->db->bind(":note", $note);
 
         $this->db->execute();
 
@@ -98,6 +100,8 @@ class NoticesController extends Controller
         $email = $_POST['email'];
         $avis = $_POST['avis'];
         $status = 'validate';
+        $note = $_POST['rating'];
+
 
         $this->db->query("SELECT * FROM avis WHERE id = :id");
         $this->db->bind(":id", $id);
@@ -106,14 +110,16 @@ class NoticesController extends Controller
             return $this->redirect('/notices/read');
         }
 
-        $this->db->query("UPDATE avis SET name = :name, lastname = :lastname, email = :email, avis = :avis, status = :status WHERE id = :id");
+        $this->db->query("UPDATE avis SET name = :name, lastname = :lastname, email = :email, avis = :avis, status = :status, note = :note WHERE id = :id");
 
         $this->db->bind(":id", $id);
-        $this->db->bind(":email", $email);
         $this->db->bind(":name", $name);
         $this->db->bind(":lastname", $lastname);
+        $this->db->bind(":email", $email);
         $this->db->bind(":avis", $avis);
         $this->db->bind(":status", $status);
+        $this->db->bind(":note", $note);
+
 
 
         $this->db->execute();

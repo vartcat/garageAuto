@@ -82,7 +82,7 @@ class ServicesController extends Controller
         $this->template('header', $data);
         $this->view('/services/update', $data);
     }
-    public function updateEmployed()
+    public function updateServices()
     {
         $id = $_POST['id'];
         $name = $_POST['name'];

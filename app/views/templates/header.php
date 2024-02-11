@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
     <link href="../../public/css/login.css" rel="stylesheet" />
-    <link href="../../public/css/employedCrud.css" rel="stylesheet" />
     <link href="../../public/css/style.css" rel="stylesheet" />
     <link href="../../public/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../../public/css/responsive.css" rel="stylesheet" />
 </head>
 <?php
-if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI'] === '/') {
+if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'] === '/') {
     echo '
         <div class="hero_area">
         <!-- header section strats -->
@@ -24,6 +23,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'home') !== false || $_SERVER['REQUEST_URI']
                     <img src="public/pictures/garage4.jpg">
                 </div>
             </div>
+        
     ';
 } elseif ($_SERVER['REQUEST_URI'] === '/admin') {
     echo '

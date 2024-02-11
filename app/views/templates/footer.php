@@ -31,7 +31,6 @@
 
 <!-- script JS -->
 
-<script src="<?= BASEURL ?>/js/script.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/custom.js"></script>

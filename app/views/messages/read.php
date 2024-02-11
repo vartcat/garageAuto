@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">date</th>
+            <th scope="col">date reçu</th>
             <th scope="col">nom</th>
             <th scope="col">prénom</th>
             <th scope="col">email</th>
@@ -16,7 +16,7 @@
         <?php foreach ($messages as $message) : ?>
             <tr>
                 <td><?= $message['id'] ?></td>
-                <td><?= $message['date'] ?></td>
+                <td><?= $message['registerDate'] ?></td>
                 <td><?= $message['name'] ?></td>
                 <td><?= $message['lastname'] ?></td>
                 <td><?= $message['email'] ?></td>

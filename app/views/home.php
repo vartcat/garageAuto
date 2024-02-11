@@ -27,7 +27,7 @@
                         </p>
                         <div class="btn-box">
                             <a href="services">
-                                Prestations
+                                -> Voir nos prestations
                             </a>
                         </div>
                     </div>
@@ -321,15 +321,18 @@
                                 <textarea rows="4" cols="50" type="textarea" class="form-control" name="description" placeholder="votre avis ici ..." value=""></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Notez votre garage :</label>
-                                <select name="rating">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <p>/5</p>
+                                <div class="select-container">
+                                    <label>Notez votre garage:</label>
+                                    <select name="rating">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <p>/5</p>
+                                </div>
+                                
                             </div>
                             <div class="form-group">
                                 <p class="">(*) champs obligatoires</p>
