@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $data['title'] = "Home";
-        $data['services'] = ServicesController::getServices();
+        $data['prestations'] = ServicesController::getServices();
         $data['notices'] = NoticesController::getNotices();
         $data['openTimes'] = FooterController::getOpeningHours();
         

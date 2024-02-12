@@ -1,18 +1,19 @@
 <section class="occasions_section layout_padding">
-    <div class="TitreFilter">
-        <h4>Filtrez votre recherche</h4>
-    </div>
-    <div class="sliderContent">
-        <div id="slider">
-            <h6> - kilométrage - </h6>
-            <?php include_once "../app/views/templates/kilometersSlider.html"; ?>
+    <div class="filterBox">
+        <div class="TitreFilter">
+            <h4>Filtrez votre recherche</h4>
         </div>
-        <div id="sliderPrice">
-            <h6> - prix - </h6>
-            <?php include_once "../app/views/templates/pricesSlider.html"; ?>
+        <div class="sliderContent">
+            <div id="slider">
+                <h6> - kilométrage - </h6>
+                <?php include_once "../app/views/templates/kilometersSlider.html"; ?>
+            </div>
+            <div id="sliderPrice">
+                <h6> - prix - </h6>
+                <?php include_once "../app/views/templates/pricesSlider.html"; ?>
+            </div>
         </div>
-    </div>
-    <div class="filtersContent">
+        <div class="filtersContent">
         <div class="filterListEnergie">
             <h6> - énergie - </h6>
             <select class="filters" name="carburant" id="carburant">
@@ -22,6 +23,7 @@
                 <option value="électrique">électrique</option>
             </select>
         </div>
+        <button class="btnRefreshPage" onclick="refreshPage()">Rafraîchir les filtres</button>
         <div class="filterListBoite">
             <h6> - boîte - </h6>
             <select class="filters" name="boite" id="boite">
@@ -31,6 +33,8 @@
             </select>
         </div>
     </div>
+    </div>
+    
     <div class="container" id="cars-container"></div>
 </section>
 
@@ -116,7 +120,7 @@
         carsContainer.innerHTML =
             occasionsFilteredByRange.map((occasion) => (
                 `<div class="row">
-                    <div class="col-md-6 px-0">
+                    <div class="col-md-3 px-0">
                         <div class="img_container">
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
@@ -125,47 +129,24 @@
                                             <img class="card-img" src="../../public/pictures/${occasion['modele']}.jpg" alt="">
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <div class="img-box">
-                                            <img class="card-img" src="../../public/pictures/${occasion['modele']}1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="img-box">
-                                            <img class="card-img" src="../../public/pictures/${occasion['modele']}2.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="img-box">
-                                            <img class="card-img" src="../../public/pictures/${occasion['modele']}3.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel_btn-box">
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        <span class="sr-only">Next</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 px-0">
+                    <div class="col-md-8 px-0">
                         <div class="detail-box">
                             <div class="heading_container ">
                                 <h2 class="card-title">${occasion['modele']}</h2>
                             </div>
                             <h3 class="card-title">${occasion['annee']}</h3>
-                            <p class="card-text">${occasion['description']}</p>
-                            <p class="card-text">${occasion['kilometre']} km</p>
-                            <p class="card-text">${occasion['prix']} €</p>
-                            <div class="btn-box">
-                                <a href="#contact"> contactez vendeur </a>
-                            </div>
+                            <p class="card-description">${occasion['description']}</p>
+                            <p class="card-kilometre">${occasion['kilometre']} km</p>
+                            <p class="card-prix">${occasion['prix']} €</p>
+                        </div>
+                    </div>
+                    <div class="col-md-1 px-0">
+                        <div class="btn-box">
+                            <a href="#contact"> contactez vendeur </a>
                         </div>
                     </div>
                 </div>`
@@ -198,4 +179,9 @@
     }
 
     updateData();
+</script>
+<script>
+    function refreshPage() {
+        location.reload(); // Cette fonction actualise la page
+    }
 </script>

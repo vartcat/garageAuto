@@ -9,8 +9,6 @@
             ?>
             <form enctype="multipart/form-data" method="POST" class="margin-t" action="/occasions/create/add">
                 <input type="hidden" name="action" value="addOccasions">
-                <input type="hidden" name="MAX_FILE_SIZE" value="250000" />
-                <input type="file" name="fic" size=50 />
                 <div class="form-group">
                     <input type="text" class="form-control" name="modele" placeholder="modèle (*)" value="" required>
                 </div>

@@ -2,21 +2,25 @@
     <div class="container">
         <?php foreach ($prestations as $prestation) : ?>
             <div class="row">
-                <div class="col-md-6 px-0">
+                <div class="col-md-3 px-0">
                     <div class="img_container">
                         <div class="img-box">
                             <img class="card-img" src="../../public/pictures/<?= $prestation['name'] ?>.jpg" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 px-0">
+                <div class="col-md-9 px-0">
                     <div class="detail-box">
                         <div class="heading_container ">
                             <h1 class="card-title"><?= $prestation['name'] ?></h1>
                             <p class="card-text"><?= $prestation['description'] ?></p>
-                            <p class="card-bottom">à partir de : <?= $prestation['price'] ?>€</p>
-                            <div class="btn-box">
-                            <a href="#contact" class="btn-2 contact-btn" data-service="<?= $prestation['name'] ?>"> Contact </a>
+                            <div class="cardBottom">
+                                <div class="cardPrice">
+                                    <p class="card-bottom">à partir de : <?= $prestation['price'] ?>€</p>
+                                </div>
+                                <div class="btn-box">
+                                    <a href="#contact" class="btn-2 contact-btn" data-service="<?= $prestation['name'] ?>"> Contact </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -40,18 +44,18 @@
         <div class="">
             <div class="row">
                 <div class="col-md-7 mx-auto">
-                <form method="POST" class="margin-t" action="/messages/add">
-                <input type="hidden" name="action" value="addMessages">
+                    <form method="POST" class="margin-t" action="/messages/add">
+                        <input type="hidden" name="action" value="addMessages">
                         <div class="contact_form-container">
                             <div>
                                 <div>
-                                    <input type="text" class="form-control" name="name"placeholder="Prénom (*)" value="" required />
+                                    <input type="text" class="form-control" name="name" placeholder="Prénom (*)" value="" required />
                                 </div>
                                 <div>
-                                    <input type="text" class="form-control" name="lastname" placeholder="Nom (*)" value="" required/>
+                                    <input type="text" class="form-control" name="lastname" placeholder="Nom (*)" value="" required />
                                 </div>
                                 <div>
-                                    <input type="email" class="form-control" name="email" placeholder="Email (*)" value="" required/>
+                                    <input type="email" class="form-control" name="email" placeholder="Email (*)" value="" required />
                                 </div>
                                 <div>
                                     <input type="text" class="form-control" name="telephone" placeholder="Numéro de téléphone" />

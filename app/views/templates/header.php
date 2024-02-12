@@ -165,7 +165,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                     <span class=""></span>
                 </button>
                 <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-                    <ul class="navbar-nav  ">
+                    <ul id="navCustom" class="navbar-nav">
                         <?php
                         if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                             echo

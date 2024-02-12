@@ -177,53 +177,26 @@
 
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                <?php 
+                    <?php
                     foreach ($notices as $index => $notice) {
                         if ($notice['status'] == 'validate') {
                             echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
                                     <div class='box'>
                                         <div class='detail-box'>";
-                                            echo " <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
+                            echo " <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
                                                     <p>" . $notice['avis'] . "</p>
                                         </div>
                                         <div style='display:flex;'>";
-                                            for ($i = 0; $i < 5; $i++) {
-                                                echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
-                                            }
-                                            echo "</div>
-                                            <p>". $notice['note'] ." / 5</p>
+                            for ($i = 0; $i < 5; $i++) {
+                                echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
+                            }
+                            echo "</div>
+                                            <p>" . $notice['note'] . " / 5</p>
                                         </div>
                                     </div>";
-                                }
-                            }
-                            ?>
-                    <!-- <?php foreach ($notices as $index => $notice) {
-                        if ($notice['status'] == 'validate') {
-                            echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
-                                <div class='box'>
-                                    <div class='detail-box'>
-                                        for ($i = 0; $i < 5; $i++) {
-                                            echo <div class='fa fa-star'></div>;
-                                        }
-
-                                        <div class='fa fa-star'>
-                                            " . $notice['note'] . " 
-                                        </div>
-                                        <p class='note-max'>
-                                            
-                                        </p>
-                                        <h4>
-                                            " . $notice['name'] . " " . $notice['lastname'] . "
-                                        </h4>
-                                        
-                                        <p>
-                                            " . $notice['avis'] . "
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>";
                         }
-                    } ?> -->
+                    }
+                    ?>
 
                     <div class="carousel_btn-box">
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -274,11 +247,11 @@
                                         <input type="text" class="form-control" name="sujet" placeholder="Sujet du message" />
                                     </div>
                                     <select class="form-control" name="service" id="service-select">
-                                        <option value="">--Quel service voulez-vous contacter?--</option>
-                                        <?php foreach ($prestations as $prestation) : ?>
-                                            <option value="name"><?= $prestation['name'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <option value="">--Quel service voulez-vous contacter?--</option>
+                                    <?php foreach ($prestations as $prestation) : ?>
+                                        <option value="<?= $prestation['name'] ?>" class="service-option"><?= $prestation['name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                                     <div>
                                         <textarea rows="4" cols="50" type="textarea" class="form-control" placeholder="message" class="message_input" name="message"></textarea>
                                     </div>

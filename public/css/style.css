@@ -1,5 +1,8 @@
-body {
+* {
   font-family: "Barlow", sans-serif;
+}
+
+body {
   color: #0c0c0c;
   background-color: #ffffff;
 }
@@ -59,11 +62,12 @@ body {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-
-html body div.hero_area section.slider_section div.container div.row div.col-md-7 div.detail-box h2
+.navbar-collapse.ml-auto {
+  top: 50px;
+}
 /* header section */
 .hero_area {
-  min-height: 500px;
+  min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,11 +93,11 @@ html body div.hero_area section.slider_section div.container div.row div.col-md-
   justify-content: center;
 }
 .hero_bg_box .img-box {
-  width: 100vw;
+  /* width: 100vw; */
 }
 .hero_bg_box .img-box img {
   object-fit: cover;
-  width: 100%;
+  width: 130%;
   min-height: 100vh;
 }
 .hero_bg_box::before {
@@ -712,9 +716,16 @@ input[type="range"] {
 .filtersContent {
   display: flex;
 }
+.filterBox {
+  background-color: rgba(28, 28, 28, 0.5);
+  padding: 10px;
+  padding-bottom: 30px;
+}
 .filterListEnergie {
   width: 50%;
   text-align: center;
+  margin: auto;
+  align-items: center;
 }
 .filterListBoite {
   width: 50%;
@@ -741,34 +752,104 @@ input[type="range"] {
   border-bottom: solid 1px #f1db25;
 }
 
+#carburant.form-control {
+  width: 200px;
+  margin: auto;
+}
+#boite.form-control {
+  width: 200px;
+  margin: auto;
+}
+
+.btnRefreshPage {
+  display: inline-block;
+  padding: 10px 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #f1db25;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px;
+}
+
 /* occasions section */
-#cars-container.container {
-  margin-top: 40px;
+
+.occasions_section.layout_padding div#cars-container {
+  border-top: solid 1px #f1db25;
 }
-.occasions_section .row {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
-  background-color: #ffffff;
-  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-  border-radius: 5px;
+.occasions_section.layout_padding div#cars-container .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 30px;
+  padding-top: 20px;
 }
-.occasions_section .detail-box {
-  width: 100%;
-  background-color: #ffffff;
-  padding: 10px;
-  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+
+.occasions_section.layout_padding div#cars-container .col-md-3,
+.col-md-8 {
   position: relative;
+  width: 90%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
-.occasions_section .detail-box p {
-  margin-top: 5px;
+
+.occasions_section.layout_padding div#cars-container .img_container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
-.occasions_section .detail-box a {
+
+.occasions_section.layout_padding div#cars-container .img-box {
+  width: 100%;
+  height: auto;
+  text-align: right;
+}
+
+.occasions_section.layout_padding div#cars-container .card-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 200px; /* Limite la hauteur de l'image à 200px */
+}
+
+.occasions_section.layout_padding div#cars-container .detail-box {
+  border-bottom-right-radius: 25px;
+  color: #f0f0f0;
+  padding: 10px;
+  background-color: rgba(28, 28, 28, 0.5);
+  max-width: 100%;
+  max-height: 200px; /* Limite la hauteur du détail à 200px */
+  overflow: hidden; /* Cache le contenu qui dépasse */
+}
+
+.occasions_section.layout_padding div#cars-container .card-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem; /* Taille de police responsive */
+}
+
+.occasions_section.layout_padding div#cars-container .card-description {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem; /* Taille de police responsive */
+  max-height: 200px; /* Limite la hauteur du texte à 200px */
+  overflow: scroll; /* Cache le texte qui dépasse */
+}
+.occasions_section.layout_padding div#cars-container .card-kilometre {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem; /* Taille de police responsive */
+}
+.occasions_section.layout_padding div#cars-container .card-prix {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem; /* Taille de police responsive */
+  text-align: right;
+}
+
+.occasions_section.layout_padding div#cars-container .btn-box a {
   display: inline-block;
   padding: 10px 35px;
   background-color: #f1db25;
@@ -777,11 +858,61 @@ input[type="range"] {
   transition: all 0.3s;
   border: 1px solid transparent;
   text-transform: uppercase;
+  text-align: center;
+  margin-left: 10px;
+  border-radius: 5px;
 }
-.occasions_section .detail-box a:hover {
+.occasions_section.layout_padding div#cars-container .btn-box a:hover {
   background-color: transparent;
   border-color: #f1db25;
   color: #f1db25;
+}
+
+/* Pour les écrans plus petits, ajustez la taille de la police */
+@media (max-width: 768px) {
+  .occasions_section.layout_padding div#cars-container.container {
+    text-align: center;
+  }
+
+  .occasions_section.layout_padding div#cars-container .col-md-8 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .occasions_section.layout_padding div#cars-container .card-title {
+    font-size: 1.1rem;
+  }
+
+  .occasions_section.layout_padding div#cars-container .card-text {
+    font-size: 0.9rem;
+  }
+
+  .occasions_section.layout_padding div#cars-container .card-description {
+    font-size: 0.9rem;
+    border-bottom-left-radius: 25px;
+  }
+  .occasions_section.layout_padding div#cars-container .card-prix {
+    font-size: 0.9rem;
+  }
+}
+
+/* Pour les écrans encore plus petits, ajustez davantage la taille de la police */
+@media (max-width: 576px) {
+  .occasions_section.layout_padding div#cars-container .card-title {
+    font-size: 1rem;
+  }
+
+  .occasions_section.layout_padding div#cars-container .card-text {
+    font-size: 0.8rem;
+  }
+  .occasions_section.layout_padding div#cars-container .card-description {
+    font-size: 0.8rem;
+  }
+  .occasions_section.layout_padding div#cars-container .card-prix {
+    font-size: 0.8rem;
+  }
 }
 
 /* prestations section */
@@ -804,7 +935,7 @@ input[type="range"] {
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
   position: relative;
-  margin-left: -45px;
+  margin-left: -20px;
 }
 .prestations_section .detail-box p {
   margin-top: 5px;
@@ -826,49 +957,62 @@ input[type="range"] {
 }
 
 /* service section */
-.service_section {
-  background-color: #1c1c1c;
+
+.prestations_section.layout_padding .container .row {
+  background-color: rgba(28, 28, 28, 0.5);
+  border-radius: 10px;
 }
-.service_section .heading_container {
-  color: #ffffff;
+.prestations_section.layout_padding .detail-box {
+  height: 200px;
+  padding: 5px;
+  padding-left: 50px;
+  border-radius: 5px;
+  background-color: rgba(28, 28, 28, 0.5);
+  color: #f0f0f0;
 }
-.service_section .box {
-  background-color: #ffffff;
-  padding: 25px 15px;
-  text-align: center;
-  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-  margin-top: 45px;
+.prestations_section.layout_padding .img_container .img-box .card-img {
+  border-radius: 5px;
 }
-.service_section .box .img-box svg {
-  width: 75px;
-  height: auto;
-  fill: #1c1c1c;
+.prestations_section.layout_padding .detail-box .heading_container {
+  height: 100%;
+  margin: auto;
 }
-.service_section .box .detail-box {
-  margin-top: 25px;
-}
-.service_section .box .detail-box h6 {
-  font-size: 18px;
-  font-weight: bold;
+.prestations_section.layout_padding .detail-box .heading_container .card-title {
+  font-size: 32px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  font-weight: 400;
 }
-.service_section .box .detail-box a {
-  display: inline-block;
-  padding: 8px 35px;
-  background-color: #f1db25;
-  color: #ffffff;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: 1px solid transparent;
-  margin-top: 10px;
+.prestations_section.layout_padding .detail-box .heading_container .card-text {
+  font-size: 14px;
+  height: 100px;
+  overflow: scroll;
 }
-.service_section .box .detail-box a:hover {
-  background-color: transparent;
-  border-color: #f1db25;
+.prestations_section.layout_padding .detail-box .heading_container .cardBottom {
+  display: flex;
+}
+.prestations_section.layout_padding
+  .detail-box
+  .heading_container
+  .cardBottom
+  .cardPrice {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 22px;
   color: #f1db25;
 }
+.prestations_section.layout_padding .detail-box .heading_container .btn-box {
+  text-align: right;
+}
+.prestations_section.layout_padding
+  .detail-box
+  .heading_container
+  .btn-box
+  .contact-btn {
+  border-radius: 5px;
+}
+
+/* client section */
+
 .client_section {
   text-align: center;
   color: #ffffff;
@@ -953,6 +1097,7 @@ input[type="range"] {
 }
 
 /* service delete */
+
 .deleteContent {
   width: max-content;
   margin: auto;
@@ -966,6 +1111,7 @@ input[type="range"] {
 }
 
 /* notices validate */
+
 .validateContent {
   width: max-content;
   margin: auto;
@@ -979,8 +1125,7 @@ input[type="range"] {
 }
 
 /* contact section */
-.contact_section.layout_padding {
-}
+
 .contact_section {
   position: relative;
   color: #ffffff;
@@ -1095,6 +1240,7 @@ input[type="range"] {
 }
 
 /* team section */
+
 .team_section.layout_padding {
   margin-bottom: 50px;
 }
@@ -1153,12 +1299,14 @@ input[type="range"] {
 }
 
 /* client section */
+
 .client_section.layout_padding {
   margin-bottom: 50px;
   background-color: rgba(241, 219, 37, 0.5);
 }
 
 /* notices section */
+
 .notices_section.layout_padding {
   background-color: rgba(241, 219, 37, 0.3);
 }
@@ -1274,13 +1422,11 @@ input[type="range"] {
     rgba(0, 0, 0, 0.35)
   );
 }
-
 .notices_section .form-control-select-note {
   height: max-content;
   text-align: center;
   display: flex;
 }
-
 .notices_section .form-control-select-note select {
   min-width: 100px;
   max-width: 100px;
@@ -1334,6 +1480,7 @@ input[type="range"] {
 }
 
 /* footer section*/
+
 .footer_section {
   display: flex;
   justify-content: center;
@@ -1347,7 +1494,6 @@ input[type="range"] {
   height: 100px;
   min-width: 300px;
 }
-
 .footer_logo p {
   margin-bottom: -60px;
   margin-left: 60px;
@@ -1367,19 +1513,16 @@ input[type="range"] {
   flex: 1;
   text-align: center;
 }
-
 .opening-time table {
   margin: auto;
   padding: 5px;
 }
-
 .opening-time table tr td,
 .opening-time table tr th {
   background-color: #1c1c1c;
   color: rgba(254, 254, 255, 0.7);
   padding: 3px;
 }
-
 .back-to-top {
   flex: 1;
   text-align: right;
