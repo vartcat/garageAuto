@@ -1,6 +1,9 @@
 <footer class="container-fluid footer_section">
+    <div class="footer_logo">
+        <p>Garage V.Parrot</p>
+        <img src="/public/pictures/logo.png" alt="Logo" class="logo">
+    </div>
     <div class="opening-time">
-        <h3>Horaires d'ouverture :</h3>
         <table>
             <thead>
                 <tr>
@@ -16,21 +19,11 @@
                         <td><?= $openTime['ouverture'] ?></td>
                         <td><?= $openTime['fermeture'] ?></td>
                     </tr>
-                <?php endforeach;
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-    <div>
-        <p>Fermé dimanche et jours fériés</p>
+    <div class="back-to-top">
+        <a href="#top">Retour en haut de page</a>
     </div>
-    <p>
-        &copy; <span id="currentYear"></span> All Rights Reserved.
-    </p>
 </footer>
-
-<!-- script JS -->
-
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/custom.js"></script>

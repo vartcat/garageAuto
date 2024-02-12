@@ -174,63 +174,67 @@
                     Avis de nos clients
                 </h2>
             </div>
+
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="box">
-                            <div class="detail-box">
-                                <h4>
-                                    Minim Veniam
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco laboris nisi ut aliquip
-                                </p>
-                            </div>
-                        </div>
+                <?php 
+                    foreach ($notices as $index => $notice) {
+                        if ($notice['status'] == 'validate') {
+                            echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
+                                    <div class='box'>
+                                        <div class='detail-box'>";
+                                            echo " <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
+                                                    <p>" . $notice['avis'] . "</p>
+                                        </div>
+                                        <div style='display:flex;'>";
+                                            for ($i = 0; $i < 5; $i++) {
+                                                echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
+                                            }
+                                            echo "</div>
+                                            <p>". $notice['note'] ." / 5</p>
+                                        </div>
+                                    </div>";
+                                }
+                            }
+                            ?>
+                    <!-- <?php foreach ($notices as $index => $notice) {
+                        if ($notice['status'] == 'validate') {
+                            echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
+                                <div class='box'>
+                                    <div class='detail-box'>
+                                        for ($i = 0; $i < 5; $i++) {
+                                            echo <div class='fa fa-star'></div>;
+                                        }
+
+                                        <div class='fa fa-star'>
+                                            " . $notice['note'] . " 
+                                        </div>
+                                        <p class='note-max'>
+                                            
+                                        </p>
+                                        <h4>
+                                            " . $notice['name'] . " " . $notice['lastname'] . "
+                                        </h4>
+                                        
+                                        <p>
+                                            " . $notice['avis'] . "
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>";
+                        }
+                    } ?> -->
+
+                    <div class="carousel_btn-box">
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <div class="carousel-item ">
-                        <div class="box">
-                            <div class="detail-box">
-                                <h4>
-                                    Minim Veniam
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco laboris nisi ut aliquip
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="box">
-                            <div class="detail-box">
-                                <h4>
-                                    Minim Veniam
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco laboris nisi ut aliquip
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel_btn-box">
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
         </div>

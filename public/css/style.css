@@ -60,6 +60,7 @@ body {
   transform: translateX(-50%);
 }
 
+html body div.hero_area section.slider_section div.container div.row div.col-md-7 div.detail-box h2
 /* header section */
 .hero_area {
   min-height: 500px;
@@ -189,6 +190,7 @@ body {
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link,
 .custom_nav-container .navbar-nav .nav-item.active .nav-link {
   background-color: #1c1c1c;
+  border-bottom: solid 1px #f1db25;
 }
 a,
 a:hover,
@@ -218,9 +220,19 @@ a:focus {
   align-items: center;
 }
 .navbar-brand span {
+  margin-bottom: -60px;
+  margin-left: 5px;
+  text-align: left;
+  height: 50px;
   font-weight: bold;
-  color: #ffffff;
-  font-size: 24px;
+  color: #fff;
+  font-size: 32px;
+  font-family: "Protest Riot", sans-serif;
+  font-style: normal;
+}
+.navbar-brand img {
+  width: 200px;
+  height: 200px;
 }
 .custom_nav-container .navbar-toggler {
   outline: none;
@@ -273,7 +285,18 @@ a:focus {
 }
 
 /* slider section */
-.slider_section {
+html
+  body
+  div.hero_area
+  header.header_section
+  div.header_bottom
+  div.container-fluid
+  nav.navbar.navbar-expand-lg.custom_nav-container
+  div#navbarSupportedContent.collapse.navbar-collapse.ml-auto
+  ul.navbar-nav
+  li.nav-item.active
+  a.nav-link
+  .slider_section {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -422,6 +445,7 @@ a:focus {
 }
 .about_section .detail-box p {
   margin-top: 5px;
+  color: #f0f0f0;
 }
 .about_section .detail-box a {
   display: inline-block;
@@ -1251,108 +1275,112 @@ input[type="range"] {
   );
 }
 
-.notices_section .form-control-select-note{
-    height: max-content;
-    text-align: center;
-    display: flex;
+.notices_section .form-control-select-note {
+  height: max-content;
+  text-align: center;
+  display: flex;
 }
 
-.notices_section .form-control-select-note select{
-    min-width: 100px;
-    max-width: 100px;
-    text-align: center;
-    width: 50px;
-    padding: 5px;
+.notices_section .form-control-select-note select {
+  min-width: 100px;
+  max-width: 100px;
+  text-align: center;
+  width: 50px;
+  padding: 5px;
 }
-/* Style pour le label */
 .notices_section label {
-    font-weight: bold;
-    text-transform: uppercase;
-    padding-right: 50px;
-    font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-right: 50px;
+  font-size: 32px;
 }
-
-/* Style pour le paragraphe */
 .notices_section .form-control-select-note p.note-max {
-    min-width: 50px;
-    font-size: 32px;
-    color: #f1db25;
-    padding-left: 20px;
+  min-width: 50px;
+  font-size: 32px;
+  color: #f1db25;
+  padding-left: 20px;
 }
 .notices_section .form-group p {
-    text-align: center;
-    text-decoration: underline; /* Souligné */
-    font-size: 18px;
-
+  text-align: center;
+  text-decoration: underline; /* Souligné */
+  font-size: 18px;
 }
-/* Style pour le sélecteur de notes */
 .notices_section .form-group select[name="rating"] {
-    width: 50px;
-    padding: 10px 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    font-size: 16px;
-    color: #555;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-    flex: 1; /* Le sélecteur de notes occupe tout l'espace disponible */
+  width: 50px;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  flex: 1; /* Le sélecteur de notes occupe tout l'espace disponible */
 }
-
 .notices_section .form-group select[name="rating"]:hover {
-    border-color: #aaa;
+  border-color: #aaa;
 }
-
 .notices_section .form-group select[name="rating"]:focus {
-    outline: none;
-    border-color: #f1db25;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+  border-color: #f1db25;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-
 .notices_section .form-group select[name="rating"] option {
-    background-color: #fff;
-    color: #555;
+  background-color: #fff;
+  color: #555;
 }
-
 .notices_section .form-group select[name="rating"] option:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
-
-
-
 
 /* footer section*/
 .footer_section {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
+  display: flex;
   justify-content: center;
   padding: 20px;
   background-color: #1c1c1c;
   color: rgba(254, 254, 255, 0.7);
 }
+.footer_logo {
+  flex: 1;
+  width: 100px;
+  height: 100px;
+  min-width: 300px;
+}
+
+.footer_logo p {
+  margin-bottom: -60px;
+  margin-left: 60px;
+  text-align: left;
+  height: 50px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 32px;
+  font-family: "Protest Riot", sans-serif;
+  font-style: normal;
+}
+.footer_logo img.logo {
+  width: 300px;
+  height: 300px;
+}
 .opening-time {
-  margin: auto;
+  flex: 1;
   text-align: center;
 }
+
 .opening-time table {
-  text-align: center;
   margin: auto;
   padding: 5px;
 }
-.opening-time table tr td {
-  background-color: #1c1c1c;
-  color: rgba(254, 254, 255, 0.7);
-  padding: 3px;
-}
+
+.opening-time table tr td,
 .opening-time table tr th {
   background-color: #1c1c1c;
   color: rgba(254, 254, 255, 0.7);
   padding: 3px;
 }
-.footer_section p {
-  padding-top: 20px;
-  color: rgba(254, 254, 255, 0.7);
-  margin: 0;
-  margin-bottom: 0;
-  text-align: center;
+
+.back-to-top {
+  flex: 1;
+  text-align: right;
 }

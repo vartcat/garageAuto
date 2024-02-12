@@ -131,19 +131,19 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
     <div class="header_top">
         <div class="container-fluid">
             <div class="contact_link-container">
-                <a href="" class="contact_link1">
+            <a href="https://www.google.com/maps/place/1+rue+du+garage,+31000+Toulouse" class="contact_link1">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <span>
                         1 rue du garage, 31000 Toulouse
                     </span>
                 </a>
-                <a href="" class="contact_link2">
+                <a href="tel:+011234567890" class="contact_link2">
                     <i class="fa fa-phone" aria-hidden="true"></i>
                     <span>
                         Tél : +01 1234567890
                     </span>
                 </a>
-                <a href="" class="contact_link3">
+                <a href="mailto:garage.VParrot@gmail.com" class="contact_link3">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
                     <span>
                         garage.VParrot@gmail.com
@@ -155,7 +155,8 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
     <div class="header_bottom">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg custom_nav-container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/home">
+                    <img src="/public/pictures/logo.png" alt="Logo" class="logo">
                     <span>
                         Garage V.Parrot
                     </span>
