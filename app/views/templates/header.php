@@ -506,7 +506,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
             <section class="slider_section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <div class="detail-box">
                                 <div class="logo">
                                     <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
@@ -550,7 +550,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
             <section class="slider_section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <div class="detail-box">
                                 <div class="logo">
                                     <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>

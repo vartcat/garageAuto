@@ -77,6 +77,9 @@ body {
   flex-direction: column;
   position: relative;
 }
+.hero_area table {
+  margin-top: 50px;
+}
 .hero_bg_box {
   position: absolute;
   top: 0;
@@ -92,9 +95,7 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
 }
-.hero_bg_box .img-box {
-  /* width: 100vw; */
-}
+
 .hero_bg_box .img-box img {
   object-fit: cover;
   width: 130%;
@@ -324,7 +325,7 @@ html
   align-items: center;
   height: max-content;
 }
-.slider_section .detail-box {
+section.slider_section .detail-box {
   width: 100%;
   margin: auto;
 }
@@ -338,32 +339,38 @@ html
   color: #ffffff;
   font-weight: 600;
 }
-.slider_section .detail-box h2 {
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  color: #ffffff;
-  font-weight: 600;
-}
 .slider_section .detail-box h1 span {
   color: #f1db25;
 }
+.slider_section .detail-box h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+.slider_section .detail-box h3 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
 .slider_section .detail-box p {
   margin-top: 25px;
   color: #f0f0f0;
 }
-.slider_section .detail-box .btn-box {
+.slider_section .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: inline;
-  margin-top: 30px;
-  width: 100%;
+  margin: auto;
 }
-.slider_section .detail-box .btn-box a {
+.slider_section .btn-box a {
   width: 180px;
   text-align: center;
   margin: 5px;
 }
-.slider_section .detail-box .btn-box .btn-1 {
+.slider_section .btn-1 {
   display: inline-block;
   padding: 10px 35px;
   background-color: #ffffff;
@@ -373,30 +380,38 @@ html
   border: 1px solid transparent;
   border-radius: 25px;
 }
-.slider_section .detail-box .btn-box .btn-1:hover {
+.slider_section .btn-1:hover {
   background-color: transparent;
   border-color: #ffffff;
   color: #ffffff;
 }
-.slider_section .detail-box .btn-box .btn-crud {
+.slider_section .btn-crud {
   display: flex;
-  width: 400px;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
-.slider_section .detail-box .btn-box .btn-crud h2 {
+.slider_section .btn-crud h2 {
   padding: 10px;
-}
-.slider_section .detail-box .btn-box .btn-crud a {
-  margin: auto;
-  font-size: 20px;
+  width: 50%;
+  text-align: right;
+  padding-right: 20px;
 }
 .slider_section .detail-box h2 span {
+  width: 100%;
   color: #f1db25;
   text-transform: uppercase;
 }
-.slider_section .detail-box .btn-box .btn-2 {
+.slider_section .btn-crud a {
+  margin: auto;
+  margin-left: 0;
+  font-size: 20px;
+}
+.fa.fa-arrow-right {
+  font-size: 50px;
+}
+
+.slider_section .btn-2 {
   display: inline-block;
   padding: 10px 35px;
   background-color: #f1db25;
@@ -406,7 +421,7 @@ html
   transition: all 0.3s;
   border: 1px solid transparent;
 }
-.slider_section .detail-box .btn-box .btn-2:hover {
+.slider_section .btn-2:hover {
   background-color: transparent;
   border-color: #f1db25;
   color: #f1db25;
@@ -1025,7 +1040,7 @@ input[type="range"] {
 /* service section */
 
 .service_section .box {
-    text-align: center;
+  text-align: center;
   background-color: rgba(28, 28, 28, 0.5);
   color: #fff;
   padding: 5px;
@@ -1069,17 +1084,17 @@ input[type="range"] {
   height: 100%;
   margin: auto;
 }
-.prestations_section.layout_padding .detail-box .heading_container .card-title {
+.prestations_section .card-title {
   font-size: 32px;
   text-transform: uppercase;
   font-weight: 400;
 }
-.prestations_section.layout_padding .detail-box .heading_container .card-text {
+.prestations_section .card-text {
   font-size: 14px;
   height: 100px;
   overflow: scroll;
 }
-.prestations_section.layout_padding .detail-box .heading_container .cardBottom {
+.prestations_section .cardBottom {
   display: flex;
 }
 .prestations_section.layout_padding
@@ -1092,7 +1107,7 @@ input[type="range"] {
   font-size: 22px;
   color: #f1db25;
 }
-.prestations_section.layout_padding .detail-box .heading_container .btn-box {
+.prestations_section .btn-box {
   text-align: right;
 }
 .prestations_section.layout_padding
