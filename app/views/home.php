@@ -111,26 +111,41 @@
                     Avis de nos clients
                 </h2>
             </div>
-
+            <!-- Début de la div subtitle pour le total des avis -->
+            <div class="subtitle">
+                <p>Total des avis : <span style="color: #f1db25; font-size: 2em;">
+                        <?php
+                        // Calcul du nombre total de notices
+                        $total_notices = 0;
+                        foreach ($notices as $notice) {
+                            if ($notice['status'] == 'validate') {
+                                $total_notices++;
+                            }
+                        }
+                        echo $total_notices;
+                        ?>
+                    </span></p>
+            </div>
+            <!-- Fin de la div subtitle -->
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <?php
                     foreach ($notices as $index => $notice) {
                         if ($notice['status'] == 'validate') {
                             echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
-                                    <div class='box'>
-                                        <div class='detail-box'>";
+                                <div class='box'>
+                                    <div class='detail-box'>";
                             echo " <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
-                                                    <p>" . $notice['avis'] . "</p>
-                                        </div>
-                                        <div style='display:flex;'>";
+                                            <p>" . $notice['avis'] . "</p>
+                                    </div>
+                                    <div style='display:flex;'>";
                             for ($i = 0; $i < 5; $i++) {
                                 echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
                             }
                             echo "</div>
-                                            <p>" . $notice['note'] . " / 5</p>
-                                        </div>
-                                    </div>";
+                                        <p>" . $notice['note'] . " / 5</p>
+                                    </div>
+                                </div>";
                         }
                     }
                     ?>
@@ -213,7 +228,6 @@
         </div>
     </section>
 
-    
     <!-- contact section -->
     <section class="contact_section layout_padding">
         <div id="contact" class="contact_bg_box">
@@ -248,11 +262,11 @@
                                         <input type="text" class="form-control" name="sujet" placeholder="Sujet du message" />
                                     </div>
                                     <select class="form-control" name="service" id="service-select">
-                                    <option value="">--Quel service voulez-vous contacter?--</option>
-                                    <?php foreach ($prestations as $prestation) : ?>
-                                        <option value="<?= $prestation['name'] ?>" class="service-option"><?= $prestation['name'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                        <option value="">--Quel service voulez-vous contacter?--</option>
+                                        <?php foreach ($prestations as $prestation) : ?>
+                                            <option value="<?= $prestation['name'] ?>" class="service-option"><?= $prestation['name'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <div>
                                         <textarea rows="4" cols="50" type="textarea" class="form-control" placeholder="message" class="message_input" name="message"></textarea>
                                     </div>
@@ -315,7 +329,9 @@
                             <div class="form-group">
                                 <p class="">(*) champs obligatoires</p>
                             </div>
-                            <button type="submit" class="form-button button-l margin-b">Envoyer</button>
+                            <div class="btn-box ">
+                                <button type="submit">Partagez</button>
+                            </div>
                         </form>
                     </div>
                 </div>

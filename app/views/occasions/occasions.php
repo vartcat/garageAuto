@@ -1,57 +1,61 @@
-<section class="occasions_section layout_padding">
-    <div class="filterBox">
-        <div class="TitreFilter">
-            <h4>Filtrez votre recherche parmis nos véhicules</h4>
-        </div>
-        <div class="sliderContent">
-            <div id="slider">
-                <h6> - kilométrage - </h6>
-                <?php include_once "../app/views/templates/kilometersSlider.html"; ?>
-            </div>
-            <div id="sliderPrice">
-                <h6> - prix - </h6>
-                <?php include_once "../app/views/templates/pricesSlider.html"; ?>
-            </div>
-        </div>
-        <div class="filtersContent">
-            <div class="filterListEnergie">
-                <h6> - énergie - </h6>
-                <select class="filters" name="carburant" id="carburant">
-                    <option value="null"> - séléctionner l'énergie - </option>
-                    <option value="diesel">diesel</option>
-                    <option value="essence">essence</option>
-                    <option value="électrique">électrique</option>
-                </select>
-            </div>
-            <div class="RefressPage">
-                <button class="btnRefreshPage" onclick="refreshPage()">Rafraîchir les filtres</button>
-            </div>
-            <div class="filterListBoite">
-                <h6> - boîte - </h6>
-                <select class="filters" name="boite" id="boite">
-                    <option value="null"> - séléctionner la boîte - </option>
-                    <option value="automatique">automatique</option>
-                    <option value="manuelle">manuelle</option>
-                </select>
-            </div>
-        </div>
-    </div>
+<body>
+    <!-- filter section -->
 
-    <div class="container" id="cars-container"></div>
-</section>
-
-<!-- contact section -->
-<section class="contact_section layout_padding">
-    <div id="contact" class="contact_bg_box">
-    </div>
-    <div class="container">
-        <div class="heading_container heading_center">
-            <h2>
-                Vous recherchez un modèle en particulier ?<br>
-                Demandez-nous
-            </h2>
+    <section class="occasions_section layout_padding">
+        <div class="filterBox">
+            <div class="TitreFilter">
+                <h4>Filtrez votre recherche parmis nos véhicules</h4>
+            </div>
+            <div class="sliderContent">
+                <div id="slider">
+                    <h6> - kilométrage - </h6>
+                    <?php include_once "../app/views/templates/kilometersSlider.html"; ?>
+                </div>
+                <div id="sliderPrice">
+                    <h6> - prix - </h6>
+                    <?php include_once "../app/views/templates/pricesSlider.html"; ?>
+                </div>
+            </div>
+            <div class="filtersContent">
+                <div class="filterListEnergie">
+                    <h6> - énergie - </h6>
+                    <select class="filters" name="carburant" id="carburant">
+                        <option value="null"> - séléctionner l'énergie - </option>
+                        <option value="diesel">diesel</option>
+                        <option value="essence">essence</option>
+                        <option value="électrique">électrique</option>
+                    </select>
+                </div>
+                <div class="RefressPage">
+                    <button class="btnRefreshPage" onclick="refreshPage()">Rafraîchir les filtres</button>
+                </div>
+                <div class="filterListBoite">
+                    <h6> - boîte - </h6>
+                    <select class="filters" name="boite" id="boite">
+                        <option value="null"> - séléctionner la boîte - </option>
+                        <option value="automatique">automatique</option>
+                        <option value="manuelle">manuelle</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <div class="">
+
+        <div class="container" id="cars-container"></div>
+    </section>
+
+    <!-- contact section -->
+
+    <section class="contact_section layout_padding">
+        <div id="contact" class="contact_bg_box">
+        </div>
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Vous recherchez un modèle en particulier ?<br>
+                    Demandez-nous
+                </h2>
+            </div>
+            <div class="">
                 <div class="row">
                     <div class="col-md-7 mx-auto">
                         <form method="POST" class="margin-t" action="/messages/add">
@@ -70,6 +74,16 @@
                                     <div>
                                         <input type="text" class="form-control" name="telephone" placeholder="Numéro de téléphone" />
                                     </div>
+                                    <div class="form-group">
+                                        <select type="text" class="form-control" name="role" placeholder="sujet">
+                                            <option value="search">recherche de voiture</option>    
+                                            <option value="rdv">prendre un rendez-vous</option>
+                                            <option value="tryCar">essayer la voiture</option>
+                                            <option value="soldCar">vendre sa voiture</option>
+                                            <option value="byCar">acheter la voiture</option>
+                                            <option value="NeedInfo">besoin d'informations</option>
+                                        </select>
+                                    </div>
                                     <div>
                                         <textarea rows="4" cols="50" type="textarea" class="form-control" placeholder="Décrivez-nous la voiture de vos rêves ici ..." class="message_input" name="message"></textarea>
                                     </div>
@@ -84,47 +98,49 @@
                     </div>
                 </div>
             </div>
-    </div>
-</section>
+        </div>
+    </section>
 
-<script>
-    const data = {
-        carburant: null,
-        boite: null,
-    };
-    const rangeFilters = {
-        kilometre: {
-            min: Number(document.getElementById('fromSlider').value),
-            max: Number(document.getElementById('toSlider').value)
-        },
-        prix: {
-            min: Number(document.getElementById('fromPriceSlider').value),
-            max: Number(document.getElementById('toPriceSlider').value)
-        },
-    };
+    <!-- content filtered section -->
 
-    function filterByMultipleFields(occasions, filters) {
-        const excludedItems = Object.entries(filters).filter(([, value]) => value);
-        return occasions.filter(occasion => excludedItems.every(([key, value], index) => occasion[key] === value));
-    }
+    <script>
+        const data = {
+            carburant: null,
+            boite: null,
+        };
+        const rangeFilters = {
+            kilometre: {
+                min: Number(document.getElementById('fromSlider').value),
+                max: Number(document.getElementById('toSlider').value)
+            },
+            prix: {
+                min: Number(document.getElementById('fromPriceSlider').value),
+                max: Number(document.getElementById('toPriceSlider').value)
+            },
+        };
 
-    function filterByRange(occasions, filters) {
-        return occasions.filter(occasion => Object.entries(filters).every(([key, value], index) => (
-            Number(occasion[key]) >= value.min && Number(occasion[key]) <= value.max
-        )));
-    }
+        function filterByMultipleFields(occasions, filters) {
+            const excludedItems = Object.entries(filters).filter(([, value]) => value);
+            return occasions.filter(occasion => excludedItems.every(([key, value], index) => occasion[key] === value));
+        }
 
-    function render() {
-        const carsContainer = document.getElementById('cars-container');
-        const occasionsFilteredByRange = filterByRange(<?= json_encode($occasions) ?>, rangeFilters);
+        function filterByRange(occasions, filters) {
+            return occasions.filter(occasion => Object.entries(filters).every(([key, value], index) => (
+                Number(occasion[key]) >= value.min && Number(occasion[key]) <= value.max
+            )));
+        }
 
-        carsContainer.innerHTML = '';
+        function render() {
+            const carsContainer = document.getElementById('cars-container');
+            const occasionsFilteredByRange = filterByRange(<?= json_encode($occasions) ?>, rangeFilters);
 
-        carsContainer.innerHTML = occasionsFilteredByRange.map((occasion) => (
-            `
+            carsContainer.innerHTML = '';
+
+            carsContainer.innerHTML = occasionsFilteredByRange.map((occasion) => (
+                `
             <?php foreach ($occasions as $occasion) : ?>
             <div class="row">
-                <div class="col-md-3 px-0">
+                <div class="col-md-3 px-0 h100px">
                     <div class="img_container">
                         <div id="carouselExampleControls<?= $occasion['id'] ?>" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
@@ -151,54 +167,80 @@
                 </div>
                 <div class="col-md-7 px-0">
                     <div class="detail-box">
-                        <div class="heading_container ">
+                        <div class="heading_container">
                             <h2 class="card-title"><?= $occasion['modele'] ?></h2>
                         </div>
                         <h3 class="card-title"><?= $occasion['annee'] ?></h3>
-                        <p class="card-description"><?= $occasion['description'] ?></p>
-                        <p class="card-kilometre"><?= $occasion['kilometre'] ?> km</p>
-                        <p class="card-prix"><?= $occasion['prix'] ?> €</p>
+                        <p class="card-description"> - <?= ucfirst($occasion['description']) ?></p>
+                        <p class="card-carburant"> - <?= ucfirst($occasion['carburant']) ?></p>
+                        <p class="card-boite"> - <?= ucfirst($occasion['boite']) ?></p>
+                        <div class="footing_container">
+                            <p class="card-kilometre"><?= $occasion['kilometre'] ?> km</p>
+                            <p class="card-prix"><?= $occasion['prix'] ?> €</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-1 px-0">
                     <div class="btn-box">
-                        <a href="#contact"> contactez vendeur </a>
+                        <a href="#contact" class="contact-seller-btn" data-occasion="<?= htmlspecialchars(json_encode($occasion), ENT_QUOTES, 'UTF-8') ?>"> contactez vendeur </a>
                     </div>
                 </div>
             </div>
             <?php endforeach; ?>
             `
-        )).join('');
-    }
+            )).join('');
+        }
 
 
-    function updateData() {
-        const filters = document.querySelectorAll('.filters');
-        const filtersRange = document.querySelectorAll('.filtersRange');
+        function updateData() {
+            const filters = document.querySelectorAll('.filters');
+            const filtersRange = document.querySelectorAll('.filtersRange');
 
-        filters.forEach(filter => filter.addEventListener('change', (e) => {
-            const value = e.target.value;
-            const type = e.target.getAttribute('name');
-            data[type] = value;
+            filters.forEach(filter => filter.addEventListener('change', (e) => {
+                const value = e.target.value;
+                const type = e.target.getAttribute('name');
+                data[type] = value;
+                render();
+            }));
+
+            filtersRange.forEach(filter => filter.addEventListener('change', (e) => {
+                const type = e.target.getAttribute('name');
+                rangeFilters[type] = {
+                    min: fromPriceSlider.valueAsNumber,
+                    max: toPriceSlider.valueAsNumber
+                };
+                render();
+            }));
+
             render();
-        }));
+        }
 
-        filtersRange.forEach(filter => filter.addEventListener('change', (e) => {
-            const type = e.target.getAttribute('name');
-            rangeFilters[type] = {
-                min: fromPriceSlider.valueAsNumber,
-                max: toPriceSlider.valueAsNumber
-            };
-            render();
-        }));
+        updateData();
+    </script>
+    <script>
+        function refreshPage() {
+            location.reload(); // Cette fonction actualise la page
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contactSellerButtons = document.querySelectorAll('.contact-seller-btn');
+            const textarea = document.querySelector('textarea[name="message"]');
 
-        render();
-    }
-
-    updateData();
-</script>
-<script>
-    function refreshPage() {
-        location.reload(); // Cette fonction actualise la page
-    }
-</script>
+            contactSellerButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const occasionData = JSON.parse(this.getAttribute('data-occasion'));
+                    const description = occasionData.modele + ', ' + occasionData.annee + '\n' +
+                        'Description: ' + occasionData.description + '\n' +
+                        'Carburant: ' + occasionData.carburant + '\n' +
+                        'Boite: ' + occasionData.boite + '\n' +
+                        'Kilométrage: ' + occasionData.kilometre + ' km\n' +
+                        'Prix: ' + occasionData.prix + ' €';
+                    textarea.value = description;
+                });
+            });
+        });
+    </script>
+    <script src="/public/js/filterCars.js"></script>
+</body>

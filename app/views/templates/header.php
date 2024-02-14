@@ -23,11 +23,12 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                     <img src="public/pictures/garage4.jpg">
                 </div>
             </div>
+            
         
     ';
 } elseif ($_SERVER['REQUEST_URI'] === '/admin') {
     echo '
-            <div class="hero_area">
+            <div class="hero_areaAdmin">
             <!-- header section strats -->
                 <div class="hero_bg_box">
                     <div class="img-box">
@@ -37,7 +38,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
     ';
 } elseif ($_SERVER['REQUEST_URI'] === '/user') {
     echo '
-            <div class="hero_area">
+            <div class="hero_areaUser">
             <!-- header section strats -->
                 <div class="hero_bg_box">
                     <div class="img-box">
@@ -47,19 +48,21 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
     ';
 } elseif ($_SERVER['REQUEST_URI'] === '/services') {
     echo '
-        <div class="hero_area">
+        <div class="hero_areaServices">
         <!-- header section strats -->
             <div class="hero_bg_box">
                 <div class="img-box">
+                <img src="public/pictures/voiture.jpg">
                 </div>
             </div>
     ';
 } elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
     echo '
-        <div class="hero_area">
+        <div class="hero_areaOccasions">
         <!-- header section strats -->
             <div class="hero_bg_box">
-                <div class="img-box">
+                <div class="img-boxOccasions">
+                    <img src="public/pictures/occasions.jpg">
                 </div>
             </div>
     ';
@@ -672,15 +675,17 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
             <section class=" slider_section ">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <div class="detail-box">
                                 <h1>
                                     Nos prestations <br>
                                     <span>
                                     Qualité & Confiance                                                </span>
                                 </h1>
-                                <div class="btn-box">
+                                <div class="btn-boxServices">
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                     <a href="#contact" class="btn-2"> Prenez rendez-vous </a>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -808,4 +813,3 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
 }
 ?>
 <script src="/public/js/custom.js"></script>
-<script src="/public/js/filterCars.js"></script>
