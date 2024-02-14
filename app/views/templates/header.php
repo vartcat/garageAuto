@@ -131,7 +131,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
     <div class="header_top">
         <div class="container-fluid">
             <div class="contact_link-container">
-            <a href="https://www.google.com/maps/place/1+rue+du+garage,+31000+Toulouse" class="contact_link1">
+                <a href="https://www.google.com/maps/place/1+rue+du+garage,+31000+Toulouse" class="contact_link1">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <span>
                         1 rue du garage, 31000 Toulouse
@@ -188,8 +188,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                             <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
                             </li>';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/admin') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/admin') {
                             echo
                             '
                             <li class="nav-item active">
@@ -208,8 +207,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/user') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/user') {
                             echo
                             '
                             <li class="nav-item active">
@@ -228,8 +226,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/login') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/login') {
                             echo
                             '
                             <li class="nav-item active">
@@ -239,8 +236,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/home">Accueil</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/services') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/services') {
                             echo
                             '
                             <li class="nav-item active">
@@ -258,8 +254,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                             <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
                             </li>';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/occasions') {
                             echo
                             '
                             <li class="nav-item active">
@@ -277,8 +272,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                             <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
                             </li>';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
                             echo
                             '
                             <li class="nav-item active">
@@ -291,8 +285,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/occasions/create') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/occasions/create') {
                             echo
                             '
                             <li class="nav-item active">
@@ -305,8 +298,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/notices/read') {
                             echo
                             '
                             <li class="nav-item active">
@@ -319,8 +311,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/notices/create') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/notices/create') {
                             echo
                             '
                             <li class="nav-item active">
@@ -333,8 +324,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/messages/read') {
                             echo
                             '
                             <li class="nav-item active">
@@ -347,8 +337,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/employed/read') {
                             echo
                             '
                             <li class="nav-item active">
@@ -361,8 +350,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/employed/create') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/employed/create') {
                             echo
                             '
                             <li class="nav-item active">
@@ -375,8 +363,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/services/read') {
                             echo
                             '
                             <li class="nav-item active">
@@ -389,8 +376,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/services/create') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/services/create') {
                             echo
                             '
                             <li class="nav-item active">
@@ -403,8 +389,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/home') !== false || $_SERVER['REQUEST_URI'
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             ';
-                        }
-                        elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
+                        } elseif ($_SERVER['REQUEST_URI'] === '/openTimes/read') {
                             echo
                             '
                             <li class="nav-item active">
@@ -561,7 +546,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
             </section>
         ';
 } elseif ($_SERVER['REQUEST_URI'] === '/user') {
-    echo'
+    echo '
             <section class="slider_section">
                 <div class="container">
                     <div class="row">
@@ -604,7 +589,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                 </div>
             </section>
         ';
-}elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
+} elseif ($_SERVER['REQUEST_URI'] === '/occasions/read') {
     echo '
             <section class="slider_section">
                 <div class="container">
@@ -670,11 +655,14 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                                 <h2>Découvrez votre future voiture dans notre large catalogue
                                     de voitures d’occasion parfaitement reconditionnées !
                                 </h2>
-                                <div class="btn-box">
-                                    <a href="#contact" class="btn-2"> Nous cherchons pour vous </a>
-                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="contactSearchBtn">
+                        <a href="#contact" class="btn-2 fa fa-search"> Nous cherchons pour vous </a>
+                    </div>
+                    <div class="or">
+                        <p> OU </p>
                     </div>
                 </div>
             </section>
@@ -819,3 +807,5 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
         ';
 }
 ?>
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/filterCars.js"></script>

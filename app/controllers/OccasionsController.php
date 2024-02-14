@@ -16,18 +16,31 @@ class OccasionsController extends Controller
         $data['title'] = "Occasions";
         $this->template('header', $data);
         $this->view('occasions/occasions', $data);
-        $this->template('footer', $data);   
+        $this->template('footer', $data);
+    }
+    public function get_photos_by_occasion_id($occasion_id)
+    {
+        $sql = 'SELECT * FROM photos WHERE id_occasion = :occasion_id';
+        $this->db->query($sql);
+        $this->db->bind(':occasion_id', $occasion_id);
+        return $this->db->resultSet();
     }
 
     public function read()
     {
         $sql = 'SELECT * FROM occasions';
         $this->db->query($sql);
-        
-        $data['occasions'] = $this->db->resultSet();
+        $occasions = $this->db->resultSet();
+
+        // Récupérer les photos pour chaque occasion
+        foreach ($occasions as $occasion) {
+            $occasion['photos'] = $this->get_photos_by_occasion_id($occasion['id']);
+        }
+
+        $data['occasions'] = $occasions;
         $data['title'] = "OccasionsCrud";
         $this->template('header', $data);
-        $this->view('/occasions/read', $data);
+        $this->view('occasions/read', $data);
     }
 
 
@@ -40,26 +53,7 @@ class OccasionsController extends Controller
 
     public function addOccasions()
     {
-        $ret        = false;
-        $img_taille = 0;
-        $taille_max = 250000;
-        $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
-
-        if (!$ret) {
-            echo "Problème de transfert";
-            return false;
-        } else {
-            // Le fichier a bien été reçu
-            $img_taille = $_FILES['fic']['size'];
-
-            if ($img_taille > $taille_max) {
-                echo "Trop gros !";
-                return false;
-            }
-        }
-
-        $img_blob = file_get_contents($_FILES['fic']['tmp_name']);
-
+        // Récupération des données de l'occasion depuis le formulaire
         $modele = $_POST['modele'];
         $annee = $_POST['annee'];
         $boite = $_POST['boite'];
@@ -68,10 +62,10 @@ class OccasionsController extends Controller
         $kilometre = $_POST['kilometre'];
         $prix = $_POST['prix'];
 
-        $this->db->query('INSERT INTO occasions (img_blob, modele, annee, boite, description, carburant, kilometre, prix) 
-        VALUES (:img_blob, :modele, :annee, :boite, :description, :carburant, :kilometre, :prix)');
+        // Insertion des données de l'occasion dans la table "occasions"
+        $this->db->query('INSERT INTO occasions (modele, annee, boite, description, carburant, kilometre, prix) 
+    VALUES (:modele, :annee, :boite, :description, :carburant, :kilometre, :prix)');
 
-        $this->db->bind(":img_blob", $img_blob);
         $this->db->bind(":modele", $modele);
         $this->db->bind(":annee", $annee);
         $this->db->bind(":boite", $boite);
@@ -82,19 +76,41 @@ class OccasionsController extends Controller
 
         $this->db->execute();
 
+        // Récupération de l'ID de l'occasion nouvellement insérée
+        $occasionId = $this->db->lastInsertId();
+
+        // Gestion de l'upload des photos
+        foreach ($_FILES['photos']['tmp_name'] as $key => $tmp_name) {
+            // Récupération des données de l'image
+            $image_name = $_FILES['photos']['name'][$key];
+            $image_tmp = $_FILES['photos']['tmp_name'][$key];
+
+            // Lecture de l'image
+            $image_blob = file_get_contents($image_tmp);
+
+            // Insertion de l'image dans la table "photos"
+            $this->db->query('INSERT INTO photos (nom_photo, id_occasion, photo) VALUES (:nom_photo, :id_occasion, :photo)');
+            $this->db->bind(":nom_photo", $image_name);
+            $this->db->bind(":id_occasion", $occasionId);
+            $this->db->bind(":photo", $image_blob);
+            $this->db->execute();
+        }
+
+        // Redirection vers la page de lecture des occasions
         $this->redirect('/occasions/read');
     }
+
 
     public function delete()
     {
         $uri = $_SERVER['REQUEST_URI'];
         $segment = explode('/', rtrim($uri, '/'));
         $data['id'] = end($segment);
-        
+
         $this->db->query("SELECT * FROM occasions WHERE id = :id");
         $this->db->bind(":id", $data['id']);
         $data['occasions'] = $this->db->single();
-        
+
         $data['title'] = "Occasions";
         $this->template('header', $data);
         $this->view('/occasions/delete', $data);
@@ -103,13 +119,20 @@ class OccasionsController extends Controller
     public function removeOccasions()
     {
         $id = $_POST['id'];
-        $this->db->query("DELETE FROM occasions WHERE id = :id");
 
+        // Supprimer les photos associées à l'occasion
+        $this->db->query("DELETE FROM photos WHERE id_occasion = :id");
+        $this->db->bind(":id", $id);
+        $this->db->execute();
+
+        // Supprimer l'occasion
+        $this->db->query("DELETE FROM occasions WHERE id = :id");
         $this->db->bind(":id", $id);
         $this->db->execute();
 
         $this->redirect('/occasions/read');
     }
+
 
     public function update()
     {
@@ -121,10 +144,16 @@ class OccasionsController extends Controller
         $this->db->bind(":id", $data['id']);
         $data['occasions'] = $this->db->single();
 
+        // Sélectionner également les photos associées à l'occasion
+        $this->db->query("SELECT * FROM photos WHERE id_occasion = :id");
+        $this->db->bind(":id", $data['id']);
+        $data['photos'] = $this->db->resultSet();
+
         $data['title'] = "Occasions";
         $this->template('header', $data);
         $this->view('/occasions/update', $data);
     }
+
     public function updateOccasions()
     {
         $id = $_POST['id'];
@@ -135,15 +164,8 @@ class OccasionsController extends Controller
         $kilometre = $_POST['kilometre'];
         $prix = $_POST['prix'];
 
-        $this->db->query("SELECT * FROM occasions WHERE id = :id");
-        $this->db->bind(":id", $id);
-        $isOccasionExist = $this->db->single();
-        if (!$isOccasionExist) {
-            return $this->redirect('/occasions/read');
-        }
-
+        // Mettre à jour les données de l'occasion
         $this->db->query("UPDATE occasions SET modele = :modele, annee = :annee, description = :description, carburant = :carburant, kilometre = :kilometre, prix = :prix WHERE id = :id");
-
         $this->db->bind(":id", $id);
         $this->db->bind(":modele", $modele);
         $this->db->bind(":annee", $annee);
@@ -151,8 +173,34 @@ class OccasionsController extends Controller
         $this->db->bind(":carburant", $carburant);
         $this->db->bind(":kilometre", $kilometre);
         $this->db->bind(":prix", $prix);
-
         $this->db->execute();
+
+        // Gérer l'ajout ou la suppression des photos
+        if (isset($_FILES['photos'])) {
+            foreach ($_FILES['photos']['tmp_name'] as $key => $tmp_name) {
+                $image_name = $_FILES['photos']['name'][$key];
+                $image_tmp = $_FILES['photos']['tmp_name'][$key];
+                $image_blob = file_get_contents($image_tmp);
+
+                // Insérer la nouvelle photo dans la table "photos"
+                $this->db->query('INSERT INTO photos (nom_photo, id_occasion, photo) VALUES (:nom_photo, :id_occasion, :photo)');
+                $this->db->bind(":nom_photo", $image_name);
+                $this->db->bind(":id_occasion", $id);
+                $this->db->bind(":photo", $image_blob);
+                $this->db->execute();
+            }
+        }
+
+        if (isset($_POST['delete_photos'])) {
+            $photosToDelete = $_POST['delete_photos'];
+
+            // Supprimer les photos sélectionnées
+            foreach ($photosToDelete as $photoId) {
+                $this->db->query("DELETE FROM photos WHERE id = :photoId");
+                $this->db->bind(":photoId", $photoId);
+                $this->db->execute();
+            }
+        }
 
         $this->redirect('/occasions/read');
     }

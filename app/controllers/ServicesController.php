@@ -31,7 +31,7 @@ class ServicesController extends Controller
     {
         $sql = 'SELECT * FROM prestations';
         $this->db->query($sql);
-        
+
         $data['prestations'] = $this->db->resultSet();
         $data['title'] = "Services";
         $this->template('header', $data);
@@ -47,28 +47,41 @@ class ServicesController extends Controller
 
     public function addServices()
     {
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
+        $name = $_POST['name'] ?? '';
+        $description = $_POST['description'] ?? '';
+        $price = $_POST['price'] ?? '';
 
-        $this->db->query("SELECT * FROM prestations WHERE name = :name");
-        $this->db->bind(":name", $name);
-        $isPrestationsAlreadyExist = $this->db->single();
-
-        if ($isPrestationsAlreadyExist) {
-            return $this->redirect('/services/create');
+        // Vérifier si les champs obligatoires sont vides
+        if (empty($name) || empty($description) || empty($price) || empty($_FILES['photo']['name'])) {
+            // Redirection vers le formulaire avec un message d'erreur
+            $this->redirect('/services/create', ['error' => 'Tous les champs sont obligatoires.']);
         }
 
-        $this->db->query('INSERT INTO prestations (name, description, price) VALUES (:name, :description, :price)');
+        // Récupérer les informations sur le fichier téléchargé
+        $photo = $_FILES['photo'];
 
-        // Insert new record into the contacts table
+        // Vérifier s'il y a une erreur lors du téléchargement
+        if ($photo['error'] !== UPLOAD_ERR_OK) {
+            // Redirection vers le formulaire avec un message d'erreur
+            $this->redirect('/services/create', ['error' => 'Une erreur s\'est produite lors du téléchargement de la photo.']);
+        }
+
+        // Lire le contenu du fichier téléchargé
+        $photoData = file_get_contents($photo['tmp_name']);
+
+        // Insérer le nouveau service dans la base de données avec les données de l'image
+        $this->db->query('INSERT INTO prestations (name, description, price, photo) VALUES (:name, :description, :price, :photo)');
         $this->db->bind(":name", $name);
         $this->db->bind(":description", $description);
         $this->db->bind(":price", $price);
-
+        $this->db->bind(":photo", $photoData, PDO::PARAM_LOB); // Enregistrer le contenu de l'image
         $this->db->execute();
+
+        // Redirection vers la page de lecture des services
         $this->redirect('/services/read');
     }
+
+
     public function update()
     {
         $uri = $_SERVER['REQUEST_URI'];
@@ -98,26 +111,25 @@ class ServicesController extends Controller
         }
 
         $this->db->query("UPDATE prestations SET name = :name, description = :description, price = :price WHERE id = :id");
-
         $this->db->bind(":id", $id);
         $this->db->bind(":name", $name);
         $this->db->bind(":description", $description);
         $this->db->bind(":price", $price);
-
         $this->db->execute();
 
         $this->redirect('/services/read');
     }
+
     public function delete()
     {
         $uri = $_SERVER['REQUEST_URI'];
         $segment = explode('/', rtrim($uri, '/'));
         $data['id'] = end($segment);
-        
+
         $this->db->query("SELECT * FROM prestations WHERE id = :id");
         $this->db->bind(":id", $data['id']);
         $data['prestations'] = $this->db->single();
-        
+
         $data['title'] = "Services";
         $this->template('header', $data);
         $this->view('/services/delete', $data);

@@ -16,7 +16,7 @@ class App {
     }
 
     protected function defineRoutes() {
-        $this->router->addRoute('', 'HomeController@index');
+        $this->router->addRoute('/', 'HomeController@index');
         $this->router->addRoute('home', 'HomeController@index');
         $this->router->addRoute('occasions', 'OccasionsController@index');
         $this->router->addRoute('services', 'ServicesController@index');

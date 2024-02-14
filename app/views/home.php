@@ -103,6 +103,53 @@
         </div>
     </section>
 
+    <!-- client section -->
+    <section class="client_section layout_padding">
+        <div id="notices" class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Avis de nos clients
+                </h2>
+            </div>
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <?php
+                    foreach ($notices as $index => $notice) {
+                        if ($notice['status'] == 'validate') {
+                            echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
+                                    <div class='box'>
+                                        <div class='detail-box'>";
+                            echo " <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
+                                                    <p>" . $notice['avis'] . "</p>
+                                        </div>
+                                        <div style='display:flex;'>";
+                            for ($i = 0; $i < 5; $i++) {
+                                echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
+                            }
+                            echo "</div>
+                                            <p>" . $notice['note'] . " / 5</p>
+                                        </div>
+                                    </div>";
+                        }
+                    }
+                    ?>
+
+                    <div class="carousel_btn-box">
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- team section -->
     <section class="team_section layout_padding">
         <div class="container">
@@ -166,53 +213,7 @@
         </div>
     </section>
 
-    <!-- client section -->
-    <section class="client_section layout_padding">
-        <div id="notices" class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Avis de nos clients
-                </h2>
-            </div>
-
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <?php
-                    foreach ($notices as $index => $notice) {
-                        if ($notice['status'] == 'validate') {
-                            echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
-                                    <div class='box'>
-                                        <div class='detail-box'>";
-                            echo " <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
-                                                    <p>" . $notice['avis'] . "</p>
-                                        </div>
-                                        <div style='display:flex;'>";
-                            for ($i = 0; $i < 5; $i++) {
-                                echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
-                            }
-                            echo "</div>
-                                            <p>" . $notice['note'] . " / 5</p>
-                                        </div>
-                                    </div>";
-                        }
-                    }
-                    ?>
-
-                    <div class="carousel_btn-box">
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <i class="fa fa-angle-left" aria-hidden="true"></i>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- contact section -->
     <section class="contact_section layout_padding">
         <div id="contact" class="contact_bg_box">
@@ -315,11 +316,11 @@
                                 <p class="">(*) champs obligatoires</p>
                             </div>
                             <button type="submit" class="form-button button-l margin-b">Envoyer</button>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="/public/js/custom.js"></script>
 </body>

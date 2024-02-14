@@ -18,9 +18,6 @@
                                 <div class="cardPrice">
                                     <p class="card-bottom">à partir de : <?= $prestation['price'] ?>€</p>
                                 </div>
-                                <div class="btn-box">
-                                    <a href="#contact" class="btn-2 contact-btn" data-service="<?= $prestation['name'] ?>"> Contact </a>
-                                </div>
                             </div>
                         </div>
                     </div>

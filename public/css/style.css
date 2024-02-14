@@ -238,7 +238,7 @@ a:focus {
   width: 200px;
   height: 200px;
 }
-.custom_nav-container .navbar-toggler {
+.navbar-toggler {
   outline: none;
   padding: 0;
   width: 37px;
@@ -246,7 +246,7 @@ a:focus {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.custom_nav-container .navbar-toggler span {
+.navbar-toggler span {
   display: block;
   width: 32px;
   height: 4px;
@@ -257,8 +257,8 @@ a:focus {
   transition: all 0.3s;
   position: relative;
 }
-.custom_nav-container .navbar-toggler span::before,
-.custom_nav-container .navbar-toggler span::after {
+.navbar-toggler span::before,
+.navbar-toggler span::after {
   content: "";
   position: absolute;
   left: 0;
@@ -270,25 +270,26 @@ a:focus {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.custom_nav-container .navbar-toggler span::after {
+.navbar-toggler span::after {
   top: 10px;
 }
-.custom_nav-container .navbar-toggler[aria-expanded="true"] {
+.navbar-toggler[aria-expanded="true"] {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span {
+.navbar-toggler[aria-expanded="true"] span {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before,
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
+.navbar-toggler[aria-expanded="true"] span::before,
+.navbar-toggler[aria-expanded="true"] span::after {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   top: 0;
 }
 
 /* slider section */
+
 html
   body
   div.hero_area
@@ -337,11 +338,18 @@ html
   color: #ffffff;
   font-weight: 600;
 }
+.slider_section .detail-box h2 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 600;
+}
 .slider_section .detail-box h1 span {
   color: #f1db25;
 }
 .slider_section .detail-box p {
   margin-top: 25px;
+  color: #f0f0f0;
 }
 .slider_section .detail-box .btn-box {
   display: -webkit-box;
@@ -363,6 +371,7 @@ html
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
+  border-radius: 25px;
 }
 .slider_section .detail-box .btn-box .btn-1:hover {
   background-color: transparent;
@@ -391,6 +400,7 @@ html
   display: inline-block;
   padding: 10px 35px;
   background-color: #f1db25;
+  border-radius: 25px;
   color: #ffffff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -434,6 +444,12 @@ html
 .slider_section ol.carousel-indicators li.active {
   background-color: #ffffff;
 }
+
+/* ABOUT */
+
+.about_section .btn-box a {
+  border-radius: 25px;
+}
 .about_section .img_container .img-box img {
   object-fit: cover;
   width: 100%;
@@ -449,7 +465,7 @@ html
 }
 .about_section .detail-box p {
   margin-top: 5px;
-  color: #f0f0f0;
+  color: #000000;
 }
 .about_section .detail-box a {
   display: inline-block;
@@ -468,6 +484,7 @@ html
 }
 
 /* employed read */
+
 table tr {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
@@ -537,6 +554,7 @@ table th {
 }
 
 /* employed delete */
+
 .deleteContent {
   width: max-content;
   margin: auto;
@@ -550,10 +568,11 @@ table th {
 }
 
 /* slider */
+
 .range_container {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 300px;
   margin: 20px auto;
 }
 .sliders_control {
@@ -573,26 +592,27 @@ table th {
   text-align: center;
   -moz-appearance: textfield; /* Firefox */
   appearance: textfield; /* Safari et Chrome */
-  width: 100px;
-  padding: 5px;
+  width: 70px;
   border: 1px solid #ccc;
+  background-color: rgba(28, 28, 28, 0.5);
   border-radius: 5px;
-  color: black;
+  color: #f0f0f0;
   font-size: 16px;
 }
 
 /* slider price */
+
 #fromPriceInput.price_form_control_container__time__input,
 #toPriceInput.price_form_control_container__time__input {
-  width: 100px;
+  width: 70px;
   text-align: center;
   -moz-appearance: textfield; /* Firefox */
   appearance: textfield; /* Safari et Chrome */
-  width: 100px;
   padding: 5px;
   border: 1px solid #ccc;
+  background-color: rgba(28, 28, 28, 0.5);
   border-radius: 5px;
-  color: black;
+  color: #f0f0f0;
   font-size: 16px;
 }
 #sliderPrice {
@@ -603,7 +623,7 @@ table th {
 .price_range_container {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 300px;
   margin: 20px auto;
 }
 .price_sliders_control {
@@ -614,29 +634,33 @@ table th {
   text-align: center;
   position: relative;
   display: flex;
-  margin: auto;
   justify-content: space-between;
   font-size: 16px;
   color: #f7f7f7;
 }
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  pointer-events: all;
-  width: 24px;
-  height: 24px;
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px #c6c6c6;
-  cursor: pointer;
+  width: 10px; /* Largeur réduite */
+  height: 20px; /* Hauteur ajustée */
+  border: 2px solid #f1db25; /* Bordure jaune */
+  border-radius: 0; /* Pas de bord arrondi */
+  background-color: #fff; /* Fond blanc */
+  cursor: pointer; /* Curseur personnalisé */
+  -webkit-appearance: none; /* Supprimer l'apparence native */
 }
 input[type="range"]::-moz-range-thumb {
-  -webkit-appearance: none;
-  pointer-events: all;
-  width: 24px;
-  height: 24px;
+  width: 10px;
+  height: 20px;
+  border: 2px solid #f1db25;
+  border-radius: 0;
   background-color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px #c6c6c6;
+  cursor: pointer;
+}
+input[type="range"]::-ms-thumb {
+  width: 10px;
+  height: 20px;
+  border: 2px solid #f1db25;
+  border-radius: 0;
+  background-color: #fff;
   cursor: pointer;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
@@ -672,21 +696,14 @@ input[type="range"] {
 }
 
 /* slider kilometre */
-.TitreFilter {
-  margin: auto;
-  margin-top: 20px;
-  width: 40%;
-  text-align: center;
-  text-transform: uppercase;
-  color: #f7f7f7;
-  border-bottom: solid 1px #f1db25;
-  margin-bottom: 20px;
-}
+
 .sliderContent {
   display: flex;
 }
 #slider {
   width: 50%;
+  margin: auto;
+  min-width: 300px;
 }
 #slider h6 {
   margin: auto;
@@ -696,9 +713,6 @@ input[type="range"] {
   font-size: 16px;
   color: #f7f7f7;
   border-bottom: solid 1px #f1db25;
-}
-#sliderPrice {
-  width: 50%;
 }
 #sliderPrice h6 {
   margin: auto;
@@ -712,14 +726,37 @@ input[type="range"] {
   text-align: center;
 }
 
-/* filter energie */
+/* filter list / ENERGIE / BOITE */
+
+.filters {
+  color: #f0f0f0;
+  background-color: rgba(28, 28, 28, 0.5);
+  border-radius: 5px;
+  border: solid 1px #f1db25;
+  font-size: 16px;
+  height: 30px;
+}
 .filtersContent {
   display: flex;
+  align-items: center;
 }
 .filterBox {
-  background-color: rgba(28, 28, 28, 0.5);
+  margin: 20px;
   padding: 10px;
   padding-bottom: 30px;
+  border-radius: 25px;
+  border: solid 1px #fff;
+  color: #fff;
+}
+.TitreFilter {
+  margin: auto;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f7f7f7;
+  border-bottom: solid 1px #fff;
+  margin-bottom: 20px;
 }
 .filterListEnergie {
   width: 50%;
@@ -730,6 +767,7 @@ input[type="range"] {
 .filterListBoite {
   width: 50%;
   text-align: center;
+  margin: auto;
 }
 .filterListEnergie h6 {
   margin: auto;
@@ -751,7 +789,6 @@ input[type="range"] {
   color: #f7f7f7;
   border-bottom: solid 1px #f1db25;
 }
-
 #carburant.form-control {
   width: 200px;
   margin: auto;
@@ -760,33 +797,71 @@ input[type="range"] {
   width: 200px;
   margin: auto;
 }
-
+.RefressPage {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: auto;
+  text-align: center;
+}
 .btnRefreshPage {
-  display: inline-block;
   padding: 10px 10px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid #f1db25;
+  background-color: #f1db25;
+  color: #fff;
   text-transform: uppercase;
   text-align: center;
   border-radius: 5px;
 }
+.btnRefreshPage:hover {
+  background-color: transparent;
+  color: #f1db25;
+}
 
 /* occasions section */
-
-.occasions_section.layout_padding div#cars-container {
-  border-top: solid 1px #f1db25;
+.contactSearchBtn {
+  margin: auto;
+  text-align: center;
 }
-.occasions_section.layout_padding div#cars-container .row {
+.contactSearchBtn a {
+  min-width: 350px;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+  padding: 10px 35px;
+  background-color: transparent;
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+.contactSearchBtn a:hover {
+  background-color: #f1db25;
+  border-color: #f1db25;
+  color: #fff;
+}
+.or {
+  height: 50px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 2px;
+  color: #f1db25;
+}
+#cars-container {
+  width: 100%;
+}
+#cars-container .row {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
   margin-top: 30px;
   padding-top: 20px;
 }
-
-.occasions_section.layout_padding div#cars-container .col-md-3,
+#cars-container .col-md-3,
 .col-md-8 {
   position: relative;
   width: 90%;
@@ -794,27 +869,23 @@ input[type="range"] {
   padding-right: 15px;
   padding-left: 15px;
 }
-
-.occasions_section.layout_padding div#cars-container .img_container {
+#cars-container .img_container {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
-
-.occasions_section.layout_padding div#cars-container .img-box {
+#cars-container .img-box {
   width: 100%;
   height: auto;
-  text-align: right;
+  text-align: center;
 }
-
-.occasions_section.layout_padding div#cars-container .card-img {
+#cars-container .card-img {
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: 200px; /* Limite la hauteur de l'image à 200px */
 }
-
-.occasions_section.layout_padding div#cars-container .detail-box {
+#cars-container .detail-box {
   border-bottom-right-radius: 25px;
   color: #f0f0f0;
   padding: 10px;
@@ -823,33 +894,30 @@ input[type="range"] {
   max-height: 200px; /* Limite la hauteur du détail à 200px */
   overflow: hidden; /* Cache le contenu qui dépasse */
 }
-
-.occasions_section.layout_padding div#cars-container .card-title {
+#cars-container .card-title {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 1.25rem; /* Taille de police responsive */
 }
-
-.occasions_section.layout_padding div#cars-container .card-description {
+#cars-container .card-description {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 0.9rem; /* Taille de police responsive */
   max-height: 200px; /* Limite la hauteur du texte à 200px */
   overflow: scroll; /* Cache le texte qui dépasse */
 }
-.occasions_section.layout_padding div#cars-container .card-kilometre {
+#cars-container .card-kilometre {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 1rem; /* Taille de police responsive */
 }
-.occasions_section.layout_padding div#cars-container .card-prix {
+#cars-container .card-prix {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 2rem; /* Taille de police responsive */
   text-align: right;
 }
-
-.occasions_section.layout_padding div#cars-container .btn-box a {
+#cars-container .btn-box a {
   display: inline-block;
   padding: 10px 35px;
   background-color: #f1db25;
@@ -862,18 +930,15 @@ input[type="range"] {
   margin-left: 10px;
   border-radius: 5px;
 }
-.occasions_section.layout_padding div#cars-container .btn-box a:hover {
+#cars-container .btn-box a:hover {
   background-color: transparent;
   border-color: #f1db25;
   color: #f1db25;
 }
-
-/* Pour les écrans plus petits, ajustez la taille de la police */
 @media (max-width: 768px) {
   .occasions_section.layout_padding div#cars-container.container {
     text-align: center;
   }
-
   .occasions_section.layout_padding div#cars-container .col-md-8 {
     position: relative;
     width: 100%;
@@ -884,38 +949,39 @@ input[type="range"] {
   .occasions_section.layout_padding div#cars-container .card-title {
     font-size: 1.1rem;
   }
-
   .occasions_section.layout_padding div#cars-container .card-text {
     font-size: 0.9rem;
   }
-
   .occasions_section.layout_padding div#cars-container .card-description {
     font-size: 0.9rem;
-    border-bottom-left-radius: 25px;
   }
   .occasions_section.layout_padding div#cars-container .card-prix {
     font-size: 0.9rem;
   }
 }
-
-/* Pour les écrans encore plus petits, ajustez davantage la taille de la police */
 @media (max-width: 576px) {
-  .occasions_section.layout_padding div#cars-container .card-title {
+  .sliderContent {
+    display: inline;
+  }
+  .filtersContent {
+    display: inline;
+  }
+  #cars-container .card-title {
     font-size: 1rem;
   }
-
-  .occasions_section.layout_padding div#cars-container .card-text {
+  #cars-container .card-text {
     font-size: 0.8rem;
   }
-  .occasions_section.layout_padding div#cars-container .card-description {
+  #cars-container .card-description {
     font-size: 0.8rem;
   }
-  .occasions_section.layout_padding div#cars-container .card-prix {
+  #cars-container .card-prix {
     font-size: 0.8rem;
   }
 }
 
 /* prestations section */
+
 .prestations_section .row {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -958,6 +1024,16 @@ input[type="range"] {
 
 /* service section */
 
+.service_section .box {
+    text-align: center;
+  background-color: rgba(28, 28, 28, 0.5);
+  color: #fff;
+  padding: 5px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin-bottom: 10px;
+}
+
 .prestations_section.layout_padding .container .row {
   background-color: rgba(28, 28, 28, 0.5);
   border-radius: 10px;
@@ -969,6 +1045,22 @@ input[type="range"] {
   border-radius: 5px;
   background-color: rgba(28, 28, 28, 0.5);
   color: #f0f0f0;
+}
+.service_section .detail-box h6 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 600;
+}
+.service_section .detail-box a {
+  display: inline-block;
+  padding: 10px 35px;
+  background-color: #f1db25;
+  border-radius: 25px;
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid transparent;
 }
 .prestations_section.layout_padding .img_container .img-box .card-img {
   border-radius: 5px;

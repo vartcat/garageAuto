@@ -20,8 +20,8 @@ class MessagesController extends Controller
         $lastname = htmlspecialchars($_POST['lastname']);
         $email = htmlspecialchars($_POST['email']);
         $telephone = htmlspecialchars($_POST['telephone']);
-        $service = htmlspecialchars($_POST['service']);
-        $sujet = htmlspecialchars($_POST['sujet']);
+        $service = 'achat voiture';
+        $sujet = 'achat voiture';
         $message = htmlspecialchars($_POST['message']);
 
         $this->db->query('INSERT INTO messages (name, lastname, email, telephone, service, sujet, message) VALUES (:name, :lastname, :email, :telephone, :service, :sujet, :message)');

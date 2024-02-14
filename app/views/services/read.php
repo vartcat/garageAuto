@@ -3,6 +3,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">nom</th>
+            <th scope="col">photo</th>
             <th scope="col">description</th>
             <th scope="col">prix</th>
             <th scope="col">actions</th>
@@ -13,6 +14,7 @@
             <tr>
                 <td><?= $prestation['id'] ?></td>
                 <td><?= $prestation['name'] ?></td>
+                <td><img src="data:image/jpeg;base64,<?= base64_encode($prestation['photo']) ?>" alt="<?= $prestation['name'] ?>" style="width: 100px; height: 100px;"></td>
                 <td><?= $prestation['description'] ?></td>
                 <td><?= $prestation['price'] ?></td>
                 <td>

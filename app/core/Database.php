@@ -105,31 +105,7 @@ class Database
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    /**
-     * Start a transaction.
-     */
-    public function beginTransaction()
-    {
-        $this->dbh->beginTransaction();
-    }
-
-    /**
-     * Commit a transaction.
-     */
-    public function commit()
-    {
-        $this->dbh->commit();
-    }
-
-    /**
-     * Roll back a transaction.
-     */
-    public function rollBack()
-    {
-        $this->dbh->rollBack();
-    }
-
+    
     /**
      * Get the ID of the last inserted row.
      * 

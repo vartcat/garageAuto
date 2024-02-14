@@ -35,6 +35,10 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="prix" placeholder="prix (*)" required>
                 </div>
+                <div class="form-group">
+                    <input type="file" id="photos" name="photos[]" accept="image/*" multiple required>
+                    <small class="form-text text-muted">Sélectionnez une ou plusieurs photos (formats acceptés : JPG, PNG, GIF)</small>
+                </div>
                 <div class="">
                     <p class="">(*) champs obligatoires</p>
                 </div>
@@ -43,4 +47,3 @@
         </div>
     </div>
 </body>
-<script src="js/custom.js"></script>
