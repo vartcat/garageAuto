@@ -62,9 +62,6 @@ body {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-.navbar-collapse.ml-auto {
-  top: 50px;
-}
 
 /* header section */
 
@@ -100,17 +97,15 @@ body {
 .hero_bg_box .img-box {
   width: 100%;
 }
-
 .hero_areaServices .hero_bg_box {
   height: 585px;
 }
-html body div.hero_areaServices section.slider_section {
+.hero_areaServices .slider_section {
     height: 250px;
 }
 .hero_areaOccasions .hero_bg_box {
   height: 565px;
 }
-
 .hero_bg_box .img-box img {
   object-fit: cover;
   width: 100%;
@@ -154,7 +149,7 @@ html body div.hero_areaServices section.slider_section {
   .navbar-nav
   .nav-item
   .nav-link {
-  padding-bottom: 21px;
+  padding-bottom: 20px;
 }
 .hero_area.sub_pages {
   height: auto;
@@ -199,16 +194,16 @@ html body div.hero_areaServices section.slider_section {
 #navbarSupportedContent {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  align-self: flex-start;
 }
 .custom_nav-container {
-  z-index: 99999;
-  padding: 0;
+  z-index: 10;
+  padding-top: 0 !important;
 }
-.custom_nav-container .navbar-nav {
+.navbar-nav {
   margin-left: auto;
 }
-.custom_nav-container .navbar-nav .nav-item .nav-link {
+.nav-link {
   padding: 0;
   padding: 35px 15px 10px 15px;
   color: #ffffff;
@@ -217,10 +212,11 @@ html body div.hero_areaServices section.slider_section {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-.custom_nav-container .navbar-nav .nav-item:hover .nav-link,
-.custom_nav-container .navbar-nav .nav-item.active .nav-link {
+.nav-item:hover .nav-link,
+.nav-item.active .nav-link {
   background-color: #1c1c1c;
   border-bottom: solid 1px #f1db25;
+  padding-top: 50px;
 }
 a,
 a:hover,
@@ -755,7 +751,7 @@ input[type="range"] {
   width: 100%;
   position: absolute;
   background-color: #c6c6c6;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 #fromSlider {
   height: 0;
@@ -1781,6 +1777,7 @@ input[type="range"] {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
+  border-bottom-left-radius: 50%;
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;

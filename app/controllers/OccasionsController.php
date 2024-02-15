@@ -8,16 +8,43 @@ class OccasionsController extends Controller
 {
     public function index()
     {
-        $sql = 'SELECT * FROM occasions';
+        $sql = 'SELECT occasions.*, photos.photo FROM occasions LEFT JOIN photos ON occasions.id = photos.id_occasion';
         $this->db->query($sql);
+        $occasions = $this->db->resultSet();
 
+        $data['occasions'] = array();
+
+        foreach ($occasions as $occasion) {
+            $occasion_id = $occasion['id'];
+            
+            if (!isset($data['occasions'][$occasion_id])) {
+                $data['occasions'][$occasion_id] = array(
+                    'id' => $occasion_id,
+                    'prix' => $occasion['prix'],
+                    'modele' => $occasion['modele'],
+                    'annee' => $occasion['annee'],
+                    'boite' => $occasion['boite'],
+                    'description' => $occasion['description'],
+                    'kilometre' => $occasion['kilometre'],
+                    'carburant' => $occasion['carburant'],
+                    'photos' => array()
+                );
+            }
+            
+            if (!empty($occasion['photo'])) {
+                $data['occasions'][$occasion_id]['photos'][] = 'data:image/jpeg;base64,' . base64_encode($occasion['photo']);
+            }
+        }
+
+        $data['occasions'] = array_values($data['occasions']);
         $data['openTimes'] = FooterController::getOpeningHours();
-        $data['occasions'] = $this->db->resultSet();
         $data['title'] = "Occasions";
+
         $this->template('header', $data);
         $this->view('occasions/occasions', $data);
         $this->template('footer', $data);
     }
+
     public function get_photos_by_occasion_id($occasion_id)
     {
         $sql = 'SELECT * FROM photos WHERE id_occasion = :occasion_id';

@@ -16,7 +16,6 @@ class App {
     }
 
     protected function defineRoutes() {
-        $this->router->addRoute('/', 'HomeController@index');
         $this->router->addRoute('home', 'HomeController@index');
         $this->router->addRoute('occasions', 'OccasionsController@index');
         $this->router->addRoute('services', 'ServicesController@index');
@@ -74,7 +73,7 @@ class App {
      */
     public function run() {
 
-        $path = trim($_SERVER['REQUEST_URI'], '/');
+        $path = trim($_SERVER['REQUEST_URI'], '/') ?: 'home';
         $controllerAction = $this->router->route($path);
 
         if ($controllerAction) {

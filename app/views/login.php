@@ -23,5 +23,5 @@
             </form>
         </div>
     </div>
-    <script src="js/custom.js"></script>
+    <!-- <script src="js/custom.js"></script> -->
 </body>

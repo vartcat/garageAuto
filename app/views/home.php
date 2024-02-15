@@ -294,7 +294,6 @@
                 </h2>
                 <h3> Votre avis nous est précieux !
                 </h3>
-
             </div>
             <div class="">
                 <div class="row">
@@ -338,5 +337,4 @@
             </div>
         </div>
     </section>
-    <script src="/public/js/custom.js"></script>
 </body>

@@ -812,4 +812,3 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
         ';
 }
 ?>
-<script src="/public/js/custom.js"></script>

@@ -1,7 +1,9 @@
 <footer class="container-fluid footer_section">
     <div class="footer_logo">
+    <a class="navbar-brand" href="/home">
         <p>Garage V.Parrot</p>
         <img src="/public/pictures/logo.png" alt="Logo" class="logo">
+    </a>
     </div>
     <div class="opening-time">
         <table>
@@ -26,6 +28,6 @@
 
     </div>
     <div class="back-to-top">
-        <a href="#top">Retour en haut de page</a>
+        <a href="#top">Haut de page</a>
     </div>
 </footer>

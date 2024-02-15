@@ -36,6 +36,7 @@ class Router {
         return null;
     }
 
+
     protected function getRegexRoute($uri) {
         foreach($this->routes as $path => $route) {
             if ($this->matchRoute($path, $uri)) {
