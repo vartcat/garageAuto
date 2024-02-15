@@ -315,7 +315,7 @@
                             <div class="form-group">
                                 <div class="form-control-select-note">
                                     <label class="fa fa-star"> Notez votre garage:</label>
-                                    <select name="note">
+                                    <select name="rating">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>

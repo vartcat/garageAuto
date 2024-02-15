@@ -11,7 +11,7 @@
                     <input type="text" class="form-control" name="name" placeholder="Nom du nouveau service (*)" value="" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="description" placeholder="Description (*)" value="" required>
+                    <textarea rows="4" cols="50" type="textarea" class="form-control" type="text" name="description" placeholder="Description (*)" value="" required></textarea>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="price" placeholder="Prix (*)" value="" required>

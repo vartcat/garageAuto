@@ -10,14 +10,26 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data['title'] = "Home";
-        $data['prestations'] = ServicesController::getServices();
-        $data['notices'] = NoticesController::getNotices();
-        $data['openTimes'] = FooterController::getOpeningHours();
-        
+        try {
+            $data = [
+                'title' => "Home",
+                'prestations' => ServicesController::getServices(),
+                'notices' => NoticesController::getNotices(),
+                'openTimes' => FooterController::getOpeningHours()
+            ];
 
-        $this->template('header', $data);
-        $this->view('home', $data);
-        $this->template('footer', $data);
+            $this->template('header', $data);
+            $this->view('home', $data);
+            $this->template('footer', $data);
+        } catch (Throwable $e) {
+            $this->handleError($e);
+        }
+    }
+
+    private function handleError(Throwable $e)
+    {
+        $data['error_message'] = "Une erreur s'est produite. Veuillez réessayer plus tard.";
+        $this->view('404', $data);
+        error_log("Erreur : " . $e->getMessage());
     }
 }

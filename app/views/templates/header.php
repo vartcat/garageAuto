@@ -770,12 +770,6 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                                     fermetures
                                     </span>
                                 </h1>
-                                <div class="btn-box">
-                                    <div class="btn-crud">
-                                        <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
-                                        <a href="update" class="btn-2 col-md-6">modifier les horaires</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

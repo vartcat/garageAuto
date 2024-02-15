@@ -20,20 +20,21 @@
                     <textarea rows="4" cols="50" type="textarea" class="form-control" name="avis" placeholder="avis (*)" value="" required></textarea>
                 </div>
                 <div class="form-group">
-                                <label>Notez votre garage :</label>
-                                <select name="rating">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <p>/5</p>
-                            </div>
-                <div class="">
-                    <p class="">(*) champs obligatoires</p>
-                </div>
-                <button type="submit" class="form-button button-l margin-b">Sauvegarder</button>
+                    <div class="form-control-select-note">
+                        <label class="fa fa-star"> Notez votre garage:</label>
+                        <select name="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <p class="note-max">/5</p>
+                    </div>
+                    <div class="form-group">
+                        <p class="">(*) champs obligatoires</p>
+                    </div>
+                    <button type="submit" class="form-button button-l margin-b">Sauvegarder</button>
             </form>
         </div>
     </div>

@@ -7,9 +7,10 @@
         <p class="text-whitesmoke">Accessible uniquement aux membres de l'équipe du garage</p>
         <div class="container-content">
             <div class="error-text">
-                <?php
-                    echo isset($_SESSION['error']) ? $_SESSION['error'] : '';
-                ?>
+                <?php if (isset($_SESSION['error'])) : ?>
+                    <p style="color: red;"><?php echo $_SESSION['error']; ?></p>
+                    <?php unset($_SESSION['error']); ?>
+                <?php endif; ?>
             </div>
             <form method="POST" class="margin-t" action="/login/auth">
                 <input type="hidden" name="action" value="authenticate">
@@ -23,5 +24,4 @@
             </form>
         </div>
     </div>
-    <!-- <script src="js/custom.js"></script> -->
 </body>
