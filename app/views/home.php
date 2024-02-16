@@ -113,18 +113,37 @@
             </div>
             <!-- Début de la div subtitle pour le total des avis -->
             <div class="subtitle">
-                <p>Total des avis : <span style="color: #f1db25; font-size: 2em;">
+                <p>Total des avis :
+                    <span style="color: #f1db25; font-size: 2em;">
                         <?php
-                        // Calcul du nombre total de notices
+                        // Initialisation des variables
                         $total_notices = 0;
+                        $total_notes = 0;
+
+                        // Calcul du nombre total de notices et la somme des notes
                         foreach ($notices as $notice) {
                             if ($notice['status'] == 'validate') {
                                 $total_notices++;
+                                $total_notes += $notice['note']; // Ajout de la note actuelle à la somme
                             }
                         }
                         echo $total_notices;
                         ?>
-                    </span></p>
+                    </span>
+                </p>
+                <p>Moyenne des notes :
+                    <span style="color: #f1db25; font-size: 2em;">
+                        <?php
+                        // Calcul de la moyenne des notes
+                        if ($total_notices > 0) {
+                            $average_note = $total_notes / $total_notices;
+                            echo round($average_note, 2);
+                        } else {
+                            echo "Aucune note disponible";
+                        }
+                        ?>
+                    </span>/5
+                </p>
             </div>
             <!-- Fin de la div subtitle -->
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

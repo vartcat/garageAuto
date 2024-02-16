@@ -6,6 +6,7 @@
     </a>
     </div>
     <div class="opening-time">
+    <h2 class="table-title">Horaires d'accès</h2>
         <table>
             <thead>
                 <tr>

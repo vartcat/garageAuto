@@ -35,7 +35,14 @@
                         <p class="">(*) champs obligatoires</p>
                     </div>
                     <button type="submit" class="form-button button-l margin-b">Sauvegarder</button>
+                    <button type="button" class="form-button button-l margin-b" onclick="goBack()">Annuler</button>
+                </div>
             </form>
         </div>
     </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
