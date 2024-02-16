@@ -32,17 +32,17 @@ function afficherHeroArea($imgSrc)
 $request_uri = $_SERVER['REQUEST_URI'];
 
 $imagePaths = [
-    '/home' => 'public/pictures/garage4.jpg',
+    '/home' => '/public/pictures/garage4.jpg',
     '/admin' => '/public/pictures/garageEnseigne.jpg',
     '/user' => '/public/pictures/garageEnseigne.jpg',
-    '/services' => 'public/pictures/voiture.jpg',
-    '/occasions' => 'public/pictures/occasions.jpg',
-    '/occasions/read' => 'public/pictures/occasions.jpg',
-    '/messages/read' => 'public/pictures/message.jpg',
-    '/employed/read' => 'public/pictures/employed.jpg',
-    '/notices/read' => 'public/pictures/avis.jpg',
-    '/services/read' => 'public/pictures/mécanique.jpg',
-    '/openTimes/read' => 'public/pictures/garage.jpg'
+    '/services' => '/public/pictures/voiture.jpg',
+    '/occasions' => '/public/pictures/occasions.jpg',
+    '/occasions/read' => '/public/pictures/occasions.jpg',
+    '/messages/read' => '/public/pictures/message.jpg',
+    '/employed/read' => '/public/pictures/employed.jpg',
+    '/notices/read' => '/public/pictures/avis.jpg',
+    '/services/read' => '/public/pictures/mécanique.jpg',
+    '/openTimes/read' => '/public/pictures/garage.jpg'
 ];
 
 if (array_key_exists($request_uri, $imagePaths)) {
@@ -228,7 +228,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                         <div class="carousel-item active">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-7">
+                                    <div class="col-md-8">
                                         <div class="detail-box">
                                             <h1>
                                                 Votre sécurité <br>

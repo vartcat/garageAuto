@@ -146,15 +146,11 @@
                             <div class="img_container">
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="img-box">
-                                                ${occasion?.photos.map((photo, index) => (
-                                                    `<div class="carousel-item ${index === 0 ? 'active' : ''}">
-                                                        <img src="${photo}" class="d-block w-100" alt="Photo ${index + 1}">
-                                                    </div>`
-                                                )).join('')}
-                                            </div>
+                                    <?php foreach ($photos as $index => $photo): ?>
+                                        <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                                            <img src="<?= $photo['url'] ?>" class="d-block w-100" alt="Photo <?= $index + 1 ?>">
                                         </div>
+                                    <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>

@@ -151,20 +151,20 @@
                     <?php
                     foreach ($notices as $index => $notice) {
                         if ($notice['status'] == 'validate') {
-                            echo "<div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
-                                <div class='box'>
-                                    <div class='detail-box'>";
-                            echo " <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
-                                            <p>" . $notice['avis'] . "</p>
+                            echo "  <div class='carousel-item" . ($index == 0 ? " active" : "") . "'>
+                                        <div class='box'>
+                                            <div class='detail-box'>";
+                            echo "  <h4>" . $notice['name'] . " " . $notice['lastname'] . "</h4>
+                                    <p>" . $notice['avis'] . "</p>
                                     </div>
                                     <div style='display:flex;'>";
-                            for ($i = 0; $i < 5; $i++) {
-                                echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
-                            }
-                            echo "</div>
+                                    for ($i = 0; $i < 5; $i++) {
+                                        echo "<i class='fa fa-star' style='color:" . ($i < intval($notice['note']) ? "#f1db25;" : "") . "'></i>";
+                                    }
+                            echo "  </div>
                                         <p>" . $notice['note'] . " / 5</p>
                                     </div>
-                                </div>";
+                                    </div>";
                         }
                     }
                     ?>

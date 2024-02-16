@@ -381,7 +381,7 @@ html
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: max-content;
+  height: 250px;
 }
 section.slider_section .detail-box {
   width: 100%;
@@ -518,16 +518,16 @@ section.slider_section .detail-box {
   min-height: 100%;
 }
 .slider_section .carousel-inner {
-    overflow: inherit;
-    height: 310px;
+  overflow: inherit;
+  height: 310px;
 }
 .slider_section .idicator_container {
   position: relative;
 }
 .slider_section ol.carousel-indicators {
-    background: transparent;
+  background: transparent;
   margin: 10px;
-  bottom: -40px;
+  bottom: -34px;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
@@ -612,7 +612,7 @@ table th {
 }
 @media screen and (max-width: 900px) {
   .occasions_section.layout_padding {
-    padding-top: 64px;
+    padding-top: Opx;
   }
   table {
     border: 0;
@@ -935,7 +935,7 @@ input[type="range"] {
 /* occasions section */
 
 .occasions_section.layout_padding {
-  padding-top: 103px;
+  padding-top: 50px;
 }
 
 .contactSearchBtn {
@@ -1083,6 +1083,11 @@ input[type="range"] {
   color: #f1db25;
 }
 @media (max-width: 768px) {
+  .slider_section ol.carousel-indicators {
+    justify-content: center;
+    bottom: -80px;
+  }
+
   #cars-container.container {
     text-align: center;
   }
