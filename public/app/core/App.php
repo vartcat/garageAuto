@@ -98,7 +98,7 @@ class App
 
         if ($controllerAction) {
             list($controllerName, $action) = explode('@', $controllerAction);
-            require_once '../app/controllers/' . ucfirst($controllerName) . '.php';
+            require_once './app/controllers/' . ucfirst($controllerName) . '.php';
 
             $controllerClassName = ucfirst($controllerName);
             $controllerInstance = new $controllerClassName();

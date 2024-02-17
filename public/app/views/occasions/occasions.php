@@ -9,11 +9,11 @@
             <div class="sliderContent">
                 <div id="slider">
                     <h6> - kilométrage - </h6>
-                    <?php include_once "../app/views/templates/kilometersSlider.html"; ?>
+                    <?php include_once "./app/views/templates/kilometersSlider.html"; ?>
                 </div>
                 <div id="sliderPrice">
                     <h6> - prix - </h6>
-                    <?php include_once "../app/views/templates/pricesSlider.html"; ?>
+                    <?php include_once "./app/views/templates/pricesSlider.html"; ?>
                 </div>
             </div>
             <div class="filtersContent">

@@ -22,7 +22,7 @@ class Controller
      */
     public function view($viewName, $data = [])
     {
-        $viewFile = "../app/views/" . $viewName . ".php";
+        $viewFile = "./app/views/" . $viewName . ".php";
 
         if (file_exists($viewFile)) {
             extract($data);
@@ -39,7 +39,7 @@ class Controller
      */
     public function template($viewName, $data = [])
     {
-        $viewFile = "../app/views/templates/" . $viewName . ".php";
+        $viewFile = "./app/views/templates/" . $viewName . ".php";
 
         if (file_exists($viewFile)) {
             extract($data);
@@ -56,7 +56,7 @@ class Controller
      */
     public function model($model)
     {
-        require_once '../app/Models/' . $model . '.php';
+        require_once './app/Models/' . $model . '.php';
         return new $model($this->db);
     }
 
