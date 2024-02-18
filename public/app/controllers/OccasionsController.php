@@ -37,7 +37,7 @@ class OccasionsController extends Controller
                 }
 
                 if (!empty($occasion['photo'])) {
-                    $data['occasions'][$occasion_id]['photos'][] = 'data:image/jpeg;base64,' . base64_encode($occasion['photo']);
+                    $data['occasions'][$occasion_id]['photos'][] = $occasion['photo'];
                 }
             }
 
@@ -62,7 +62,20 @@ class OccasionsController extends Controller
             $this->db->bind(':occasion_id', $occasion_id);
             return $this->db->resultSet();
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "photo indisponible");
+        }
+    }
+
+    public function get_photos_count_by_occasion_id($occasion_id)
+    {
+        try {
+            $this->db->query("SELECT COUNT(*) AS total_photos FROM photos WHERE id_occasion = :id_occasion");
+            $this->db->bind(":id_occasion", $occasion_id);
+            $result = $this->db->single();
+
+            return $result['total_photos'];
+        } catch (Throwable $e) {
+            $this->handleError($e, "photo indisponible");
         }
     }
 
@@ -72,10 +85,9 @@ class OccasionsController extends Controller
             $sql = 'SELECT * FROM occasions';
             $this->db->query($sql);
             $occasions = $this->db->resultSet();
-
             // Récupérer les photos pour chaque occasion
             foreach ($occasions as &$occasion) {
-                $occasion['photos'] = $this->get_photos_by_occasion_id($occasion['id']);
+                $occasion['photosCount'] = $this->get_photos_count_by_occasion_id($occasion['id']);
             }
 
             $data['occasions'] = $occasions;
@@ -83,7 +95,7 @@ class OccasionsController extends Controller
             $this->template('header', $data);
             $this->view('occasions/read', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "occasion momentanement indisponible");
         }
     }
 
@@ -132,19 +144,20 @@ class OccasionsController extends Controller
 
                     // Lecture de l'image
                     $image_blob = file_get_contents($image_tmp);
+                    $image_path = $this->storage->uploadImage('occasions/'.$occasionId.'/'.$image_name, $image_blob);
 
                     // Insertion de l'image dans la table "photos"
-                    $this->db->query('INSERT INTO photos (nom_photo, id_occasion, photo) VALUES (:nom_photo, :id_occasion, :photo)');
-                    $this->db->bind(":nom_photo", $image_name);
+                    $this->db->query('INSERT INTO photos (name_photo, id_occasion, photo) VALUES (:name_photo, :id_occasion, :photo)');
+                    $this->db->bind(":name_photo", $image_name);
                     $this->db->bind(":id_occasion", $occasionId);
-                    $this->db->bind(":photo", $image_blob);
+                    $this->db->bind(":photo", $image_path);
                     $this->db->execute();
                 }
             }
 
             $this->redirect('/occasions/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "ajout d'occasion momentanement indisponible");
         }
     }
 
@@ -163,7 +176,7 @@ class OccasionsController extends Controller
             $this->template('header', $data);
             $this->view('/occasions/delete', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "suppression momentanement indisponible");
         }
     }
 
@@ -172,6 +185,15 @@ class OccasionsController extends Controller
         try {
             $id = $_POST['id'];
 
+            $this->db->query("SELECT * FROM photos WHERE id_occasion = :id");
+            $this->db->bind(":id",  $id);
+            $photos = $this->db->resultSet();
+
+            foreach ($photos as &$photo) {
+                $this->storage->deleteImage($photo['photo']);
+            }
+                             
+                    
             // Supprimer les photos associées à l'occasion
             $this->db->query("DELETE FROM photos WHERE id_occasion = :id");
             $this->db->bind(":id", $id);
@@ -184,7 +206,7 @@ class OccasionsController extends Controller
 
             $this->redirect('/occasions/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "suppression non valide");
         }
     }
 
@@ -209,7 +231,7 @@ class OccasionsController extends Controller
             $this->template('header', $data);
             $this->view('/occasions/update', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "modification momentanement indisponible");
         }
     }
 
@@ -245,11 +267,12 @@ class OccasionsController extends Controller
                         // Vérifier si le fichier est valide avant de le lire
                         if (is_uploaded_file($image_tmp)) {
                             $image_blob = file_get_contents($image_tmp);
+                            $image_path = $this->storage->uploadImage('occasions/'.$id.'/'.$image_name, $image_blob);
                             // Insérer la nouvelle photo dans la table "photos"
-                            $this->db->query('INSERT INTO photos (nom_photo, id_occasion, photo) VALUES (:nom_photo, :id_occasion, :photo)');
-                            $this->db->bind(":nom_photo", $image_name);
+                            $this->db->query('INSERT INTO photos (name_photo, id_occasion, photo) VALUES (:name_photo, :id_occasion, :photo)');
+                            $this->db->bind(":name_photo", $image_name);
                             $this->db->bind(":id_occasion", $id);
-                            $this->db->bind(":photo", $image_blob);
+                            $this->db->bind(":photo", $image_path);
                             $this->db->execute();
                         } else {
                             echo "Erreur lors du téléchargement du fichier.";
@@ -263,6 +286,11 @@ class OccasionsController extends Controller
 
                 // Supprimer les photos sélectionnées
                 foreach ($photosToDelete as $photoId) {
+                    $this->db->query("SELECT * FROM photos WHERE id = :id");
+                    $this->db->bind(":id", $photoId);
+                    $image = $this->db->single();                    
+                    $this->storage->deleteImage($image['photo']);
+
                     $this->db->query("DELETE FROM photos WHERE id = :photoId");
                     $this->db->bind(":photoId", $photoId);
                     $this->db->execute();
@@ -271,14 +299,7 @@ class OccasionsController extends Controller
 
             $this->redirect('/occasions/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, 'suppression momentanement indisponible');
         }
-    }
-
-    private function handleError(Throwable $e)
-    {
-        $data['error_message'] = "Une erreur s'est produite. Veuillez réessayer plus tard.";
-        $this->view('/errors/error', $data);
-        error_log("Erreur : " . $e->getMessage());
     }
 }

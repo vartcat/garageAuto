@@ -17,12 +17,8 @@ class AdminController extends Controller
                 throw new Exception("Unauthorized access");
             }
         } catch (Exception $e) {
-            $this->handleError($e->getMessage());
+            $this->handleError($e, "page momentanement indisponible");
         }
-    }
-
-    private function handleError($errorMessage) {
-        echo "Error: " . $errorMessage;
     }
 }
 

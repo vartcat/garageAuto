@@ -17,7 +17,7 @@ class MessagesController extends Controller
             $this->template('header', $data);
             $this->view('/messages/read', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "lectures des messages indisponible");
         }
     }
 
@@ -50,7 +50,7 @@ class MessagesController extends Controller
             $data['title'] = "Messages";
             $this->view('/messages/merci', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "ajout momentanement indisponible");
         }
     }
 
@@ -75,7 +75,7 @@ class MessagesController extends Controller
             $this->template('header', $data);
             $this->view('/messages/delete', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "suppresion momentanement indisponible");
         }
     }
 
@@ -94,14 +94,7 @@ class MessagesController extends Controller
 
             $this->redirect('/messages/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "suppression momentanement indisponible");
         }
-    }
-
-    private function handleError(Throwable $e)
-    {
-        $data['error_message'] = "Une erreur s'est produite. Veuillez réessayer plus tard.";
-        $this->view('/errors/error', $data);
-        error_log("Erreur : " . $e->getMessage());
     }
 }

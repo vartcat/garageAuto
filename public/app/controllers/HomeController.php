@@ -22,14 +22,7 @@ class HomeController extends Controller
             $this->view('home', $data);
             $this->template('footer', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "page momentanement indisponible");
         }
-    }
-
-    private function handleError(Throwable $e)
-    {
-        $data['error_message'] = "Une erreur s'est produite. Veuillez réessayer plus tard.";
-        $this->view('404', $data);
-        error_log("Erreur : " . $e->getMessage());
     }
 }

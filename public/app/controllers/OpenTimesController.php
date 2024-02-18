@@ -14,7 +14,7 @@ class OpenTimesController extends Controller
             $this->template('header', $data);
             $this->view('openTimes/read', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "Aucun horaire disponible");
         }
     }
 
@@ -33,7 +33,7 @@ class OpenTimesController extends Controller
             $this->template('header', $data);
             $this->view('/openTimes/update', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "Modification impossible");
         }
     }
 
@@ -66,14 +66,7 @@ class OpenTimesController extends Controller
 
             $this->redirect('/openTimes/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "Modification non valide");
         }
-    }
-
-    private function handleError(Throwable $e)
-    {
-        $data['error_message'] = "Une erreur s'est produite. Veuillez réessayer plus tard.";
-        $this->view('/errors/error', $data);
-        error_log("Erreur : " . $e->getMessage());
     }
 }

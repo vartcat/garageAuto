@@ -55,8 +55,8 @@ class NoticesController extends Controller
             $data['title'] = "Messages";
             $this->view('/messages/merci', $data);
         } catch (Exception $e) {
-            $data['error_message'] = "Une erreur s'est produite lors de l'ajout de l'avis. Veuillez réessayer plus tard.";
-            $this->view('/messages/error', $data);
+            $this->handleError($e, "ajout momentanement indisponible");
+
         }
     }
 
@@ -80,8 +80,8 @@ class NoticesController extends Controller
             $this->template('header', $data);
             $this->view('/notices/delete', $data['avis']);
         } catch (Exception $e) {
-            $data['error_message'] = $e->getMessage();
-            $this->view('/errors/error', $data);
+            $this->handleError($e, "suppression momentanement indisponible");
+
         }
     }
 
@@ -97,7 +97,7 @@ class NoticesController extends Controller
 
             $this->redirect('/notices/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "suppression momentanement indisponible");
         }
     }
 
@@ -116,7 +116,7 @@ class NoticesController extends Controller
             $this->template('header', $data);
             $this->view('/notices/validate', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "validation momentanement indisponible");
         }
     }
 
@@ -135,14 +135,7 @@ class NoticesController extends Controller
 
             $this->redirect('/notices/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "validation momentanement indisponible");
         }
-    }
-
-    private function handleError(Throwable $e)
-    {
-        $data['error_message'] = "Une erreur s'est produite. Veuillez réessayer plus tard.";
-        $this->view('/errors/error', $data);
-        error_log("Erreur : " . $e->getMessage());
-    }
+    }    
 }

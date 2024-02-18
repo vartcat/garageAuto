@@ -11,8 +11,7 @@ class LogoutController extends Controller
             $this->template('header', $data);
             $this->view('logout', $data);
         } catch (Exception $e) {
-            // Gérer l'exception
-            echo 'Une erreur est survenue : ' . $e->getMessage();
+            $this->handleError($e, "une erreur est survenue");
         }
     }
 
@@ -25,8 +24,8 @@ class LogoutController extends Controller
             header("Location: /home");
             exit();
         } catch (Exception $e) {
-            // Gérer l'exception
-            echo 'Une erreur est survenue : ' . $e->getMessage();
+            $this->handleError($e, "une erreur est survenue");
+
         }
     }
 }

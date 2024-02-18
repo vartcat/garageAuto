@@ -8,12 +8,12 @@
     <title>Garage V.Parrot</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
-    <link href="../../public/css/login.css" rel="stylesheet" />
-    <link href="../../public/css/style.css" rel="stylesheet" />
+    <link href="/css/login.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <link href="../../public/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="../../public/css/responsive.css" rel="stylesheet" />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/responsive.css" rel="stylesheet" />
 </head>
 <?php
 function afficherHeroArea($imgSrc)
@@ -82,7 +82,7 @@ if (array_key_exists($request_uri, $imagePaths)) {
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <div class="navbar-imgBox">
                 <a class="navbar-brand" href="/home">
-                    <img src="/public/pictures/logo.png" alt="Logo" class="logo">
+                    <img src="/pictures/logo.png" alt="Logo" class="logo">
                     <span>
                         Garage V.Parrot
                     </span>

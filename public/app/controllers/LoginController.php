@@ -18,8 +18,8 @@ class LoginController extends Controller
             $this->template('header', $data);
             $this->view('login', $data);
         } catch (Exception $e) {
-            // Gérer l'exception
-            echo 'Une erreur est survenue : ' . $e->getMessage();
+            $this->handleError($e, "une erreur est survenue");
+
         }
     }
 
@@ -58,7 +58,7 @@ class LoginController extends Controller
                 throw new Exception('Tous les champs requis ne sont pas fournis');
             }
         } catch (Exception $e) {
-            $_SESSION['error'] = $e->getMessage();
+            $this->handleError($e, "authentification échoué");
             $this->redirect('/login');
         }
     }

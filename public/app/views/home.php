@@ -6,7 +6,7 @@
                 <div class="col-md-6 px-0">
                     <div class="img_container">
                         <div class="img-box">
-                            <img src="public/pictures/garage.jpg" alt="" />
+                            <img src="/pictures/garage.jpg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                 <div class="col-md-4 col-sm-6 mx-auto ">
                     <div class="box">
                         <div class="img-box">
-                            <img src="public/pictures/équipe2.jpg" alt="">
+                            <img src="/pictures/équipe2.jpg" alt="">
                         </div>
                         <div class="detail-box">
                             <h5>
@@ -216,7 +216,7 @@
                 <div class="col-md-4 col-sm-6 mx-auto ">
                     <div class="box">
                         <div class="img-box">
-                            <img src="public/pictures/équipe4.jpg" alt="">
+                            <img src="/pictures/équipe4.jpg" alt="">
                         </div>
                         <div class="detail-box">
                             <h5>
@@ -231,7 +231,7 @@
                 <div class="col-md-4 col-sm-6 mx-auto ">
                     <div class="box">
                         <div class="img-box">
-                            <img src="public/pictures/équipe3.jpg" alt="">
+                            <img src="/pictures/équipe3.jpg" alt="">
                         </div>
                         <div class="detail-box">
                             <h5>

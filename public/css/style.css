@@ -972,13 +972,12 @@ input[type="range"] {
   );
 }
 #cars-container .row {
+  margin: auto;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin-top: 30px;
   padding-top: 20px;
-  padding-left: 40px;
-  margin: auto;
 }
 #cars-container .col-md-3 {
   object-fit: cover;

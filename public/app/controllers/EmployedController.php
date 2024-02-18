@@ -14,7 +14,7 @@ class EmployedController extends Controller
             $this->template('header', $data);
             $this->view('/employed/read', $data);
         } catch (Exception $e) {
-            $this->handleError("Une erreur s'est produite lors de la lecture des utilisateurs.");
+            $this->handleError($e, "Une erreur s'est produite lors de la lecture des utilisateurs.");
         }
     }
 
@@ -25,7 +25,7 @@ class EmployedController extends Controller
             $this->template('header', $data);
             $this->view('/employed/create', $data);
         } catch (Exception $e) {
-            $this->handleError("Une erreur s'est produite lors de la création de l'utilisateur.");
+            $this->handleError($e, "Une erreur s'est produite lors de la création de l'utilisateur.");
         }
     }
 
@@ -57,7 +57,7 @@ class EmployedController extends Controller
 
             $this->redirect('/employed/read');
         } catch (Exception $e) {
-            $this->handleError("Une erreur s'est produite lors de l'ajout de l'utilisateur : " . $e->getMessage());
+            $this->handleError($e, "Une erreur s'est produite lors de l'ajout de l'utilisateur : " . $e->getMessage());
         }
     }
 
@@ -76,7 +76,7 @@ class EmployedController extends Controller
             $this->template('header', $data);
             $this->view('/employed/update', $data);
         } catch (Exception $e) {
-            $this->handleError("Une erreur s'est produite lors de la mise à jour de l'utilisateur.");
+            $this->handleError($e, "Une erreur s'est produite lors de la mise à jour de l'utilisateur.");
         }
     }
 
@@ -95,7 +95,7 @@ class EmployedController extends Controller
             $this->template('header', $data);
             $this->view('/employed/delete', $data);
         } catch (Exception $e) {
-            $this->handleError("Une erreur s'est produite lors de la suppression de l'utilisateur.");
+            $this->handleError($e, "Une erreur s'est produite lors de la suppression de l'utilisateur.");
         }
     }
 
@@ -110,7 +110,7 @@ class EmployedController extends Controller
 
             $this->redirect('/employed/read');
         } catch (Exception $e) {
-            $this->handleError("Une erreur s'est produite lors de la suppression de l'utilisateur.");
+            $this->handleError($e, "Une erreur s'est produite lors de la suppression de l'utilisateur.");
         }
     }
 
@@ -146,11 +146,7 @@ class EmployedController extends Controller
 
             $this->redirect('/employed/read');
         } catch (Exception $e) {
-            $this->handleError("Une erreur s'est produite lors de la mise à jour de l'utilisateur : " . $e->getMessage());
+            $this->handleError($e, "Une erreur s'est produite lors de la mise à jour de l'utilisateur");
         }
-    }
-    private function handleError($errorMessage)
-    {
-        echo $errorMessage;
     }
 }

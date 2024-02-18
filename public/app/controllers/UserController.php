@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         try {
             if (!isset($_SESSION['user'])) {
-                throw new Exception("User session not found. Please log in.");
+                throw new Exception("utilisateur introuvable, veuillez vous identifier");
             }
             
             $data['title'] = "User";

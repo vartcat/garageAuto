@@ -20,14 +20,8 @@ class ServicesController extends Controller
             $this->view('services/services', $data);
             $this->template('footer', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "services momentanement indisponible");
         }
-    }
-    public static function getServices()
-    {
-        $db = new Database();
-        $db->query("SELECT * FROM prestations");
-        return $db->resultSet();
     }
 
     public function read()
@@ -41,7 +35,7 @@ class ServicesController extends Controller
             $this->template('header', $data);
             $this->view('services/read', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "services momentanement indisponible");
         }
     }
 
@@ -52,7 +46,7 @@ class ServicesController extends Controller
             $this->template('header', $data);
             $this->view('/services/create', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "ajout prestation impossible");
         }
     }
 
@@ -74,17 +68,20 @@ class ServicesController extends Controller
             }
 
             $photoData = file_get_contents($photo['tmp_name']);
+            //envoie sur S3
+            //appel de storage et telechargement image sur le bucket
+            $image_path = $this->storage->uploadImage('prestations/'.$name, $photoData);
 
             $this->db->query('INSERT INTO prestations (name, description, price, photo) VALUES (:name, :description, :price, :photo)');
             $this->db->bind(":name", $name);
             $this->db->bind(":description", $description);
             $this->db->bind(":price", $price);
-            $this->db->bind(":photo", $photoData, PDO::PARAM_LOB);
+            $this->db->bind(":photo", $image_path);
             $this->db->execute();
 
             $this->redirect('/services/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "ajout de prestation indisponible");
         }
     }
 
@@ -103,7 +100,7 @@ class ServicesController extends Controller
             $this->template('header', $data);
             $this->view('/services/update', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "mofification non valide");
         }
     }
 
@@ -114,15 +111,38 @@ class ServicesController extends Controller
             $name = $_POST['name'];
             $description = $_POST['description'];
             $price = $_POST['price'];
+            $removePhoto = !empty($_POST['delete_photos']) ? $_POST['delete_photos'] : null;
+            
+            $photo = isset($_FILES['photo']) ? $_FILES['photo'] : null;
+
+            if (!empty($_FILES['photo']['name']) && $photo['error'] > 0) {
+                $this->redirect('/services/read', ['error' => 'Une erreur s\'est produite lors du téléchargement de la photo.']);
+            }
 
             $this->db->query("SELECT * FROM prestations WHERE id = :id");
             $this->db->bind(":id", $id);
             $isServiceExist = $this->db->single();
+
             if (!$isServiceExist) {
                 return $this->redirect('/services/read');
             }
 
-            $this->db->query("UPDATE prestations SET name = :name, description = :description, price = :price WHERE id = :id");
+            if (!empty($photo['name'])) {
+                $photoData = file_get_contents($photo['tmp_name']);
+                $image_path = $this->storage->uploadImage('prestations/'.$photo['name'], $photoData);
+
+                $this->db->query("UPDATE prestations SET name = :name, description = :description, price = :price, photo = :photo WHERE id = :id");
+                $this->db->bind(":photo", $image_path);
+            } elseif (!empty($removePhoto)) {
+                $this->storage->deleteImage($removePhoto);
+
+                $this->db->query("UPDATE prestations SET name = :name, description = :description, price = :price, photo = :photo WHERE id = :id");
+                $this->db->bind(":photo", '');
+            } else {
+
+                $this->db->query("UPDATE prestations SET name = :name, description = :description, price = :price WHERE id = :id");
+            }
+
             $this->db->bind(":id", $id);
             $this->db->bind(":name", $name);
             $this->db->bind(":description", $description);
@@ -131,7 +151,7 @@ class ServicesController extends Controller
 
             $this->redirect('/services/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "modification momentanement indisponible");
         }
     }
 
@@ -150,7 +170,7 @@ class ServicesController extends Controller
             $this->template('header', $data);
             $this->view('/services/delete', $data);
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "suppression momentanement indisponible");
         }
     }
 
@@ -158,6 +178,12 @@ class ServicesController extends Controller
     {
         try {
             $id = $_POST['id'];
+
+            $this->db->query("SELECT * FROM prestations WHERE id = :id");
+            $this->db->bind(":id", $id);
+            $prestations = $this->db->resultSet();
+            $this->storage->deleteImage($prestations[0]['photo']);
+
             $this->db->query("DELETE FROM prestations WHERE id = :id");
 
             $this->db->bind(":id", $id);
@@ -165,15 +191,15 @@ class ServicesController extends Controller
 
             $this->redirect('/services/read');
         } catch (Throwable $e) {
-            $this->handleError($e);
+            $this->handleError($e, "suppression non valide");
         }
     }
 
-    private function handleError(Throwable $e)
+    public static function getServices()
     {
-        $data['error_message'] = "Une erreur s'est produite. Veuillez réessayer plus tard.";
-        $this->view('404', $data);
-        error_log("Erreur : " . $e->getMessage());
+        $db = new Database();
+        $db->query("SELECT * FROM prestations");
+        return $db->resultSet();
     }
 }
 

@@ -37,7 +37,7 @@
                     <label>Photos actuelles:</label>
                     <?php foreach ($photos as $photo) : ?>
                         <div class="current-photo">
-                            <img src="data:image/jpeg;base64,<?= base64_encode($photo['photo']) ?>" alt="<?= $photo['nom_photo'] ?>" width="100" height="100">
+                            <img src="<?= $photo['photo'] ?>" alt="<?= $photo['name_photo'] ?>" width="100" height="100">
                             <input type="checkbox" name="delete_photos[]" value="<?= $photo['id'] ?>"> Supprimer
                         </div>
                     <?php endforeach; ?>

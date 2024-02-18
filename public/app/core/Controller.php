@@ -2,16 +2,26 @@
 
 namespace MyApp;
 
+use Throwable;
+use MyApp\Database;
+
+require_once './app/core/Storage.php';
+
 class Controller
 {
     /**
      * @var Database The database instance.
      */
     protected $db;
+    /**
+     * @var Storage The storage instance.
+     */
+    protected $storage;
 
     public function __construct()
     {
         $this->db = new Database;
+        $this->storage = new Storage;
     }
 
     /**
@@ -68,5 +78,12 @@ class Controller
     {
         header("Location: $url");
         exit;
+    }
+
+    protected function handleError(Throwable $e, $message = "Une erreur s'est produite. Veuillez réessayer plus tard.")
+    {
+        $data['error_message'] = $message;
+        $this->view('/errors/error', $data);
+        error_log("Erreur : " . $e->getMessage());
     }
 }

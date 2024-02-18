@@ -2,7 +2,7 @@
     <div class="footer_logo">
     <a class="navbar-brand" href="/home">
         <p>Garage V.Parrot</p>
-        <img src="/public/pictures/logo.png" alt="Logo" class="logo">
+        <img src="/pictures/logo.png" alt="Logo" class="logo">
     </a>
     </div>
     <div class="opening-time">

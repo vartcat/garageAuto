@@ -144,14 +144,27 @@
                     `<div class="row">
                         <div class="col-md-3 px-0">
                             <div class="img_container">
-                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div id="carouselOccasionIndicators${occasion.id}" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        ${occasion.photos.map((photo, index) => (
+                                            `<li data-target="#carouselOccasionIndicators${occasion.id}" data-slide-to="${index}"></li>`
+                                        )).join('')}
+                                    </ol>
                                     <div class="carousel-inner">
-                                    <?php foreach ($photos as $index => $photo): ?>
-                                        <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
-                                            <img src="<?= $photo['url'] ?>" class="d-block w-100" alt="Photo <?= $index + 1 ?>">
-                                        </div>
-                                    <?php endforeach; ?>
+                                        ${occasion.photos.map((photo, index) => (
+                                            `<div class="carousel-item ${index === 0 ? ' active' : ''}">
+                                                <img class="d-block w-100" src="${photo}" alt="Slide number ${index + 1}">
+                                            </div>`
+                                        )).join('')}
                                     </div>
+                                    <a class="carousel-control-prev" href="#carouselOccasionIndicators${occasion.id}" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselOccasionIndicators${occasion.id}" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -193,9 +206,10 @@
 
             filtersRange.forEach(filter => filter.addEventListener('change', (e) => {
                 const type = e.target.getAttribute('name');
+
                 rangeFilters[type] = {
-                    min: fromPriceSlider.valueAsNumber,
-                    max: toPriceSlider.valueAsNumber
+                    min: (type === 'prix' ? fromPriceSlider : fromSlider).valueAsNumber,
+                    max: (type === 'prix' ? toPriceSlider : toSlider).valueAsNumber
                 };
                 render();
             }));
