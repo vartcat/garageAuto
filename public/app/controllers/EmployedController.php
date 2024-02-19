@@ -4,13 +4,20 @@ use MyApp\Controller;
 
 class EmployedController extends Controller
 {
+    private $employed;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->employed = $this->model('Employed');
+    }
+    // page services admin
     public function read()
     {
         try {
-            $sql = 'SELECT * FROM user';
-            $this->db->query($sql);
-            $data['users'] = $this->db->resultSet();
             $data['title'] = "Employed";
+            $data['users'] = $this->employed->getAll();
+
             $this->template('header', $data);
             $this->view('/employed/read', $data);
         } catch (Exception $e) {
@@ -18,6 +25,7 @@ class EmployedController extends Controller
         }
     }
 
+    // page employed user create form
     public function create()
     {
         try {
@@ -38,22 +46,7 @@ class EmployedController extends Controller
             $password = $_POST['password'];
             $role = $_POST['role'];
 
-            // Vérification si l'utilisateur existe déjà
-            $this->db->query("SELECT * FROM user WHERE email = :email");
-            $this->db->bind(":email", $email);
-            $isUserAlreadyExist = $this->db->single();
-            if ($isUserAlreadyExist) {
-                throw new Exception("L'utilisateur avec cet email existe déjà.");
-            }
-
-            // Insertion de l'utilisateur
-            $this->db->query('INSERT INTO user (name, lastname, email, password, role) VALUES (:name, :lastname, :email, :password, :role)');
-            $this->db->bind(":email", $email);
-            $this->db->bind(":password", password_hash($password, PASSWORD_DEFAULT));
-            $this->db->bind(":name", $name);
-            $this->db->bind(":lastname", $lastname);
-            $this->db->bind(":role", $role);
-            $this->db->execute();
+            $this->employed->create($name, $lastname, $email, $password, $role);
 
             $this->redirect('/employed/read');
         } catch (Exception $e) {
@@ -61,56 +54,22 @@ class EmployedController extends Controller
         }
     }
 
+    // page employed admin update form
     public function update()
     {
         try {
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
+
             $data['id'] = end($segment);
-
-            $this->db->query("SELECT * FROM user WHERE id = :id");
-            $this->db->bind(":id", $data['id']);
-            $data['user'] = $this->db->single();
-
             $data['title'] = "Employed";
+
+            $data['user'] = $this->employed->getById($data['id']);
+
             $this->template('header', $data);
             $this->view('/employed/update', $data);
         } catch (Exception $e) {
             $this->handleError($e, "Une erreur s'est produite lors de la mise à jour de l'utilisateur.");
-        }
-    }
-
-    public function delete()
-    {
-        try {
-            $uri = $_SERVER['REQUEST_URI'];
-            $segment = explode('/', rtrim($uri, '/'));
-            $data['id'] = end($segment);
-
-            $this->db->query("SELECT * FROM user WHERE id = :id");
-            $this->db->bind(":id", $data['id']);
-            $data['user'] = $this->db->single();
-
-            $data['title'] = "Employed";
-            $this->template('header', $data);
-            $this->view('/employed/delete', $data);
-        } catch (Exception $e) {
-            $this->handleError($e, "Une erreur s'est produite lors de la suppression de l'utilisateur.");
-        }
-    }
-
-    public function removeEmployed()
-    {
-        try {
-            $id = $_POST['id'];
-            $this->db->query("DELETE FROM user WHERE id = :id");
-
-            $this->db->bind(":id", $id);
-            $this->db->execute();
-
-            $this->redirect('/employed/read');
-        } catch (Exception $e) {
-            $this->handleError($e, "Une erreur s'est produite lors de la suppression de l'utilisateur.");
         }
     }
 
@@ -126,27 +85,50 @@ class EmployedController extends Controller
 
             $newPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $this->db->query("SELECT * FROM user WHERE id = :id");
-            $this->db->bind(":id", $id);
-            $isUserExist = $this->db->single();
+            $isUserExist = $this->employed->getById($id);
+
             if (!$isUserExist) {
                 throw new Exception("L'utilisateur n'existe pas.");
             }
 
-            $this->db->query("UPDATE user SET name = :name, lastname = :lastname, email = :email, password = :newPassword, role = :role WHERE id = :id");
-
-            $this->db->bind(":id", $id);
-            $this->db->bind(":email", $email);
-            $this->db->bind(":newPassword", $newPassword);
-            $this->db->bind(":name", $name);
-            $this->db->bind(":lastname", $lastname);
-            $this->db->bind(":role", $role);
-
-            $this->db->execute();
+            $this->employed->update($id, $name, $lastname, $email, $newPassword, $role);
 
             $this->redirect('/employed/read');
         } catch (Exception $e) {
             $this->handleError($e, "Une erreur s'est produite lors de la mise à jour de l'utilisateur");
         }
     }
+
+    // page employed admin delete
+    public function delete()
+    {
+        try {
+            $uri = $_SERVER['REQUEST_URI'];
+            $segment = explode('/', rtrim($uri, '/'));
+
+            $data['id'] = end($segment);
+            $data['title'] = "Employed";
+            
+            $data['user'] = $this->employed->getById($data['id']);
+
+            $this->template('header', $data);
+            $this->view('/employed/delete', $data);
+        } catch (Exception $e) {
+            $this->handleError($e, "Une erreur s'est produite lors de la suppression de l'utilisateur.");
+        }
+    }
+
+    public function removeEmployed()
+    {
+        try {
+            $id = $_POST['id'];
+
+            $this->employed->deleteById($id);
+
+            $this->redirect('/employed/read');
+        } catch (Exception $e) {
+            $this->handleError($e, "suppression non valide");
+        }
+    }
+
 }

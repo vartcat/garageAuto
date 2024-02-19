@@ -4,15 +4,20 @@ use MyApp\Controller;
 
 class MessagesController extends Controller
 {
+    private $messages;
+
+    public function __construct() 
+    {
+        parent::__construct();
+        $this->messages = $this->model('Messages');
+    }
+
+    // page messages user
     public function read()
     {
         try {
-            $sql = 'SELECT * FROM messages';
-            $this->db->query($sql);
-
-            $data['messages'] = $this->db->resultSet();
-
             $data['title'] = "Messages";
+            $data['messages'] = $this->messages->getMessages();
 
             $this->template('header', $data);
             $this->view('/messages/read', $data);
@@ -36,15 +41,7 @@ class MessagesController extends Controller
             $sujet = isset($_POST['sujet']) ? htmlspecialchars($_POST['sujet']) : null;
             $message = htmlspecialchars($_POST['message']);
 
-            $this->db->query('INSERT INTO messages (name, lastname, email, telephone, service, sujet, message) VALUES (:name, :lastname, :email, :telephone, :service, :sujet, :message)');
-            $this->db->bind(":name", $name);
-            $this->db->bind(":lastname", $lastname);
-            $this->db->bind(":email", $email);
-            $this->db->bind(":telephone", $telephone, PDO::PARAM_INT);
-            $this->db->bind(":service", $service);
-            $this->db->bind(":sujet", $sujet);
-            $this->db->bind(":message", $message);
-            $this->db->execute();
+            $this->messages->create($name, $lastname, $email, $telephone, $service, $sujet, $message);
 
             // Affichage de la page de remerciements
             $data['title'] = "Messages";
@@ -54,23 +51,16 @@ class MessagesController extends Controller
         }
     }
 
+    // page messages user delete validation
     public function delete()
     {
         try {
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
-            $data['id'] = end($segment);
-
-            $this->db->query("SELECT * FROM messages WHERE id = :id");
-            $this->db->bind(":id", $data['id']);
-
-            $data['messages'] = $this->db->single();
-
-            if (!$data['messages']) {
-                throw new Exception("Le message que vous essayez de supprimer n'existe pas.");
-            }
 
             $data['title'] = "Messages";
+            $data['id'] = end($segment);
+            $data['messages'] = $this->messages->getById($data['id']);
 
             $this->template('header', $data);
             $this->view('/messages/delete', $data);
@@ -85,12 +75,9 @@ class MessagesController extends Controller
             if (!isset($_POST['id'])) {
                 throw new Exception("L'identifiant du message à supprimer est manquant. Veuillez sélectionner un message à supprimer.");
             }
+            $id = $_POST['id'];
 
-            $id = htmlspecialchars($_POST['id']);
-
-            $this->db->query("DELETE FROM messages WHERE id = :id");
-            $this->db->bind(":id", $id);
-            $this->db->execute();
+            $this->messages->deleteById($id);
 
             $this->redirect('/messages/read');
         } catch (Throwable $e) {

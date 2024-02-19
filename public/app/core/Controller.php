@@ -66,8 +66,11 @@ class Controller
      */
     public function model($model)
     {
-        require_once './app/Models/' . $model . '.php';
-        return new $model($this->db);
+        $modelFile = './app/models/' . $model . '.php';
+        if (file_exists($modelFile)) {
+            require_once $modelFile;
+            return new $model($this->db, $this->storage);
+        }
     }
 
     /**

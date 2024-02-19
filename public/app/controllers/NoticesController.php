@@ -1,29 +1,28 @@
 <?php
 
 use MyApp\Controller;
-use MyApp\Database;
 
 class NoticesController extends Controller
 {
-    public static function getNotices()
+    private $notices;
+
+    public function __construct()
     {
-        $db = new Database();
-        $db->query("SELECT * FROM avis");
-        return $db->resultSet();
+        parent::__construct();
+        $this->notices = $this->model('Notices');
     }
 
+    // page avis user
     public function read()
     {
-        $sql = 'SELECT * FROM avis';
-        $this->db->query($sql);
-
-        $data['notices'] = $this->db->resultSet();
-        $data['notice'] = $this->db->single();
         $data['title'] = "Notices";
+        $data['notices'] = $this->notices->getNotices();
+
         $this->template('header', $data);
         $this->view('notices/read', $data);
     }
 
+    // page avis create form
     public function create()
     {
         $data['title'] = "Notices";
@@ -34,6 +33,8 @@ class NoticesController extends Controller
     public function addNotices()
     {
         try {
+            $data['title'] = "Messages";
+
             $name = htmlspecialchars($_POST['name']);
             $lastname = htmlspecialchars($_POST['lastname']);
             $email = htmlspecialchars($_POST['email']);
@@ -41,18 +42,8 @@ class NoticesController extends Controller
             $status = "standing";
             $note = htmlspecialchars($_POST['rating']);
 
-            $this->db->query('INSERT INTO avis (name, lastname, email, avis, status, note) VALUES (:name, :lastname, :email, :avis, :status, :note)');
+            $this->notices->create($name, $lastname, $email, $avis, $status, $note);
 
-            $this->db->bind(":name", $name);
-            $this->db->bind(":lastname", $lastname);
-            $this->db->bind(":email", $email);
-            $this->db->bind(":avis", $avis);
-            $this->db->bind(":status", $status);
-            $this->db->bind(":note", $note);
-
-            $this->db->execute();
-
-            $data['title'] = "Messages";
             $this->view('/messages/merci', $data);
         } catch (Exception $e) {
             $this->handleError($e, "ajout momentanement indisponible");
@@ -60,23 +51,21 @@ class NoticesController extends Controller
         }
     }
 
-
+    // page notices user delete
     public function delete()
     {
         try {
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
-            $data['id'] = end($segment);
 
-            $this->db->query("SELECT * FROM avis WHERE id = :id");
-            $this->db->bind(":id", $data['id']);
-            $data['avis'] = $this->db->single();
+            $data['id'] = end($segment);
+            $data['title'] = "Notices";
+            $data['avis'] = $this->notices->getById($data['id']);
 
             if (!$data['avis']) {
                 throw new Exception("L'avis demandé n'existe pas.");
             }
 
-            $data['title'] = "Notices";
             $this->template('header', $data);
             $this->view('/notices/delete', $data['avis']);
         } catch (Exception $e) {
@@ -90,10 +79,7 @@ class NoticesController extends Controller
         try {
             $id = $_POST['id'];
 
-            $this->db->query("DELETE FROM avis WHERE id = :id");
-
-            $this->db->bind(":id", $id);
-            $this->db->execute();
+            $this->notices->deleteById($id);
 
             $this->redirect('/notices/read');
         } catch (Throwable $e) {
@@ -101,18 +87,17 @@ class NoticesController extends Controller
         }
     }
 
+    // page notices user validate
     public function validate()
     {
         try {
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
+            
             $data['id'] = end($segment);
-
-            $this->db->query("SELECT * FROM avis WHERE id = :id");
-            $this->db->bind(":id", $data['id']);
-            $data['avis'] = $this->db->single();
-
             $data['title'] = "Notices";
+            $data['avis'] = $this->notices->getById($data['id']);
+
             $this->template('header', $data);
             $this->view('/notices/validate', $data);
         } catch (Throwable $e) {
@@ -124,14 +109,8 @@ class NoticesController extends Controller
     {
         try {
             $id = $_POST['id'];
-            $status = 'validate';
 
-            $this->db->query("UPDATE avis SET status = :status WHERE id = :id");
-
-            $this->db->bind(":id", $id);
-            $this->db->bind(":status", $status);
-
-            $this->db->execute();
+            $this->notices->validateById($id);
 
             $this->redirect('/notices/read');
         } catch (Throwable $e) {

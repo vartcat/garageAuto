@@ -5,7 +5,7 @@
                 <div class="col-md-3 px-0">
                     <div class="img_container">
                         <div class="img-box">
-                            <img class="card-img" src="../../public/pictures/<?= $prestation['name'] ?>.jpg" alt="">
+                            <img class="card-img" src="<?= $prestation['photo'] ?>" alt="">
                         </div>
                     </div>
                 </div>

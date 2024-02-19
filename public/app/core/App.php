@@ -87,6 +87,7 @@ class App
     {
         $this->router->addRoute($path, $controller_action);
     }
+
     /**
      * Run l'application.
      */

@@ -2,20 +2,22 @@
 
 use MyApp\Controller;
 
-require_once 'FooterController.php';
 require_once 'NoticesController.php';
-require_once 'ServicesController.php';
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $services = $this->model('Services');
+        $openTimes = $this->model('OpenTimes');
+        $notices = $this->model('Notices');
+
         try {
             $data = [
                 'title' => "Home",
-                'prestations' => ServicesController::getServices(),
-                'notices' => NoticesController::getNotices(),
-                'openTimes' => FooterController::getOpeningHours()
+                'prestations' => $services->getAll(),
+                'notices' => $notices->getNotices(),
+                'openTimes' => $openTimes->getOpeningHours()
             ];
 
             $this->template('header', $data);
