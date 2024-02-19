@@ -1,76 +1,27 @@
-@media (max-width: 992px) {
-  .hero_area {
-    min-height: auto;
-  }
-
-  .navbar-nav {
-    align-items: center;
-  }
-
-  .custom_nav-container .navbar-toggler {
-    margin-bottom: 15px;
-  }
-
-  .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link {
-    padding: 10px 25px;
-    margin: 5px 0;
-  }
-
-  .custom_nav-container.navbar-expand-lg .form-inline {
-    justify-content: center;
-  }
-
-  .custom_nav-container.navbar-expand-lg {
-    padding-top: 10px;
-    align-items: center;
-  }
-
-  .slider_section {
-    padding: 15px 0 20px 0;
-  }
-
-  .sub_page
-    .custom_nav-container.navbar-expand-lg
-    .navbar-nav
-    .nav-item
-    .nav-link {
-    padding-bottom: 15px;
-  }
-}
 
 @media (max-width: 768px) {
-  .slider_section ol.carousel-indicators {
-    justify-content: center;
-  }
-
   .slider_section {
     text-align: center;
   }
-
   .slider_section .img-box {
     margin-top: 35px;
   }
-
   .slider_section .detail-box .btn-box {
     justify-content: center;
     flex-wrap: wrap;
   }
-
   .about_section .heading_container {
     margin-bottom: 50px;
   }
-
   .about_section .row {
     flex-direction: column-reverse;
     margin-bottom: 50px;
   }
-
   .about_section .detail-box {
     width: 100%;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
     margin: auto;
   }
-
   .service_section .service_container {
     flex-wrap: wrap;
   }
@@ -78,47 +29,311 @@
   .client_section .carousel_btn-box {
     margin-top: 25px;
   }
-
+  .slider_section ol.carousel-indicators {
+    justify-content: center;
+    bottom: -80px;
+  }
   .client_section .carousel-control-prev,
   .client_section .carousel-control-next {
     position: unset;
     transform: none;
     margin: 0 2.5px;
   }
-
   .info_section .row .col-md-3 {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .info_section .info_logo {
     align-items: center;
   }
-
   .info_section .info_form .social_box {
     justify-content: center;
   }
-
   .info_section .info_form .social_box a {
     margin: 0 5px;
   }
+  #cars-container.container {
+    text-align: center;
+  }
+  #cars-container .carousel-inner .carousel-item img {
+    object-fit: cover;
+    height: 200px;
+  }
+  #cars-container .col-md-7 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  #cars-container .detail-box {
+    border-top-left-radius: 25px;
+  }
+  #cars-container .card-title {
+    font-size: 1.1rem;
+  }
+  #cars-container .card-text {
+    font-size: 0.9rem;
+  }
+  #cars-container .card-description {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
 }
 
+@media only screen and (max-width: 320px) {
+  a#logo.navbar-brand {
+    width: 100%;
+    position: absolute;
+    padding-top: 75px;
+    right: 40px;
+  }
+  .navbar-brand {
+    width: 100%;
+    margin: auto;
+  }
+  .navbar {
+    width: 100%;
+    margin-left: auto;
+  }
+  .navbar-toggler {
+    margin-left: 90%;
+  }
+  html
+    body
+    div.hero_area
+    header.header_section
+    div.header_bottom
+    div.container-fluid
+    nav.navbar.navbar-expand-lg.custom_nav-container {
+    display: flex;
+  }
+  .navbar-imgBox {
+    min-width: 60px;
+    height: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  .slider_section {
+    padding: 0px 10px 0px 10px;
+  }
+  .hero_area .slider_section {
+    height: 389px;
+  }
+  .slider_section .detail-box h1 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .slider_section .carousel-inner {
+    overflow: inherit;
+    height: 340px;
+  }
+  .client_section .carousel-control-prev,
+  .client_section .carousel-control-next {
+    top: 50%;
+    width: 25px;
+    height: 25px;
+  }
+  .carousel-inner {
+    position: relative;
+    min-width: 200px;
+    max-height: 400px;
+    overflow: hidden;
+  }
+  .filters {
+    color: #f0f0f0;
+    background-color: rgba(28, 28, 28, 0.5);
+    border-radius: 5px;
+    border: solid 1px #f1db25;
+    font-size: 16px;
+    height: 30px;
+    text-align: center;
+  }
+  .opening-time table tbody td {
+    border-bottom: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    text-align: center;
+  }
+  .opening-time {
+    flex: 1;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+    color: #fff;
+  }
+}
 @media (max-width: 576px) {
   .header_top a span {
     display: none;
   }
 
   .slider_section .detail-box h1 {
-    font-size: 2.5rem;
-    line-height: 55px;
+    font-size: 2rem;
+    line-height: 30px;
+  }
+  .navbar-brand {
+    width: 100%;
+    margin: auto;
+  }
+  .navbar {
+    width: 100%;
+    margin: auto;
+  }
+
+  .hero_area section.slider_section {
+    font-size: 0.85em;
+  }
+  .sliderContent {
+    display: inline;
+  }
+  .filtersContent {
+    display: inline;
+  }
+  #cars-container .card-title {
+    font-size: 1rem;
+  }
+  #cars-container .card-text {
+    font-size: 0.8rem;
+  }
+  #cars-container .card-description {
+    font-size: 0.8rem;
+  }
+  .footer_section {
+    display: inline;
+  }
+  .opening-time table {
+    width: 100vw;
+    margin: auto;
+    display: inline;
+  }
+  .footer_logo {
+    height: 100%;
+    margin: auto;
+  }
+  .back-to-top a {
+    width: 100%;
+    margin: auto;
   }
 }
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1170px;
+@media screen and (max-width: 900px) {
+  .occasions_section.layout_padding {
+    padding-top: Opx;
+  }
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+  .price_sliders_control {
+    left: -50%;
+  }
+  .sliders_control {
+    left: -50%;
+  }
+  table {
+    border: 0;
+  }
+  table caption {
+    font-size: 1.3em;
+  }
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .opening-time table tbody tr {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    margin-bottom: 0.625em;
+    width: 100%;
+    margin: auto;
+  }
+  .opening-time table tbody td {
+    border-bottom: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+    text-align: left;
+  }
+  table td::before {
+    /*
+          * aria-label has no advantage, it won't be read inside a table
+          content: attr(aria-label);
+          */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+  .sliderContent {
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+  }
+  html
+    body
+    div.hero_area
+    section.occasions_section.layout_padding
+    div.filterBox
+    div.sliderContent
+    div#slider {
+    margin: auto;
+  }
+  .hero_area {
+    min-height: auto;
+  }
+  .navbar-nav {
+    align-items: center;
+  }
+  .custom_nav-container .navbar-toggler {
+    margin-bottom: 15px;
+  }
+  .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link {
+    padding: 10px 25px;
+    margin: 5px 0;
+  }
+  .custom_nav-container.navbar-expand-lg .form-inline {
+    justify-content: center;
+  }
+  .custom_nav-container.navbar-expand-lg {
+    padding-top: 10px;
+    align-items: center;
+  }
+  .slider_section {
+    padding: 15px 0 20px 0;
+  }
+  .sub_page
+    .custom_nav-container.navbar-expand-lg
+    .navbar-nav
+    .nav-item
+    .nav-link {
+    padding-bottom: 15px;
   }
 }

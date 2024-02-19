@@ -192,7 +192,6 @@
                 )).join('');
         }
 
-
         function updateData() {
             const filters = document.querySelectorAll('.filters');
             const filtersRange = document.querySelectorAll('.filtersRange');
@@ -206,10 +205,11 @@
 
             filtersRange.forEach(filter => filter.addEventListener('change', (e) => {
                 const type = e.target.getAttribute('name');
+                const isFormPrice = type === 'prix';
 
                 rangeFilters[type] = {
-                    min: (type === 'prix' ? fromPriceSlider : fromSlider).valueAsNumber,
-                    max: (type === 'prix' ? toPriceSlider : toSlider).valueAsNumber
+                    min: (isFormPrice ? fromPriceSlider : fromSlider).valueAsNumber,
+                    max: (isFormPrice ? toPriceSlider : toSlider).valueAsNumber
                 };
                 render();
             }));

@@ -11,6 +11,7 @@ class EmployedController extends Controller
         parent::__construct();
         $this->employed = $this->model('Employed');
     }
+
     // page services admin
     public function read()
     {
@@ -61,9 +62,8 @@ class EmployedController extends Controller
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
 
-            $data['id'] = end($segment);
             $data['title'] = "Employed";
-
+            $data['id'] = end($segment);
             $data['user'] = $this->employed->getById($data['id']);
 
             $this->template('header', $data);
@@ -106,9 +106,8 @@ class EmployedController extends Controller
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
 
-            $data['id'] = end($segment);
             $data['title'] = "Employed";
-            
+            $data['id'] = end($segment);
             $data['user'] = $this->employed->getById($data['id']);
 
             $this->template('header', $data);

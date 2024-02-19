@@ -248,6 +248,10 @@ a:focus {
   -ms-flex-align: center;
   align-items: center;
 }
+a#logo.navbar-brand {
+  width: 80%;
+  margin-left: 0px;
+}
 .navbar-brand span {
   margin-bottom: -60px;
   margin-left: 5px;
@@ -260,12 +264,18 @@ a:focus {
   font-style: normal;
 }
 .navbar-imgBox {
-  width: 200px;
-  height: 100px;
+  min-width: 300px; /* largeur minimale de 400px */
+  height: 120px; /* hauteur de 100px */
+  display: flex; /* pour centrer le contenu */
+  justify-content: left; /* pour centrer horizontalement */
+  align-items: center; /* pour centrer verticalement */
 }
 .navbar-brand img {
-  width: 150px;
-  height: 150px;
+  display: block;
+  left: 50px;
+}
+.logo {
+  width: 250px;
 }
 .navbar-toggler {
   outline: none;
@@ -275,19 +285,6 @@ a:focus {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   margin-left: 90%;
-}
-@media (max-width: 576px) {
-  .navbar-brand {
-    width: 100%;
-    margin: auto;
-  }
-  .navbar {
-    width: 100%;
-    margin: auto;
-  }
-  .navbar-toggler {
-    margin: auto;
-  }
 }
 .navbar-toggler span {
   display: block;
@@ -425,6 +422,10 @@ section.slider_section .detail-box {
   display: inline;
   margin: auto;
 }
+.slider_section .btn-box-dashboard {
+  margin-top: 140px;
+  text-align: center;
+}
 .slider_section .btn-box a {
   width: 180px;
   text-align: center;
@@ -447,18 +448,17 @@ section.slider_section .detail-box {
 }
 .slider_section .btn-crud {
   display: flex;
+  text-align: center;
   margin: auto;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 .slider_section .btn-crud h2 {
-  padding: 10px;
-  width: 50%;
-  text-align: right;
-  padding-right: 20px;
+  width: 50px;
+  margin: auto;
 }
 .slider_section .detail-box h2 span {
-  width: 100%;
+  width: 50px;
   color: #f1db25;
   text-transform: uppercase;
 }
@@ -469,6 +469,7 @@ section.slider_section .detail-box {
 }
 .fa.fa-arrow-right,
 .fa.fa-arrow-left {
+  padding: 10px;
   font-size: 50px;
   color: #f1db25;
 }
@@ -504,7 +505,6 @@ section.slider_section .detail-box {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
-  margin: 10px;
 }
 
 .slider_section .img-box {
@@ -519,7 +519,7 @@ section.slider_section .detail-box {
 }
 .slider_section .carousel-inner {
   overflow: inherit;
-  height: 310px;
+  height: 360px;
 }
 .slider_section .idicator_container {
   position: relative;
@@ -609,61 +609,6 @@ table th {
   max-height: 100px;
   overflow: auto;
   white-space: nowrap;
-}
-@media screen and (max-width: 900px) {
-  .occasions_section.layout_padding {
-    padding-top: Opx;
-  }
-  table {
-    border: 0;
-  }
-  table caption {
-    font-size: 1.3em;
-  }
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: 0.625em;
-  }
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: 0.8em;
-    text-align: right;
-    text-align: left;
-  }
-  table td::before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  table td:last-child {
-    border-bottom: 0;
-  }
-  .sliderContent {
-    display: inline-block;
-  }
-  .price_sliders_control {
-    left: -50%;
-  }
-  .sliders_control {
-    left: -50%;
-  }
 }
 
 /* employed delete */
@@ -941,10 +886,10 @@ input[type="range"] {
 .contactSearchBtn {
   margin: auto;
   text-align: center;
-  padding: 10px;
+  margin-top: 20px;
 }
 .contactSearchBtn a {
-  min-width: 350px;
+  min-width: 250px;
   margin: auto;
   margin-top: 30px;
   text-align: center;
@@ -1017,7 +962,7 @@ input[type="range"] {
   padding: 10px;
   background-color: rgba(28, 28, 28, 0.5);
   max-width: 100%;
-  max-height: 240px;
+  max-height: 220px;
   overflow: hidden;
 }
 #cars-container .card-title {
@@ -1030,21 +975,21 @@ input[type="range"] {
   margin-bottom: 0;
   font-size: 0.9rem;
   max-height: 40px;
-  overflow: scroll;
+  overflow: auto;
 }
 #cars-container .card-carburant {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 0.9rem;
   max-height: 200px;
-  overflow: scroll;
+  overflow: auto;
 }
 #cars-container .card-boite {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 0.9rem;
   max-height: 200px;
-  overflow: scroll;
+  overflow: auto;
 }
 .footing_container {
   display: flex;
@@ -1080,59 +1025,6 @@ input[type="range"] {
   background-color: transparent;
   border-color: #f1db25;
   color: #f1db25;
-}
-@media (max-width: 768px) {
-  .slider_section ol.carousel-indicators {
-    justify-content: center;
-    bottom: -80px;
-  }
-
-  #cars-container.container {
-    text-align: center;
-  }
-  #cars-container .carousel-inner .carousel-item img {
-    object-fit: cover;
-    height: 200px;
-  }
-  #cars-container .col-md-7 {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  #cars-container .detail-box {
-    border-top-left-radius: 25px;
-  }
-  #cars-container .card-title {
-    font-size: 1.1rem;
-  }
-  #cars-container .card-text {
-    font-size: 0.9rem;
-  }
-  #cars-container .card-description {
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 576px) {
-  .hero_area section.slider_section {
-    font-size: 0.85em;
-  }
-  .sliderContent {
-    display: inline;
-  }
-  .filtersContent {
-    display: inline;
-  }
-  #cars-container .card-title {
-    font-size: 1rem;
-  }
-  #cars-container .card-text {
-    font-size: 0.8rem;
-  }
-  #cars-container .card-description {
-    font-size: 0.8rem;
-  }
 }
 
 /* prestations section */
@@ -1193,7 +1085,6 @@ input[type="range"] {
 }
 
 /* service section */
-
 .service_section.layout_padding {
   background-color: #1c1c1c;
 }
@@ -1219,6 +1110,54 @@ input[type="range"] {
   background-color: rgba(28, 28, 28, 0.5);
   color: #f0f0f0;
 }
+
+/*
+ * Responsive for prestations section
+*/
+@media screen and (max-width: 1000px) {
+  .slider_services .btn-boxServices {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slider_services {
+    height: unset !important;
+  }
+
+  .prestations_section.layout_padding .container .row {
+    gap: 10px;
+  }
+
+  .prestations_section .layout_padding .row {
+    margin: initial;
+    margin-top: initial;
+  }
+
+  .prestations_section.layout_padding .detail-box {
+    padding: 10px;
+    height: unset;
+    margin-left: initial;
+  }
+
+  .prestations_section.layout_padding .cardPrice {
+    padding-right: 0;
+    font-size: 1rem;
+  }
+
+  .prestations_section.layout_padding .card-text {
+    font-size: .8rem;
+    height: unset;
+  }
+
+  .prestations_section.layout_padding .card-bottom {
+    margin-bottom: 0;
+  }
+}
+/*
+ * End for responsive for prestations section
+*/
+
 .service_section .detail-box h6 {
   text-align: center;
   text-transform: uppercase;
@@ -1259,8 +1198,26 @@ input[type="range"] {
 .prestations_section .card-text {
   font-size: 14px;
   height: 100px;
-  overflow: scroll;
+  overflow-y: auto;
 }
+@-moz-document url-prefix() {
+  .prestations_section .card-text {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(28, 28, 28, 0.5) #f0f0f0;
+  }
+}
+.prestations_section .card-text::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 5px rgba(28, 28, 28, 0.5);
+	background-color: #F5F5F5;
+}
+.prestations_section .card-text::-webkit-scrollbar {
+	width: 5px;
+	background-color: #F5F5F5;
+}
+.prestations_section .card-text::-webkit-scrollbar-thumb {
+	background-color: rgba(28, 28, 28, 0.5);
+}
+
 .prestations_section .cardBottom {
   display: flex;
 }
@@ -1306,9 +1263,8 @@ input[type="range"] {
   text-align: left;
 }
 .client_section #carouselExampleControls {
-  padding: 0 50px;
-  background-color: rgba(85,85,85,0.3);
-
+  padding: 0 40px;
+  background-color: rgba(85, 85, 85, 0.3);
 }
 .client_section .box {
   display: -webkit-box;
@@ -1350,7 +1306,7 @@ input[type="range"] {
   text-transform: capitalize;
 }
 .client_section .box .detail-box p {
-    text-align: center;
+  text-align: center;
   margin-top: 10px;
 }
 .client_section .box .detail-box p::first-letter {
@@ -1391,7 +1347,7 @@ input[type="range"] {
   right: 0;
 }
 .client_section #notices.container {
-  background-color: rgba(85,85,85,0.5);
+  background-color: rgba(85, 85, 85, 0.5);
   padding: 20px;
 }
 /* notices validate */
@@ -1734,23 +1690,22 @@ input[type="range"] {
 }
 .notices_section .form-control-select-note select {
   cursor: pointer;
-  min-width: 100px;
-  max-width: 100px;
+
   text-align: center;
   width: 100px;
-  height: 100px;
-  padding: 5px;
+  height: 50px;
+  padding: 0px;
   border-radius: 50%;
   border-color: #f1db25;
   background-color: transparent;
-  font-size: 28px;
+  font-size: 12px;
   color: #f0f0f0;
 }
 .notices_section label {
   font-weight: bold;
   text-transform: uppercase;
   padding-right: 50px;
-  font-size: 32px;
+  font-size: 2rem;
 }
 .notices_section .form-control-select-note p.note-max {
   min-width: 50px;
@@ -1765,7 +1720,7 @@ input[type="range"] {
 }
 .notices_section .form-group select[name="rating"] {
   width: 50px;
-  padding: 10px 20px;
+  padding: 1px;
   border: 2px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
@@ -1806,20 +1761,24 @@ input[type="range"] {
   width: 100px;
   height: 50px;
   min-width: 300px;
+  margin: auto;
+  text-align: center;
 }
 .footer_logo p {
   margin-bottom: -50px;
-  margin-left: 60px;
+  margin-left: 0px;
   height: 50px;
   font-weight: bold;
   color: #fff;
   font-size: 24px;
   font-family: "Protest Riot", sans-serif;
   font-style: normal;
+  text-align: center;
 }
 .footer_logo img.logo {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 150px;
+  margin: auto;
 }
 .opening-time {
   flex: 1;
@@ -1833,11 +1792,10 @@ input[type="range"] {
   padding: 5px;
 }
 .table-title {
-  font-family: "Protest Riot", sans-serif;
-  font-size: 24px; /* Taille de police personnalisée */
-  font-weight: bold; /* Gras */
+  font-size: 18px;
   text-align: center;
-  margin-bottom: 10px;
+  text-decoration: overline;
+  margin-bottom: 5px;
   color: #fff;
 }
 .opening-time table tr td,
@@ -1872,88 +1830,39 @@ input[type="range"] {
   color: #f1db25;
 }
 
-@media (max-width: 576px) {
+
+/*
+* Responsive footer
+*/
+@media screen and (max-width: 768px) {
   .footer_section {
-    display: inline;
+    flex-direction: column;
   }
-  .opening-time table {
-    width: 100vw;
-    margin: auto;
-    display: inline;
-  }
-  .footer_logo {
-    height: 100%;
-    margin: auto;
-  }
-  .back-to-top a {
-    width: 100%;
-    margin: auto;
+
+  .opening-time {
+    border-right: 0;
+    border-left: 0;
   }
 }
-@media screen and (max-width: 900px) {
-  table {
-    border: 0;
+/*
+* End responsive footer
+*/
+
+/*
+* Responsive logo and navbar
+*/
+@media screen and (max-width: 512px) {
+  .logo {
+    position: relative;
+    top: -20px;
+    left: -50px !important;
   }
-  table caption {
-    font-size: 1.3em;
-  }
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  .opening-time table tbody tr {
-    background-color: transparent;
-    border: none;
-    display: flex;
-    margin-bottom: 0.625em;
-    width: 100%;
-    margin: auto;
-  }
-  .opening-time table tbody td {
-    border-bottom: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100px;
-  }
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: 0.8em;
-    text-align: right;
-    text-align: left;
-  }
-  table td::before {
-    /*
-      * aria-label has no advantage, it won't be read inside a table
-      content: attr(aria-label);
-      */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  table td:last-child {
-    border-bottom: 0;
-  }
-  .sliderContent {
-    display: inline-block;
-    margin: auto;
-    text-align: center;
-    width: 100%;
-  }
-  html
-    body
-    div.hero_area
-    section.occasions_section.layout_padding
-    div.filterBox
-    div.sliderContent
-    div#slider {
-    margin: auto;
+
+  .navbar {
+    top: -50px;
   }
 }
+/*
+* End responsive logo and navbar
+*/
+

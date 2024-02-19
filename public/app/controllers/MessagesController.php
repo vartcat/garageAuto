@@ -45,6 +45,7 @@ class MessagesController extends Controller
 
             // Affichage de la page de remerciements
             $data['title'] = "Messages";
+
             $this->view('/messages/merci', $data);
         } catch (Throwable $e) {
             $this->handleError($e, "ajout momentanement indisponible");

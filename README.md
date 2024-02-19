@@ -1,51 +1,105 @@
-# Simple PHP PDO MVC Template
+# GARAGE V PARROT
 
-## Overview
+## Description
 
-This PHP template is a simple implementation of the Model-View-Controller (MVC) architectural pattern using PDO (PHP Data Objects) for database connectivity. It provides a structured and modular approach to building web applications, making it easier to manage and scale projects.
+Service de gestion des prestations et services d'un garage automobile
 
-## Components
+### Installation du Projet en Local
 
-### 1. Models
+Ce guide vous aidera à installer le projet localement en utilisant PHP avec PDO (PHP Data Objects) pour la connexion à une base de données MySQL, ainsi que Bootstrap pour le design et CSS/jQuery pour l'interactivité.
 
-The `models` directory is intended for organizing your data models. Models encapsulate the logic for interacting with the application's data, such as querying the database or performing specific business logic. This separation enhances maintainability and modularity in your PHP-PDO-MVC project.
+1. **Prérequis :**
 
-### 2. Views
+   Assurez-vous d'avoir les éléments suivants installés sur votre machine :
+   - Serveur Web (Apache, Nginx, etc.)
+   - PHP (version 8.0 ou supérieure)
+   - MySQL
+   - Un éditeur de texte ou un environnement de développement intégré (IDE) comme Visual Studio Code, Sublime Text, etc.
 
-The `views` directory holds your HTML templates. Views are rendered by controllers, and data can be passed to them for dynamic content.
+2. **Téléchargement du Projet :**
 
-### 3. Controllers
+   ```sh
+    git clone https://github.com/vartcat/garageAuto   
+    cd garageAuto
+    composer install
+   ```
 
-The `controllers` directory is where you organize your controller classes. Each controller handles specific routes and user interactions.
+3. **Extraction du Projet :**
 
-### 4. Config
+   Décompressez le fichier si nécessaire et placez le projet dans le répertoire de votre serveur web local. Par exemple, pour Apache, placez-le dans le répertoire htdocs.
 
-The `Config` file contains constants for configuring your database connection and base URL. Update the values according to your environment.
+4. **Configuration de la Base de Données :**
 
-### 5. Controller
+   - Ouvrez votre gestionnaire de base de données (par exemple, phpMyAdmin).
+   - Créez une nouvelle base de données et notez son nom : "garage_automobile"
+   - Importez le fichier SQL fourni avec le projet dans la base de données nouvellement créée, ou utilisez la ligne de commande :
+   
+     ```sh
+        mysql -u root -p garage_automobile < garage_automobile.sql
+     ```
 
-The `Controller` class acts as the base controller for your application. It includes methods for rendering views and redirecting to other URLs. Controllers extend this base class.
+5. **Configuration de PDO :**
 
-### 6. Router
+   - Dans le répertoire du projet, ouvrez le fichier de configuration de la base de données (config/Config.php) dans un éditeur de texte.
+   - Modifiez les paramètres de connexion PDO pour correspondre à votre configuration de base de données (hôte, nom de la base de données, nom d'utilisateur, mot de passe).
 
-The `Router` class handles the routing of incoming requests to the appropriate controller and action. It allows you to define routes easily and supports different HTTP methods.
+     ```php
+        define("DB_HOST", "localhost");
+        define("DB_USER", "root");
+        define("DB_PASS", "root");
+        define("DB_NAME", "garage_automobile");
+     ```
 
-### 7. Database
+6. **Configuration du Simple Storage Service (S3) :**
 
-The `Database` class encapsulates the database connection logic using PDO. It provides methods for executing queries, binding parameters, and fetching results.
+   - Dans le fichier de configuration (config/Config.php), ajoutez les crédentials pour le service
+   [S3](https://aws.amazon.com/fr/s3/) d'Amazon, utilisé ici pour les images de la base de données.
 
-## Getting Started
+     ```php
+        define("S3_BUCKET", "bucket");
+        define("S3_REGION", "us-north-1");
+        define("S3_APIKEY", "api-key");
+        define("S3_SECRET", "secret");
+        define("S3_BASEURL", "https://url.s3.us-north-1.amazonaws.com/");
+     ```
 
-1. Define your routes in the `App.php`.
-2. Create controller classes in the `controllers` directory, extending the `Controller` base class.
-3. Add methods in your controllers to handle different actions.
-4. Create corresponding views in the `views` directory.
-5. Configure your database connection in the `Config` file.
-6. Start building your application by adding more controllers, views, and models.
+7. **Accès au Projet :**
 
-This template provides a foundation for building PHP web applications using the MVC pattern. It's recommended to expand upon it based on your project requirements, adding models, additional features, and improving security.
+   - Lancez votre serveur web local.
+   - Dans votre navigateur web, accédez au projet en utilisant l'URL correspondant à l'emplacement où vous avez placé les fichiers du projet.
 
----
+8. **Connexion au Dashboard Administrateur :**
 
+   - Accédez à l'URL http://localhost:8888/login
+   - Identifiants par défaut :
+   - Identifiant : garage.VParrot@gmail.com
+   - Mot de passe : 1111
 
-# garage_auto
+#### Modèle MVC PDO PHP Simple
+
+**Aperçu :**
+
+Ce modèle PHP est une implémentation simple du modèle architectural Modèle-Vue-Contrôleur (MVC) utilisant PDO (PHP Data Objects) pour la connectivité à la base de données.
+
+**Composants :**
+
+1. **Modèles :**
+   - Le répertoire `models` est destiné à l'organisation de vos modèles de données.
+
+2. **Vues :**
+   - Le répertoire `views` contient les modèles HTML.
+
+3. **Contrôleurs :**
+   - Le répertoire `controllers` est l'endroit où sont organisées les classes de contrôleur.
+
+4. **Configuration :**
+   - Le fichier `Config` contient des constantes pour configurer la connexion à la base de données et l'URL de base. Mettez à jour les valeurs en fonction de votre environnement.
+
+5. **Contrôleur :**
+   - La classe `Controller` agit comme le contrôleur de base pour l'application.
+
+6. **Routeur :**
+   - La classe `Router` gère le routage des requêtes entrantes vers le contrôleur et l'action appropriés.
+
+7. **Base de données :**
+   - La classe `Database` encapsule la logique de connexion à la base de données en utilisant PDO.

@@ -15,6 +15,7 @@ class UserController extends Controller
             }
             
             $data['title'] = "User";
+
             $this->template('header', $data);
             $this->view('user', $data);
         } catch (Exception $e) {

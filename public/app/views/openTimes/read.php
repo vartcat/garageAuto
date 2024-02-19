@@ -1,4 +1,4 @@
-<h5> Fermé le dimanche et jours fériés</h5>
+<h5 class="table-title">Fermé le dimanche et jours fériés</h5>
 <table>
     <thead>
         <tr>

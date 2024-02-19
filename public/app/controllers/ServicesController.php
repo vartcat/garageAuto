@@ -19,6 +19,7 @@ class ServicesController extends Controller
     {
         try {
             $openTimes = $this->model('OpenTimes');
+
             $data['title'] = "Services";
             $data['prestations'] = $this->services->getAll();
             $data['openTimes'] = $openTimes->getOpeningHours();
@@ -50,6 +51,7 @@ class ServicesController extends Controller
     {
         try {
             $data['title'] = "Services";
+
             $this->template('header', $data);
             $this->view('/services/create', $data);
         } catch (Throwable $e) {
@@ -91,7 +93,6 @@ class ServicesController extends Controller
             
             $data['id'] = end($segment);
             $data['title'] = "Services";
-
             $data['prestations'] = $this->services->getById($data['id']);
 
             $this->template('header', $data);

@@ -32,17 +32,17 @@ function afficherHeroArea($imgSrc)
 $request_uri = $_SERVER['REQUEST_URI'];
 
 $imagePaths = [
-    '/home' => '/public/pictures/garage4.jpg',
-    '/admin' => '/public/pictures/garageEnseigne.jpg',
-    '/user' => '/public/pictures/garageEnseigne.jpg',
-    '/services' => '/public/pictures/voiture.jpg',
-    '/occasions' => '/public/pictures/occasions.jpg',
-    '/occasions/read' => '/public/pictures/occasions.jpg',
-    '/messages/read' => '/public/pictures/message.jpg',
-    '/employed/read' => '/public/pictures/employed.jpg',
-    '/notices/read' => '/public/pictures/avis.jpg',
-    '/services/read' => '/public/pictures/mécanique.jpg',
-    '/openTimes/read' => '/public/pictures/garage.jpg'
+    '/home' => '/pictures/garage4.jpg',
+    '/admin' => '/pictures/garageEnseigne.jpg',
+    '/user' => '/pictures/garageEnseigne.jpg',
+    '/services' => '/pictures/voiture.jpg',
+    '/occasions' => '/pictures/occasions.jpg',
+    '/occasions/read' => 'pictures/occasions.jpg',
+    '/messages/read' => '/pictures/message.jpg',
+    '/employed/read' => '/pictures/employed.jpg',
+    '/notices/read' => '/pictures/avis.jpg',
+    '/services/read' => '/pictures/mecanique.jpg',
+    '/openTimes/read' => '/pictures/garage.jpg'
 ];
 
 if (array_key_exists($request_uri, $imagePaths)) {
@@ -65,7 +65,7 @@ if (array_key_exists($request_uri, $imagePaths)) {
                 <a href="tel:+011234567890" class="contact_link2">
                     <i class="fa fa-phone" aria-hidden="true"></i>
                     <span>
-                        Tél : +01 1234567890
+                        Tél : +33 1234567890
                     </span>
                 </a>
                 <a href="mailto:garage.VParrot@gmail.com" class="contact_link3">
@@ -81,11 +81,8 @@ if (array_key_exists($request_uri, $imagePaths)) {
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <div class="navbar-imgBox">
-                <a class="navbar-brand" href="/home">
-                    <img src="/pictures/logo.png" alt="Logo" class="logo">
-                    <span>
-                        Garage V.Parrot
-                    </span>
+                <a class="navbar-brand" id="logo" href="/home">
+                    <img src="/public/pictures/logo.png" alt="Logo" class="logo">
                 </a>
                 </div>
                 <div class="navbar">
@@ -332,7 +329,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                                 <h3>
                                     Choisissez un élément à modifier:
                                 </h3>
-                                <div class="btn-box">
+                                <div class="btn-box-dashboard">
                                     <div class="btn-crud">
                                         <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
                                         <a href="employed/read" class="btn-2 col-md-6">comptes des employés</a>
@@ -376,7 +373,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                                 <h3>
                                     Choisissez un élément à modifier:
                                 </h3>
-                                <div class="btn-box">
+                                <div class="btn-box-dashboard">
                                     <div class="btn-crud">
                                         <h2 class="logo-badge text-whitesmoke"><span class="fa fa-arrow-right"></span></h2>
                                         <a href="occasions/read" class="btn-2 col-md-6">Véhicules d\'Occasions</a>
@@ -456,7 +453,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                                 <h1>
                                     Véhicules d\'Occasions <br>
                                     <span>
-                                    pleines d\'avenir
+                                    pleins d\'avenir
                                     </span>
                                 </h1>
                                 <p>Découvrez votre future voiture dans notre large catalogue
@@ -473,7 +470,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
         ';
 } elseif ($_SERVER['REQUEST_URI'] === '/services') {
     echo '
-            <section class=" slider_section ">
+            <section class="slider_section slider_services">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -484,9 +481,7 @@ if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
                                     Qualité & Confiance                                                </span>
                                 </h1>
                                 <div class="btn-boxServices">
-                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                     <a href="#contact" class="btn-2"> Prenez rendez-vous </a>
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>

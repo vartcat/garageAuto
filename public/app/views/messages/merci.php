@@ -1,7 +1,7 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-image: url('/public/pictures/garage3.jpg');
+        background-image: url('/pictures/garage3.jpg');
         /* Remplacez 'your-image.jpg' par l'URL de votre image de fond */
         background-size: cover;
         background-position: center;

@@ -26,6 +26,7 @@ class NoticesController extends Controller
     public function create()
     {
         $data['title'] = "Notices";
+
         $this->template('header', $data);
         $this->view('/notices/create', $data);
     }
@@ -58,8 +59,8 @@ class NoticesController extends Controller
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
 
-            $data['id'] = end($segment);
             $data['title'] = "Notices";
+            $data['id'] = end($segment);
             $data['avis'] = $this->notices->getById($data['id']);
 
             if (!$data['avis']) {
@@ -94,8 +95,8 @@ class NoticesController extends Controller
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
             
-            $data['id'] = end($segment);
             $data['title'] = "Notices";
+            $data['id'] = end($segment);
             $data['avis'] = $this->notices->getById($data['id']);
 
             $this->template('header', $data);

@@ -9,11 +9,11 @@
 
    class Storage {
       private $s3;
-      private $bucket = 'vparrot';
-      private $region = 'eu-north-1';
-      private $apiKey = 'AKIA5FTZCSLVV2QRUWVD';
-      private $secret = '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';
-      private $s3BaseUrl = 'https://vparrot.s3.eu-north-1.amazonaws.com/';
+      private $bucket = S3_BUCKET;
+      private $region = S3_REGION;
+      private $apiKey = S3_APIKEY;
+      private $secret = S3_SECRET;
+      private $s3BaseUrl = S3_BASEURL;
 
       public function __construct()
       {

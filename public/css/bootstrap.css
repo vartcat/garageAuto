@@ -579,10 +579,9 @@ pre code {
 
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 10px;
+  padding-left: 0px;
   margin-right: auto;
-  margin-left: auto;
 }
 
 .row {

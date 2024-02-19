@@ -36,6 +36,13 @@ class Employed
         return $this->db->single();
     }
 
+    public function getByEmail($email)
+    {
+        $this->db->query("SELECT * FROM user WHERE email = :email");
+        $this->db->bind(":email", $email);
+        return $this->db->single();
+    }
+
     public function update($id, $name, $lastname, $email, $newPassword, $role)
     {
         $this->db->query("UPDATE user SET name = :name, lastname = :lastname, email = :email, password = :newPassword, role = :role WHERE id = :id");

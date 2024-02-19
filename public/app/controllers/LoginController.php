@@ -6,24 +6,17 @@ use MyApp\Controller;
 
 class LoginController extends Controller
 {
-    private $login;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->login = $this->model('Occasions');
-    }
 
     // page login
     public function index()
     {
         try {
             $data['title'] = "Login";
+
             $this->template('header', $data);
             $this->view('login', $data);
         } catch (Exception $e) {
             $this->handleError($e, "une erreur est survenue");
-
         }
     }
 
@@ -40,9 +33,8 @@ class LoginController extends Controller
                     throw new Exception('Adresse email invalide');
                 }
 
-                $this->db->query("SELECT * FROM user WHERE email = :email");
-                $this->db->bind(":email", $email);
-                $user = $this->db->single();
+                $employed = $this->model('Employed');
+                $user = $employed->getByEmail($email);
 
                 if (!$user) {
                     throw new Exception('Utilisateur non trouvé');
@@ -53,6 +45,7 @@ class LoginController extends Controller
                     // Définir la session après l'authentification
                     $this->setSession($isAdmin);
                     $location = $isAdmin ? '/admin' : '/user';
+
                     $this->redirect($location);
                 } else {
                     // Si l'authentification échoue, un message d'erreur

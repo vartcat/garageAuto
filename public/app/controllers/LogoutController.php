@@ -8,6 +8,7 @@ class LogoutController extends Controller
     {
         try {
             $data['title'] = "Logout";
+
             $this->template('header', $data);
             $this->view('logout', $data);
         } catch (Exception $e) {
