@@ -72,8 +72,8 @@ Ce guide vous aidera à installer le projet localement en utilisant PHP avec PDO
 
    - Accédez à l'URL http://localhost:8888/login
    - Identifiants par défaut :
-   - Identifiant : garage.VParrot@gmail.com
-   - Mot de passe : 1111
+   - Identifiant : rootadmin@mail.com
+   - Mot de passe : root
 
 #### Modèle MVC PDO PHP Simple
 

@@ -17,7 +17,7 @@ class Occasions
         $results = $this->db->resultSet();
 
         if (!$results) {
-            throw new Exception("Aucune occasion trouvée.");
+            $results = array();
         }
 
         $output = array();

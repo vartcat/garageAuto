@@ -56,9 +56,9 @@ class OccasionsController extends Controller
     {
         try {
             $data['title'] = "OccasionsCrud";
-
             $this->template('header', $data);
             $this->view('occasions/create', $data);
+
         } catch (Exception $e) {
             $this->handleError($e, "Une erreur s'est produite lors de la création de l'occasion.");
         }

@@ -95,102 +95,85 @@ if (array_key_exists($request_uri, $imagePaths)) {
                         <?php
                         $menuItems = [
                             '/' => [
-                                ['Accueil', '/home'],
                                 ['Prestations', 'services'],
                                 ['Occasions', 'occasions'],
                                 ['Avis', '#notices'],
                                 ['Contact', '#contact'],
-                                ['Login', 'login']
+                                ['Connection', 'login']
                             ],
                             '/home' => [
-                                ['Accueil', '/home'],
                                 ['Prestations', 'services'],
                                 ['Occasions', 'occasions'],
                                 ['Avis', '#notices'],
                                 ['Contact', '#contact'],
-                                ['Login', 'login']
+                                ['Connection', 'login']
                             ],
                             '/admin' => [
-                                ['Dashboard', 'admin'],
                                 ['Comptes', 'employed/read'],
                                 ['Prestations', 'services/read'],
                                 ['Horaires', 'openTimes/read'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/user' => [
-                                ['Dashboard', '/user'],
                                 ['Occasions', '/occasions/read'],
                                 ['Avis', '/notices/read'],
                                 ['Messages', '/messages/read'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/login' => [
-                                ['Login', '/login'],
                                 ['Accueil', '/home']
                             ],
                             '/services' => [
-                                ['Prestations', 'services'],
                                 ['Accueil', '/home'],
                                 ['Occasions', 'occasions'],
                                 ['Contact', '#contact'],
-                                ['Login', 'login']
+                                ['Connection', 'login']
                             ],
                             '/occasions' => [
-                                ['Occasions', 'occasions'],
                                 ['Accueil', '/home'],
                                 ['Prestations', 'services'],
                                 ['Contact', '#contact'],
-                                ['Login', 'login']
+                                ['Connection', 'login']
                             ],
                             '/occasions/read' => [
-                                ['Occasions', 'occasions'],
                                 ['Dashboard', '/user'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/occasions/create' => [
-                                ['Nouveau véhicule', 'occasions'],
                                 ['Dashboard', '/user'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/notices/read' => [
-                                ['Avis', 'avis'],
                                 ['Dashboard', '/user'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/notices/create' => [
-                                ['Nouvel avis', 'avis'],
                                 ['Dashboard', '/user'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/messages/read' => [
-                                ['Messages', 'messages'],
                                 ['Dashboard', '/user'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/employed/read' => [
-                                ['Employés', '/employed/read'],
                                 ['Dashboard', '/admin'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/employed/create' => [
-                                ['Nouvel employé', '/employed/read'],
                                 ['Dashboard', '/admin'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/services/read' => [
-                                ['Prestations', '/services/read'],
                                 ['Dashboard', '/admin'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/services/create' => [
-                                ['Nouvelle prestation', '/services/read'],
                                 ['Dashboard', '/admin'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ],
                             '/openTimes/read' => [
-                                ['Horaires', '/openTimes/read'],
                                 ['Dashboard', '/admin'],
-                                ['Logout', '/logout']
+                                ['Déconnexion', '/logout']
                             ]
                         ];
 
