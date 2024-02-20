@@ -58,7 +58,6 @@ class NoticesController extends Controller
         try {
             $uri = $_SERVER['REQUEST_URI'];
             $segment = explode('/', rtrim($uri, '/'));
-
             $data['title'] = "Notices";
             $data['id'] = end($segment);
             $data['avis'] = $this->notices->getById($data['id']);
@@ -79,7 +78,6 @@ class NoticesController extends Controller
     {
         try {
             $id = $_POST['id'];
-
             $this->notices->deleteById($id);
 
             $this->redirect('/notices/read');

@@ -40,7 +40,7 @@ class Notices
 
     public function deleteById($id)
     {
-        $this->db->query("SELECT * FROM avis WHERE id = :id");
+        $this->db->query("DELETE FROM avis WHERE id = :id");
         $this->db->bind(":id", $id);
         $this->db->execute();
     }
