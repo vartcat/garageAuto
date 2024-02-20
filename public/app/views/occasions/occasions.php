@@ -27,7 +27,7 @@
                     </select>
                 </div>
                 <div class="RefressPage">
-                    <button class="btnRefreshPage" onclick="refreshPage()">Rafraîchir les filtres</button>
+                    <button class="btnRefreshPage" onclick="refreshFilters()">Rafraîchir les filtres</button>
                 </div>
                 <div class="filterListBoite">
                     <h6> - boîte - </h6>
@@ -104,11 +104,11 @@
     <!-- content filtered section -->
 
     <script>
-        const data = {
+        let data = {
             carburant: null,
             boite: null,
         };
-        const rangeFilters = {
+        let rangeFilters = {
             kilometre: {
                 min: Number(document.getElementById('fromSlider').value),
                 max: Number(document.getElementById('toSlider').value)
@@ -118,6 +118,24 @@
                 max: Number(document.getElementById('toPriceSlider').value)
             },
         };
+
+        function refreshFilters() {
+            data = {
+                carburant: null,
+                boite: null,
+            };
+            rangeFilters = {
+                kilometre: {
+                    min: Number(document.getElementById('fromSlider').getAttribute('min')),
+                    max: Number(document.getElementById('toSlider').getAttribute('max'))
+                },
+                prix: {
+                    min: Number(document.getElementById('fromPriceSlider').getAttribute('min')),
+                    max: Number(document.getElementById('toPriceSlider').getAttribute('max'))
+                }
+            };
+            location.reload(); // Cette fonction actualise la page
+        }
 
         function filterByMultipleFields(occasions, filters) {
             const excludedItems = Object.entries(filters).filter(([, value]) => value);
@@ -218,11 +236,6 @@
         }
 
         updateData();
-    </script>
-    <script>
-        function refreshPage() {
-            location.reload(); // Cette fonction actualise la page
-        }
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
