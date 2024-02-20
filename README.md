@@ -1,5 +1,4 @@
 # GARAGE V PARROT
-
 ## Description
 
 Service de gestion des prestations et services d'un garage automobile
@@ -47,7 +46,7 @@ Ce guide vous aidera à installer le projet localement en utilisant PHP avec PDO
         define("DB_HOST", "localhost");
         define("DB_USER", "root");
         define("DB_PASS", "root");
-        define("DB_NAME", "garage_automobile");
+        define("DB_NAME", "production_garage_automobile");
      ```
 
 6. **Configuration du Simple Storage Service (S3) :**

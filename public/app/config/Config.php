@@ -4,14 +4,14 @@
  * Database Configuration
  */
 define("DB_HOST", "localhost"); // you can add specified port number ex: localhost:3306
-define("DB_USER", "root");
-define("DB_PASS", "root");
-define("DB_NAME", "development_garage_automobile");
+define("DB_USER", "root"); // if time add global variable environment
+define("DB_PASS", "root"); // if time add global variable environment
+define("DB_NAME", "production_garage_automobile"); // if time add global variable environment
 
 /**
  * Base URL Configuration
  */
-define("BASEURL", "http://localhost");
+define("BASEURL", "http://localhost"); // if time add global variable environment
 
 /**
  * Environment Configuration
