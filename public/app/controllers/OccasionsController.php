@@ -27,7 +27,7 @@ class OccasionsController extends Controller
             $this->view('occasions/occasions', $data);
             $this->template('footer', $data);
         } catch (Exception $e) {
-            echo "Une erreur s'est produite : " . $e->getMessage();
+            $this->template('emptystate');
         }
     }
 
