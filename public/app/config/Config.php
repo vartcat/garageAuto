@@ -6,7 +6,7 @@
 define("DB_HOST", "localhost"); // you can add specified port number ex: localhost:3306
 define("DB_USER", "root");
 define("DB_PASS", "root");
-define("DB_NAME", "garage_automobile");
+define("DB_NAME", "development_garage_automobile");
 
 /**
  * Base URL Configuration
