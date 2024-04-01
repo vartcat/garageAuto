@@ -429,6 +429,7 @@ section.slider_section .detail-box {
   width: 180px;
   text-align: center;
   margin: 5px;
+  color: #0c0c0c;
 }
 .slider_section .btn-1 {
   display: inline-block;
@@ -476,8 +477,8 @@ section.slider_section .detail-box {
   display: inline-block;
   padding: 10px 35px;
   background-color: #f1db25;
-  border-radius: 15px;
-  color: #ffffff;
+  border-radius: 25px;
+  color: #0c0c0c;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
@@ -500,7 +501,7 @@ section.slider_section .detail-box {
   padding: 10px 35px;
   background-color: #f1db25;
   border-radius: 15px;
-  color: #ffffff;
+  color: #0c0c0c;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
@@ -574,7 +575,7 @@ section.slider_section .detail-box {
   display: inline-block;
   padding: 10px 35px;
   background-color: #f1db25;
-  color: #ffffff;
+  color: #0c0c0c;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
@@ -866,7 +867,7 @@ input[type="range"] {
   transition: all 0.3s;
   border: 1px solid #f1db25;
   background-color: #f1db25;
-  color: #fff;
+  color: #0c0c0c;
   text-transform: uppercase;
   text-align: center;
   border-radius: 5px;
@@ -1011,7 +1012,7 @@ input[type="range"] {
   display: inline-block;
   padding: 10px 35px;
   background-color: #f1db25;
-  color: #ffffff;
+  color: #0c0c0c;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
@@ -1168,7 +1169,7 @@ input[type="range"] {
   padding: 10px 35px;
   background-color: #f1db25;
   border-radius: 25px;
-  color: #ffffff;
+  color: #0c0c0c;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
@@ -1415,11 +1416,11 @@ input[type="range"] {
   display: inline-block;
   padding: 10px 60px;
   background-color: #f1db25;
-  color: #ffffff;
+  color: #0c0c0c;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 25px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -1604,11 +1605,11 @@ input[type="range"] {
   display: inline-block;
   padding: 10px 60px;
   background-color: #f1db25;
-  color: #ffffff;
+  color: #0c0c0c;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 25px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -1685,7 +1686,7 @@ input[type="range"] {
   height: max-content;
   text-align: center;
   display: flex;
-  border-radius: 50%;
+  margin: auto;
 }
 .notices_section .form-control-select-note select {
   cursor: pointer;
@@ -1703,8 +1704,8 @@ input[type="range"] {
 .notices_section label {
   font-weight: bold;
   text-transform: uppercase;
-  padding-right: 50px;
-  font-size: 2rem;
+  width: 75%;
+  font-size: 1.5rem;
 }
 .notices_section .form-control-select-note p.note-max {
   min-width: 50px;
@@ -1718,7 +1719,7 @@ input[type="range"] {
   font-size: 18px;
 }
 .notices_section .form-group select[name="rating"] {
-  width: 50px;
+  width: 20px;
   padding: 1px;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -1728,6 +1729,7 @@ input[type="range"] {
   cursor: pointer;
   transition: border-color 0.3s ease;
   flex: 1;
+
 }
 .notices_section .form-group select[name="rating"]:hover {
   border-color: #aaa;
@@ -1753,12 +1755,12 @@ input[type="range"] {
   padding: 20px;
   background-color: #1c1c1c;
   color: rgba(254, 254, 255, 0.7);
+  margin: auto;
 }
 
 .footer_logo {
   flex: 1;
-  width: 100px;
-  height: 50px;
+  height: 150px;
   min-width: 300px;
   margin: auto;
   text-align: center;
@@ -1778,14 +1780,16 @@ input[type="range"] {
   width: 200px;
   height: 150px;
   margin: auto;
+  text-align: center;
 }
 .opening-time {
-  flex: 1;
+  flex: 4;
   text-align: center;
   border-left: solid 1px #555;
   border-right: solid 1px #555;
   color: #fff;
-}
+  width: 80%;
+margin: auto;}
 .opening-time table {
   margin: auto;
   padding: 5px;
@@ -1804,9 +1808,24 @@ input[type="range"] {
   padding: 1px;
   font-size: small;
 }
+.reseauLogo {
+    flex: 1;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 25px;
+}
+.reseauLogo img{
+    width: 30px;
+    background-color: #555;
+    border-radius: 50%;
+    padding: 5px;
+
+}
 .back-to-top {
   flex: 1;
   text-align: right;
+  width: 150px;
+  margin: auto;
 }
 .back-to-top a {
   display: inline-block;
@@ -1852,7 +1871,6 @@ input[type="range"] {
 */
 @media screen and (max-width: 512px) {
   .logo {
-    position: relative;
     top: -20px;
     left: -50px !important;
   }

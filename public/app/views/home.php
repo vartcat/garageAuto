@@ -6,7 +6,7 @@
                 <div class="col-md-6 px-0">
                     <div class="img_container">
                         <div class="img-box">
-                            <img src="/pictures/garage.jpg" alt="" />
+                            <img src="/pictures/garage.jpg" alt="photo garage" />
                         </div>
                     </div>
                 </div>
@@ -48,9 +48,9 @@
                 <div class="col-md-4">
                     <div class="box ">
                         <div class="detail-box">
-                            <h6>
+                            <h5>
                                 Entretien toutes marques
-                            </h6>
+                            </h5>
                             <p>
                                 Depuis plus de 15 ans, notre maison effectue l’entretien de véhicules de toutes les marques.<br>
                                 Cet entretien professionnel comprend, entre autres :<br>
@@ -68,9 +68,9 @@
                 <div class="col-md-4">
                     <div class="box ">
                         <div class="detail-box">
-                            <h6>
+                            <h5>
                                 Contrôles & Révisions
-                            </h6>
+                            </h5>
                             <p>
                                 Si votre véhicule doit passer un contrôle ou une révision, nous le préparons si
                                 parfaitement qu’il ne restera aucun problème à noter.
@@ -85,9 +85,9 @@
                 <div class="col-md-4">
                     <div class="box ">
                         <div class="detail-box">
-                            <h6>
+                            <h5>
                                 Service carrosserie
-                            </h6>
+                            </h5>
                             <p>
                                 Le Garage V.Parrot est également agréé toutes marques en matière de carrosserie.
                                 Donc, si vous avez eu un accrochage ou un accident plus grave, confiez-nous votre véhicule.
@@ -201,7 +201,7 @@
                 <div class="col-md-4 col-sm-6 mx-auto ">
                     <div class="box">
                         <div class="img-box">
-                            <img src="/pictures/équipe2.jpg" alt="">
+                            <img src="/pictures/équipe2.jpg" alt="photo employed">
                         </div>
                         <div class="detail-box">
                             <h5>
@@ -216,7 +216,7 @@
                 <div class="col-md-4 col-sm-6 mx-auto ">
                     <div class="box">
                         <div class="img-box">
-                            <img src="/pictures/équipe4.jpg" alt="">
+                            <img src="/pictures/équipe4.jpg" alt="photo employed">
                         </div>
                         <div class="detail-box">
                             <h5>
@@ -231,7 +231,7 @@
                 <div class="col-md-4 col-sm-6 mx-auto ">
                     <div class="box">
                         <div class="img-box">
-                            <img src="/pictures/équipe3.jpg" alt="">
+                            <img src="/pictures/équipe3.jpg" alt="photo employed">
                         </div>
                         <div class="detail-box">
                             <h5>
@@ -287,7 +287,8 @@
                                         <?php endforeach; ?>
                                     </select>
                                     <div>
-                                        <textarea rows="4" cols="50" type="textarea" class="form-control" placeholder="message" class="message_input" name="message"></textarea>
+                                        <textarea rows="4" cols="50" type="textarea" class="form-control" placeholder="message" 
+                                        class="message_input" name="message"></textarea>
                                     </div>
                                     <div class="btn-box ">
                                         <button type="submit">

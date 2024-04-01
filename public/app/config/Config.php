@@ -1,17 +1,11 @@
 <?php
 
-/**
- * Database Configuration
- */
-define("DB_HOST", "localhost"); // you can add specified port number ex: localhost:3306
-define("DB_USER", "root"); // if time add global variable environment
-define("DB_PASS", "root"); // if time add global variable environment
-define("DB_NAME", "production_garage_automobile"); // if time add global variable environment
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "root");
+define("DB_NAME", "garage_automobile");
 
-/**
- * Base URL Configuration
- */
-define("BASEURL", "http://localhost"); // if time add global variable environment
+define("BASEURL", "http://localhost");
 
 /**
  * Environment Configuration

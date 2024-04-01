@@ -148,13 +148,25 @@
             )));
         }
 
-        function render() {
-            const carsContainer = document.getElementById('cars-container');
-            const occasions = <?= json_encode($occasions); ?>;
+        // Example POST method implementation:
+        async function postData() {
+          // Default options are marked with *
+          const response = await fetch("http://localhost:8888/occasions/allOccasions", {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "same-origin", // no-cors, *cors, same-origin
+            headers: {
+              "Content-Type": "application/json",
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          });
+           return response.json();// parses JSON response into native JavaScript objects
+        }
 
+        function render(occasions=[]) {
+            const carsContainer = document.getElementById('cars-container');
             const occasionsFilteredByMultipleFields = filterByMultipleFields(occasions, data);
             const occasionsFilteredByRange = filterByRange(occasionsFilteredByMultipleFields, rangeFilters);
-            
+
             carsContainer.innerHTML = '';
 
             carsContainer.innerHTML =
@@ -171,7 +183,7 @@
                                     <div class="carousel-inner">
                                         ${occasion.photos.map((photo, index) => (
                                             `<div class="carousel-item ${index === 0 ? ' active' : ''}">
-                                                <img class="d-block w-100" src="${photo}" alt="Slide number ${index + 1}">
+                                                <img class="d-block w-100" src="${photo}" alt="Slide number ${index + 1}" alt="photo occasion">
                                             </div>`
                                         )).join('')}
                                     </div>
@@ -210,7 +222,7 @@
                 )).join('');
         }
 
-        function updateData() {
+        function updateData(occasions) {
             const filters = document.querySelectorAll('.filters');
             const filtersRange = document.querySelectorAll('.filtersRange');
 
@@ -218,7 +230,7 @@
                 const value = e.target.value;
                 const type = e.target.getAttribute('name');
                 data[type] = value;
-                render();
+                render(occasions);
             }));
 
             filtersRange.forEach(filter => filter.addEventListener('change', (e) => {
@@ -229,13 +241,12 @@
                     min: (isFormPrice ? fromPriceSlider : fromSlider).valueAsNumber,
                     max: (isFormPrice ? toPriceSlider : toSlider).valueAsNumber
                 };
-                render();
+                render(occasions);
             }));
 
-            render();
+            render(occasions);
         }
-
-        updateData();
+        postData().then((data) => updateData(data));
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -6,13 +6,12 @@ class MessagesController extends Controller
 {
     private $messages;
 
-    public function __construct() 
+    public function __construct()
     {
         parent::__construct();
         $this->messages = $this->model('Messages');
     }
 
-    // page messages user
     public function read()
     {
         try {
@@ -30,16 +29,21 @@ class MessagesController extends Controller
     {
         try {
             if (!isset($_POST['name'], $_POST['lastname'], $_POST['email'], $_POST['message'])) {
-                throw new Exception("Certains champs requis sont manquants. Veuillez remplir tous les champs obligatoires.");
+                throw new Exception("Certains champs requis sont manquants.
+                Veuillez remplir tous les champs obligatoires.");
             }
 
-            $name = htmlspecialchars($_POST['name']);
-            $lastname = htmlspecialchars($_POST['lastname']);
-            $email = htmlspecialchars($_POST['email']);
-            $telephone = isset($_POST['telephone']) ? htmlspecialchars($_POST['telephone']) : null;
-            $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : null;
-            $sujet = isset($_POST['sujet']) ? htmlspecialchars($_POST['sujet']) : null;
-            $message = htmlspecialchars($_POST['message']);
+            $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
+            $lastname = htmlspecialchars($_POST['lastname'], ENT_QUOTES, 'UTF-8');
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $telephone = isset($_POST['telephone']) ? htmlspecialchars($_POST['telephone'], ENT_QUOTES, 'UTF-8') : null;
+            $service = isset($_POST['service']) ? htmlspecialchars($_POST['service'], ENT_QUOTES, 'UTF-8') : null;
+            $sujet = isset($_POST['sujet']) ? htmlspecialchars($_POST['sujet'], ENT_QUOTES, 'UTF-8') : null;
+            $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("L'adresse e-mail n'est pas valide.");
+            }
 
             $this->messages->create($name, $lastname, $email, $telephone, $service, $sujet, $message);
 

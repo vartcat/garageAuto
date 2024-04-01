@@ -1,6 +1,18 @@
 CREATE DATABASE IF NOT EXISTS `production_garage_automobile`;
 USE `production_garage_automobile`;
 
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(55) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `registerDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `name` varchar(55) NOT NULL,
+  `lastname` varchar(55) NOT NULL,
+  `role` varchar(55) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `avis` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(55) NOT NULL,
@@ -63,17 +75,6 @@ CREATE TABLE `prestations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(55) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `registerDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `name` varchar(55) NOT NULL,
-  `lastname` varchar(55) NOT NULL,
-  `role` varchar(55) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` (`email`, `password`, `name`, `lastname`, `role`) VALUES
 ('rootadmin@mail.com', '$2y$10$UW3vmh83j/wWqVO6JnQ1Te0Ry2onIyfLvIumCzjDM5ZqZYIhs0cSq', 'John', 'Doe', 'admin'),

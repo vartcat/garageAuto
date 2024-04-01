@@ -38,6 +38,7 @@ class App
         $this->addRoute('notices/validate/action', 'NoticesController@validateNotices');
 
         // Routes pour les occasions
+        $this->addRoute('occasions/allOccasions', 'OccasionsController@getAll');
         $this->addRoute('occasions/read', 'OccasionsController@read');
         $this->addRoute('occasions/create', 'OccasionsController@create');
         $this->addRoute('occasions/create/add', 'OccasionsController@addOccasions');
@@ -88,9 +89,6 @@ class App
         $this->router->addRoute($path, $controller_action);
     }
 
-    /**
-     * Run l'application.
-     */
     public function run()
     {
 
@@ -109,9 +107,6 @@ class App
         }
     }
 
-    /**
-     * Handles 404 errors.
-     */
     protected function handle404()
     {
         $controller = new Controller();

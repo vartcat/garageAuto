@@ -1,21 +1,17 @@
 <?php
-
 use MyApp\Controller;
-
 class LogoutController extends Controller
 {
     public function index()
     {
         try {
             $data['title'] = "Logout";
-
             $this->template('header', $data);
             $this->view('logout', $data);
         } catch (Exception $e) {
             $this->handleError($e, "une erreur est survenue");
         }
     }
-
     public function logout()
     {
         try {

@@ -13,6 +13,12 @@ class OccasionsController extends Controller
         $this->occasions = $this->model('Occasions');
     }
 
+    public  function getAll()
+    {
+         $allOccasions = $this->occasions->getAll();
+         echo json_encode($allOccasions);
+    }
+
     // page occasions
     public function index()
     {
